@@ -1,5 +1,5 @@
 #include "AppWindow.h"
-
+#include <iostream>
 struct vec3 
 {
 	float x, y, z;
@@ -33,19 +33,16 @@ void AppWindow::onCreate()
 	vertex list[] =
 	{
 
-		{-0.5f, -0.5f, 0.0f, 1, 0 , 0},
-		{-0.5f, 0.5f, 0.0f,  0, 1, 0},
-		{0.5f, 0.5f, 0.0f,   0, 0, 1},
-
-		{ 0.5f, 0.5f, 0.0f, 1, 0, 0},
-		{0.5f, -0.5f, 0.0f, 0, 1, 0},
-		{-0.5f, -0.5f, 0.0f,0, 0, 1}
-
+		{-0.5f, -0.5f, 0.0f,    1.5, 0.5 , 0},
+		{-0.5f, 0.5f, 0.0f,     0.5, 1, 0},
+		{0.5f, -0.5f, 0.0f,     0, 0, 0.5},
+		{0.5f, 0.5f, 0.0f,      0.5, 0, 0.5}
 	};
 
 	m_vb = GraphicsEngine::get()->createVertexBuffer();
 	UINT size_list = ARRAYSIZE(list);
 
+	std::cout << size_list << std::endl;
 
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
@@ -67,7 +64,7 @@ void AppWindow::onCreate()
 void AppWindow::onUpdate()
 {
 	Window::onUpdate();
-	GraphicsEngine::get()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 1, 0, 0 , 1);
+	GraphicsEngine::get()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 1, 1, 1, 1);
 
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
@@ -77,7 +74,7 @@ void AppWindow::onUpdate()
 
 	GraphicsEngine::get()->getImmediateDeviceContext()->setVertexBuffer(m_vb);
 
-	GraphicsEngine::get()->getImmediateDeviceContext()->drawTriangleList(m_vb->getSizeVertexList(), 0);
+	GraphicsEngine::get()->getImmediateDeviceContext()->drawTriangleStrip(m_vb->getSizeVertexList(), 0);
 	m_swap_chain->present(false);
 }
 
