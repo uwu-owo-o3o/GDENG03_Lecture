@@ -25,3 +25,7 @@ class AppWindow : public Window
 		PixelShader* m_ps;
 };
 
+//TRIANGLE
+//{ -0.5f, -0.5f, 0.0f, 1, 0, 0 },
+//{ 0.0f, 0.5f, 0.0f, 0, 1, 0 },
+//{ 0.5f, -0.5f, 0.0f, 0, 0 , 1 }

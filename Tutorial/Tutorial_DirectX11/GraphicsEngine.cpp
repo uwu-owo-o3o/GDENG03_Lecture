@@ -4,6 +4,7 @@
 #include "VertexBuffer.h"
 #include "VertexShader.h"
 #include "PixelShader.h"
+#include <iostream>
 
 GraphicsEngine::GraphicsEngine()
 {
@@ -89,6 +90,7 @@ VertexShader* GraphicsEngine::createVertexShader(const void* shader_byte_code, s
 {
 	VertexShader* vs = new VertexShader();
 	if (!vs->init(shader_byte_code, byte_code_size)) {
+		std::cout << "Vertex Shader failed to create?" << std::endl;
 		vs->release();
 		return nullptr;
 	}

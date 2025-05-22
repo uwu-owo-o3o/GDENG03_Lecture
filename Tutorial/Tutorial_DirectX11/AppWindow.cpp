@@ -9,6 +9,7 @@ struct vec3
 struct vertex
 {
 	vec3 position;
+	vec3 color;
 
 };
 
@@ -31,13 +32,10 @@ void AppWindow::onCreate()
 
 	vertex list[] =
 	{
-		{-0.5f, -0.5f, 0.0f},
-		{-0.5f, 0.5f, 0.0f},
-		{0.5f, 0.5f, 0.0f},
-
-		{ 0.5f, 0.5f, 0.0f },
-		{0.5f, -0.5f, 0.0f},
-		{-0.5f, -0.5f, 0.0f}
+		{-0.5f, -0.5f, 0.0f, 1, 0, 0},
+		{-0.5f, 0.5f, 0.0f,  0, 1, 0},
+		{0.5f, -0.5f, 0.0f,  0, 0 , 1},
+		{0.5f, 0.5f, 0.0f,  0, 0 , 1 }
 
 	};
 
