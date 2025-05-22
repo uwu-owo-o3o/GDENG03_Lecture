@@ -1,0 +1,6 @@
+*.db
+*.vsidx
+*.db
+*.db-shm
+/Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17
+/Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/FileContentIndex

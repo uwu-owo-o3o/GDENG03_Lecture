@@ -11,6 +11,7 @@ class DeviceContext
 		void clearRenderTargetColor(SwapChain* swap_chain, float red, float green, float blue, float alpha);
 		void setVertexBuffer(VertexBuffer* vertexBuffer);
 		void drawTriangleList(UINT vertext_count, UINT start_vertext_index);
+		void drawTriangleStrip(UINT vertext_count, UINT start_vertext_index);
 		void setViewPortSize(UINT width, UINT height);
 		bool release();
 

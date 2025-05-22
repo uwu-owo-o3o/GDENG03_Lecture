@@ -84,7 +84,6 @@ VertexBuffer* GraphicsEngine::createVertexBuffer()
 }
 
 bool GraphicsEngine::createShaders()
-
 {
 	ID3DBlob* errblob = nullptr;
 	D3DCompileFromFile(L"shader.fx", nullptr, nullptr, "vsmain", "vs_5_0", NULL, NULL, &m_vsblob, &errblob);
