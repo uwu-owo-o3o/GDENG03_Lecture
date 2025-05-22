@@ -1,12 +1,10 @@
 ﻿  AppWindow.cpp
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(56,65): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
   DeviceContext.cpp
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(42,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(43,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
   GraphicsEngine.cpp
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(41,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(42,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
   main.cpp
-  SwapChain.cpp
-  VertexBuffer.cpp
-  Window.cpp
+  VertexShader.cpp
   Generating Code...
-  LINK : C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe not found or not built by the last incremental link; performing full link
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe
