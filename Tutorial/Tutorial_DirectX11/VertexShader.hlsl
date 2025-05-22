@@ -11,7 +11,7 @@ struct VS_OUTPUT
     float3 color : COLOR;
 };
 
-VS_OUTPUT vsmain(VS_INPUT input) : SV_POSITION
+VS_OUTPUT vsmain(VS_INPUT input)
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
     output.position = input.position;
