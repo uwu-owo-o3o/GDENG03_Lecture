@@ -1,2 +1,5 @@
-﻿  VertexBuffer.cpp
+﻿  AppWindow.cpp
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(60,64): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
+  VertexBuffer.cpp
+  Generating Code...
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe

@@ -12,6 +12,7 @@ struct vertex
 	vec3 position;
 	vec3 position1;
 	vec3 color;
+	vec3 color1;
 };
 
 __declspec(align(16))
@@ -39,10 +40,10 @@ void AppWindow::onCreate()
 
 	vertex list[] =
 	{
-		{-0.5f, -0.5f, 0.0f,	-0.32f, -0.11f, 0.0f,	0, 0 , 0},
-		{-0.5f, 0.5f, 0.0f,		-0.11f, 0.78f, 0.0f,	1, 1, 0},
-		{0.5f, -0.5f, 0.0f,		 0.75f, -0.73f, 0.0f,	0, 0, 1},
-		{0.5f, 0.5f, 0.0f,		 0.88f, 0.77f, 0.0f,	1, 1, 1}
+		{-0.5f, -0.5f, 0.0f,	-0.32f, -0.11f, 0.0f,	0, 0 , 0,	0, 1 , 0},
+		{-0.5f, 0.5f, 0.0f,		-0.11f, 0.78f, 0.0f,	1, 1, 0,	0, 1 , 0},
+		{0.5f, -0.5f, 0.0f,		 0.75f, -0.73f, 0.0f,	0, 0, 1,	1, 0 , 0},
+		{0.5f, 0.5f, 0.0f,		 0.88f, 0.77f, 0.0f,	1, 1, 1,	0, 0 , 1}
 	};
 
 	m_vb = GraphicsEngine::get()->createVertexBuffer();
