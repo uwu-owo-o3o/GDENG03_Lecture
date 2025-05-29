@@ -13,6 +13,10 @@ class AppWindow : public Window
 	public:
 		AppWindow();
 		~AppWindow();
+	public:
+		unsigned long m_old_time = 0;
+		float m_delta_time = 0;
+		float m_angle = 0;
 
 	public:
 		virtual void onCreate() override;
