@@ -37,16 +37,7 @@ void RenderObject::initialize(vertex* list, UINT size_list) {
 
 void RenderObject::onUpdate()
 {
-	unsigned long new_time = 0;
-	if (m_old_time)
-		new_time = ::GetTickCount64() - m_old_time;
-	m_delta_time = new_time / 1000.0f;
-	m_old_time = ::GetTickCount64();
-	m_angle += 1.57f * m_delta_time;
-	constant cc;
-	cc.m_angle = m_angle;
-
-	m_cb->update(GraphicsEngine::get()->getImmediateDeviceContext(), &cc);
+	this->updateQuadPosition();
 
 	GraphicsEngine::get()->getImmediateDeviceContext()->setConstantBuffer(m_vs, m_cb);
 	GraphicsEngine::get()->getImmediateDeviceContext()->setConstantBuffer(m_ps, m_cb);
@@ -57,6 +48,50 @@ void RenderObject::onUpdate()
 	GraphicsEngine::get()->getImmediateDeviceContext()->setVertexBuffer(m_vb);
 
 	GraphicsEngine::get()->getImmediateDeviceContext()->drawTriangleStrip(m_vb->getSizeVertexList(), 0);
+
+	this->m_old_time = this->m_new_time;
+	this->m_new_time = ::GetTickCount64();
+
+	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
+}
+
+void RenderObject::updateQuadPosition()
+{
+
+	//unsigned long new_time = 0;
+	//if (m_old_time)
+	//	new_time = ::GetTickCount64() - m_old_time;
+	//m_delta_time = new_time / 1000.0f;
+	//m_old_time = ::GetTickCount64();
+	//m_angle += 1.57f * m_delta_time;
+	constant cc;
+	cc.m_angle = ::GetTickCount64();
+
+	m_delta_pos += m_delta_time / 10.0f;
+	if (m_delta_pos > 1.0f)
+		m_delta_pos = 0;
+
+	Matrix4x4 temp;
+	m_delta_scale += m_delta_time / 0.5f;
+
+	//cc.m_world.setTranslation(Vector3D::lerp(Vector3D(-2, -2, 0), Vector3D(2, 2, 0), m_delta_pos));
+	cc.m_world.setScale(Vector3D::lerp(Vector3D(0.5f, 0.5f, 0), Vector3D(1.0f, 1.0f, 0), (sin(m_delta_scale) + 1.0f)/2.0f));
+
+	temp.setTranslation(Vector3D::lerp(Vector3D(-1.5f, -1.5f, 0), Vector3D(1.5f, 1.5f, 0), m_delta_pos));
+
+	cc.m_world *= temp;
+
+	cc.m_view.setIdentity();
+	cc.m_proj.setOrthoLH(
+		(this->windowRef.right - this->windowRef.left) / 400.0f, 
+		(this->windowRef.bottom - this->windowRef.top) / 400.0f, 
+		-4.0f, 
+		4.0f
+	);
+
+	m_cb->update(GraphicsEngine::get()->getImmediateDeviceContext(), &cc);
+
+
 }
 
 void RenderObject::onRelease()
@@ -64,4 +99,9 @@ void RenderObject::onRelease()
 	m_vb->release();
 	m_vs->release();
 	m_ps->release();
+}
+
+void RenderObject::setWindowRef(RECT window)
+{
+	this->windowRef = window;
 }

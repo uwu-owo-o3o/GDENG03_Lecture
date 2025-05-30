@@ -22,8 +22,8 @@ class AppWindow : public Window
 	private:
 		SwapChain* m_swap_chain;
 		RenderObject sampleObject1;
-		RenderObject sampleObject2;
-		RenderObject sampleObject3;
+		//RenderObject sampleObject2;
+		//RenderObject sampleObject3;
 };
 
 //TRIANGLE

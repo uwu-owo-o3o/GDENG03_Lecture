@@ -6,8 +6,6 @@
 AppWindow::AppWindow()
 {
 	this->sampleObject1 = RenderObject();
-	this->sampleObject2 = RenderObject();
-	this->sampleObject3 = RenderObject();
 }
 
 AppWindow::~AppWindow()
@@ -24,6 +22,8 @@ void AppWindow::onCreate()
 	RECT rc = this->getClientWindowRect();
 	m_swap_chain->init(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
 
+	this->sampleObject1.setWindowRef(this->getClientWindowRect());
+
 	this->createRenderObjects();
 }
 
@@ -36,8 +36,6 @@ void AppWindow::onUpdate()
 	GraphicsEngine::get()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->sampleObject1.onUpdate();
-	this->sampleObject2.onUpdate();
-	this->sampleObject3.onUpdate();
 
 	m_swap_chain->present(false);
 }
@@ -47,9 +45,9 @@ void AppWindow::onDestroy()
 	Window::onDestroy();
 	m_swap_chain->release();
 
-	this->sampleObject1.onRelease();
+	this->sampleObject1.onRelease();/*
 	this->sampleObject2.onRelease();
-	this->sampleObject3.onRelease();
+	this->sampleObject3.onRelease();*/
 
 	GraphicsEngine::get()->release();
 }
@@ -59,31 +57,12 @@ void AppWindow::createRenderObjects()
 
 	vertex list1[] =
 	{
-		{-0.5f, -0.3f, 0.0f,	-0.32f, -0.11f, 0.0f,	0, 0 , 0,	0, 1 , 0}, // lower left
-		{-0.5f, 0.3f, 0.0f,		-0.11f, 0.78f, 0.0f,	1, 1, 0,	0, 1 , 0}, // top left
-		{0.5f, -0.3f, 0.0f,		 0.75f, -0.73f, 0.0f,	0, 0, 1,	1, 0 , 0}, // lower right
-		{0.5f, 0.3f, 0.0f,		 0.88f, 0.77f, 0.0f,	1, 1, 1,	0, 0 , 1} // top right
+		{Vector3D(- 0.5f, -0.3f, 0.0f),	Vector3D(- 0.32f, -0.11f, 0.0f), Vector3D(0, 0 , 0), Vector3D(0, 1 , 0)}, // lower left
+		{Vector3D(-0.5f, 0.3f, 0.0f),	Vector3D(-0.11f, 0.78f, 0.0f),	 Vector3D(1, 1, 0),	 Vector3D(0, 1 , 0)}, // top left
+		{Vector3D(0.5f, -0.3f, 0.0f),	Vector3D(0.75f, -0.73f, 0.0f),	 Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)}, // lower right
+		{Vector3D(0.5f, 0.3f, 0.0f),	Vector3D(0.88f, 0.77f, 0.0f),	 Vector3D(1, 1, 1),	 Vector3D(0, 0 , 1)} // top right
 	};
 
 	this->sampleObject1.initialize(list1, ARRAYSIZE(list1));
 
-	vertex list2[] =
-	{
-		{-0.5f, 0.4f, 0.0f,		-0.32f, -0.11f, 0.0f,	1, 0 , 0,	0, 1 , 0}, // lower left
-		{-0.5f, 0.9f, 0.0f,		-0.11f, 0.78f, 0.0f,	1, 0, 0,	0, 1 , 0}, // top left
-		{0.5f, 0.4f, 0.0f,		 0.75f, -0.73f, 0.0f,	0, 0, 0.5,	1, 0 , 0}, // lower right
-		{0.5f, 0.9f, 0.0f,		 0.88f, 0.77f, 0.0f,	1, 0, 1,	0, 0 , 1} // top right
-	};
-
-	this->sampleObject2.initialize(list2, ARRAYSIZE(list2));
-
-	vertex list3[] =
-	{
-		{-0.5f, -0.9f, 0.0f,	-0.32f, -0.11f, 0.0f,	0, 0 , 1,	0, 1 , 0}, // lower left
-		{-0.5f, -0.4f, 0.0f,	-0.11f, 0.78f, 0.0f,	0, 0, 0,	0, 1 , 0}, // top left
-		{0.5f, -0.9f, 0.0f,		 0.75f, -0.73f, 0.0f,	0, 1, 1,	1, 0 , 0}, // lower right
-		{0.5f, -0.4f, 0.0f,		 0.88f, 0.77f, 0.0f,	1, 0, 1,	0, 0 , 1} // top right
-	};
-
-	this->sampleObject3.initialize(list3, ARRAYSIZE(list3));
 }

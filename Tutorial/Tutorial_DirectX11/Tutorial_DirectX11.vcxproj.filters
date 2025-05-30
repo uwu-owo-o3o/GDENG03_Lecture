@@ -37,6 +37,9 @@
     <Filter Include="GameEngine\GraphicsEngine\RenderObject\Vertex">
       <UniqueIdentifier>{d8c8fe62-6e36-4b32-8d10-30b8918785f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\Math">
+      <UniqueIdentifier>{7a11f690-ce15-455a-aa68-178045099cf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -106,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="Vertex.h">
       <Filter>GameEngine\GraphicsEngine\RenderObject\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>GameEngine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4.h">
+      <Filter>GameEngine\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

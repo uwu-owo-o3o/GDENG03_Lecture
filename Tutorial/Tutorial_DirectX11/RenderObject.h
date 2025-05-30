@@ -7,6 +7,7 @@
 #include "VertexShader.h"
 #include "PixelShader.h"
 #include "Vertex.h"
+#include "Matrix4x4.h"
 
 class RenderObject
 {
@@ -17,12 +18,24 @@ class RenderObject
 	public:
 		void initialize(vertex* list, UINT size_list);
 		void onUpdate();
+		void updateQuadPosition();
 		void onRelease();
 
 	public:
-		unsigned long m_old_time = 0;
+		void setWindowRef(RECT window);
+	public:
+		//unsigned long m_old_time = 0;
+		float m_old_time = 0;
+		float m_new_time = 0;
 		float m_delta_time = 0;
+
+		float m_delta_pos = 0;
+		float m_delta_scale = 0;
+
 		float m_angle = 0;
+
+	private:
+		RECT windowRef;
 
 	private:
 		VertexBuffer* m_vb;

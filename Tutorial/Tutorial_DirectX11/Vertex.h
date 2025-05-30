@@ -1,4 +1,5 @@
 #pragma once
+#include "Matrix4x4.h"
 
 struct vec3
 {
@@ -7,14 +8,17 @@ struct vec3
 
 struct vertex
 {
-	vec3 position;
-	vec3 position1;
-	vec3 color;
-	vec3 color1;
+	Vector3D position;
+	Vector3D position1;
+	Vector3D color;
+	Vector3D color1;
 };
 
 __declspec(align(16))
 struct constant
 {
+	Matrix4x4 m_world;
+	Matrix4x4 m_view;
+	Matrix4x4 m_proj;
 	float m_angle;
 };
