@@ -16,15 +16,14 @@ struct VS_OUTPUT
 
 cbuffer constant : register(b0)
 {
-     float m_angle;
+    unsigned int m_time;
 }
 
 VS_OUTPUT vsmain(VS_INPUT input)
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
-    //output.position = input.position;
+    output.position = input.position;
     //output.position = lerp(input.position, float4(input.position1, 1.0), (sin(m_time / 1000.0f) + 1.0f) / 2.0f);
-    output.position = lerp(input.position, float4(input.position1, 1.0f), (sin(m_angle) + 1.0f) / 2.0f);
     
     output.color = input.color;
     output.color1 = input.color1;

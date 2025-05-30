@@ -1,6 +1,6 @@
-*.db
 *.vsidx
+Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/Browse.VC.db
 *.db
-*.db-shm
-/Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17
-/Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/FileContentIndex
+*.db
+*.db
+Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/Browse.VC.opendb
