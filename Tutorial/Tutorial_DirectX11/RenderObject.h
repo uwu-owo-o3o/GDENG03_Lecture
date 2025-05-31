@@ -23,7 +23,10 @@ class RenderObject
 		void onRelease();
 
 	public:
+		void rotateOnKey(int key);
+	public:
 		void setWindowRef(RECT window);
+
 	public:
 		//unsigned long m_old_time = 0;
 		float m_old_time = 0;
@@ -34,6 +37,10 @@ class RenderObject
 		float m_delta_scale = 0;
 
 		float m_angle = 0;
+
+		float m_rot_x = 0.0f;
+		float m_rot_y = 0.0f;
+		float m_rot_z = 0.0f;
 
 	private:
 		RECT windowRef;

@@ -86,15 +86,15 @@ void RenderObject::updateQuadPosition()
 	cc.m_world.setScale(Vector3D(1, 1, 1));
 	
 	temp.setIdentity();
-	temp.setRotationZ(m_delta_scale);
+	temp.setRotationZ(0.0f);
 	cc.m_world *= temp;
 
 	temp.setIdentity();
-	temp.setRotationY(m_delta_scale);
+	temp.setRotationY(m_rot_y);
 	cc.m_world *= temp;
 
 	temp.setIdentity();
-	temp.setRotationX(m_delta_scale);
+	temp.setRotationX(m_rot_x);
 	cc.m_world *= temp;
 
 	cc.m_view.setIdentity();
@@ -117,6 +117,26 @@ void RenderObject::onRelease()
 	m_cb->release();
 	m_vs->release();
 	m_ps->release();
+}
+
+void RenderObject::rotateOnKey(int key)
+{
+	if (key == 'W') 
+	{
+		m_rot_x += 0.707 * m_delta_time;
+	}
+	else if (key == 'S')
+	{
+		m_rot_x -= 0.707 * m_delta_time;
+	}
+	else if (key == 'A')
+	{
+		m_rot_y += 0.707 * m_delta_time;
+	}
+	else if (key == 'D')
+	{
+		m_rot_y -= 0.707 * m_delta_time;
+	}
 }
 
 void RenderObject::setWindowRef(RECT window)

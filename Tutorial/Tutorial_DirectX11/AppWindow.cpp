@@ -1,7 +1,7 @@
 #include "AppWindow.h"
 #include <Windows.h>
 #include <iostream>
-
+#include "InputSystem.h"
 
 AppWindow::AppWindow()
 {
@@ -17,6 +17,8 @@ void AppWindow::onCreate()
 	//Window::onCreate();
 	GraphicsEngine::get()->init();
 
+	InputSystem::get()->addListener(this);
+
 	m_swap_chain = GraphicsEngine::get()->createSwapChain();
 
 	RECT rc = this->getClientWindowRect();
@@ -30,6 +32,9 @@ void AppWindow::onCreate()
 void AppWindow::onUpdate()
 {
 	Window::onUpdate();
+
+	InputSystem::get()->update();
+
 	GraphicsEngine::get()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 1, 1, 1, 1);
 
 	RECT rc = this->getClientWindowRect();
@@ -101,5 +106,15 @@ void AppWindow::createRenderObjects()
 
 
 	this->sampleObject1.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
+
+}
+
+void AppWindow::OnKeyDown(int key)
+{
+	this->sampleObject1.rotateOnKey(key);
+}
+
+void AppWindow::OnKeyUp(int key)
+{
 
 }

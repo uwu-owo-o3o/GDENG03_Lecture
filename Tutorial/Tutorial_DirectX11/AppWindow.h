@@ -4,8 +4,9 @@
 #include "SwapChain.h"
 #include "RenderObject.h"
 
+#include "InputListener.h"
 
-class AppWindow : public Window
+class AppWindow : public Window, public InputListener
 {
 	public:
 		AppWindow();
@@ -18,6 +19,10 @@ class AppWindow : public Window
 	
 	private:
 		void createRenderObjects();
+
+	private:
+		virtual void OnKeyDown(int key) override;
+		virtual void OnKeyUp(int key) override;
 
 	private:
 		SwapChain* m_swap_chain;
