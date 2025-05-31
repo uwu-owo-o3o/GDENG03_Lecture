@@ -25,6 +25,7 @@ class RenderObject
 
 	public:
 		void rotateOnKey(int key);
+		void OnKeyRelease();
 		void rotateOnMove(const Point& delta_mouse_pos);
 		void scaleOnClick(char c);
 		void scaleOnRelease(char c);
@@ -59,5 +60,8 @@ class RenderObject
 
 		VertexShader* m_vs;
 		PixelShader* m_ps;
+
+		Matrix4x4 m_world_cam;
+		float m_forward = 0.0f;
 };
 

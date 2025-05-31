@@ -124,7 +124,7 @@ void AppWindow::OnKeyDown(int key)
 
 void AppWindow::OnKeyUp(int key)
 {
-
+	this->sampleObject1.OnKeyRelease();
 }
 
 void AppWindow::OnMouseMove(const Point& deltaMousePos)

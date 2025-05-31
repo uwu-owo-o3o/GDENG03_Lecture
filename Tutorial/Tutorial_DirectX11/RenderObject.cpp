@@ -10,6 +10,8 @@ RenderObject::~RenderObject()
 
 void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list) {
 
+	m_world_cam.setTranslation(Vector3D(0,0, -2));
+
 	m_vb = GraphicsEngine::get()->createVertexBuffer();
 	m_ib = GraphicsEngine::get()->createIndexBuffer();
 		
@@ -110,7 +112,12 @@ void RenderObject::update()
 	temp.setRotationY(m_rot_y);
 	world_cam *= temp;
 
-	world_cam.setTranslation(Vector3D(0, 0, -2));
+	Vector3D new_pos = m_world_cam.getTranslation() + world_cam.getZDirection() * (m_forward * 0.0005f);
+
+	world_cam.setTranslation(new_pos);
+
+	m_world_cam = world_cam;
+
 	world_cam.inverse();
 
 	cc.m_view = world_cam;
@@ -145,20 +152,26 @@ void RenderObject::rotateOnKey(int key)
 {
 	if (key == 'W') 
 	{
-		m_rot_x += 0.707 * m_delta_time;
+		//m_rot_x += 0.707 * m_delta_time;
+		m_forward = 1.0f;
 	}
 	else if (key == 'S')
 	{
-		m_rot_x -= 0.707 * m_delta_time;
+		//m_rot_x -= 0.707 * m_delta_time;
+		m_forward = -1.0f;
 	}
 	else if (key == 'A')
 	{
-		m_rot_y += 0.707 * m_delta_time;
+		//m_rot_y += 0.707 * m_delta_time;
 	}
 	else if (key == 'D')
 	{
-		m_rot_y -= 0.707 * m_delta_time;
+		//m_rot_y -= 0.707 * m_delta_time;
 	}
+}
+
+void RenderObject::OnKeyRelease() {
+	m_forward = 0.0f;
 }
 
 void RenderObject::rotateOnMove(const Point& delta_mouse_pos)
