@@ -26,6 +26,8 @@ class RenderObject
 	public:
 		void rotateOnKey(int key);
 		void rotateOnMove(const Point& delta_mouse_pos);
+		void scaleOnClick(char c);
+		void scaleOnRelease(char c);
 
 	public:
 		void setWindowRef(RECT window);
@@ -44,6 +46,8 @@ class RenderObject
 		float m_rot_x = 0.0f;
 		float m_rot_y = 0.0f;
 		float m_rot_z = 0.0f;
+
+		float m_scale_object = 1.0f;
 
 	private:
 		RECT windowRef;

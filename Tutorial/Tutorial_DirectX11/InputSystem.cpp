@@ -41,9 +41,24 @@ void InputSystem::update()
 			if (m_keys_state[i] & 0x80)
 			{
 				std::map<InputListener*, InputListener*>::iterator it = m_map_listeners.begin();
-
+					
 				while (it != m_map_listeners.end()) {
-					it->second->OnKeyDown(i);
+
+					if (i == VK_LBUTTON) {
+						if (m_keys_state[i] != m_old_keys_state[i]) {
+							it->second->OnLeftMouseDown(Point(current_mouse_pos.x, current_mouse_pos.y));
+						}
+					}
+					else if (i == VK_RBUTTON) {
+						if (m_keys_state[i] != m_old_keys_state[i]) {
+							it->second->OnRightMouseDown(Point(current_mouse_pos.x, current_mouse_pos.y));
+						}
+					}
+					else {
+						it->second->OnKeyDown(i);
+						
+					}
+
 					++it;
 				}
 			}
@@ -54,7 +69,20 @@ void InputSystem::update()
 					std::map<InputListener*, InputListener*>::iterator it = m_map_listeners.begin();
 
 					while (it != m_map_listeners.end()) {
-						it->second->OnKeyUp(i);
+
+						if (i == VK_LBUTTON) {
+							it->second->OnLeftMouseUp(Point(current_mouse_pos.x, current_mouse_pos.y));
+							
+						}
+						else if (i == VK_RBUTTON) {
+							it->second->OnRightMouseUp(Point(current_mouse_pos.x, current_mouse_pos.y));
+							
+						}
+						else {
+							it->second->OnKeyUp(i);
+						
+						}
+
 						++it;
 					}
 

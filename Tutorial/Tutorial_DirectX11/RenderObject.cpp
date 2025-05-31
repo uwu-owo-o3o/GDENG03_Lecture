@@ -83,7 +83,7 @@ void RenderObject::updateQuadPosition()
 
 	//temp.setTranslation(Vector3D::lerp(Vector3D(-1.5f, -1.5f, 0), Vector3D(1.5f, 1.5f, 0), m_delta_pos));
 
-	cc.m_world.setScale(Vector3D(1, 1, 1));
+	cc.m_world.setScale(Vector3D(m_scale_object, m_scale_object, m_scale_object));
 	
 	temp.setIdentity();
 	temp.setRotationZ(0.0f);
@@ -143,6 +143,28 @@ void RenderObject::rotateOnMove(const Point& delta_mouse_pos)
 {
 	m_rot_x -= delta_mouse_pos.m_y * m_delta_time;
 	m_rot_y -= delta_mouse_pos.m_x * m_delta_time;
+}
+
+void RenderObject::scaleOnClick(char c)
+{
+	switch (c) {
+		case 'L':
+			m_scale_object = 0.5f;
+			break;
+		case 'R':
+			m_scale_object = 2.0f;
+			break;
+	}
+}
+
+void RenderObject::scaleOnRelease(char c)
+{
+	switch (c) {
+		case 'L':
+		case 'R':
+			m_scale_object = 1.0f;
+			break;
+	}
 }
 
 void RenderObject::setWindowRef(RECT window)
