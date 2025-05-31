@@ -122,6 +122,11 @@ void RenderObject::update()
 		4.0f
 	);
 
+	int width = (this->windowRef.right - this->windowRef.left);
+	int height = (this->windowRef.bottom - this->windowRef.top);
+
+	cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width/ (float)height), 0.1f, 100.0f);
+
 	m_cb->update(GraphicsEngine::get()->getImmediateDeviceContext(), &cc);
 
 
