@@ -20,7 +20,7 @@ class RenderObject
 	public:
 		void initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list);
 		void onUpdate();
-		void updateQuadPosition();
+		void update();
 		void onRelease();
 
 	public:

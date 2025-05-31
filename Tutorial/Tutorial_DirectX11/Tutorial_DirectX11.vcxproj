@@ -159,6 +159,7 @@
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="SwapChain.h" />
+    <ClInclude Include="Vector4D.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="VertexShader.h" />

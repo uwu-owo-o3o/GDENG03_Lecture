@@ -40,7 +40,7 @@ void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_
 
 void RenderObject::onUpdate()
 {
-	this->updateQuadPosition();
+	this->update();
 
 	GraphicsEngine::get()->getImmediateDeviceContext()->setConstantBuffer(m_vs, m_cb);
 	GraphicsEngine::get()->getImmediateDeviceContext()->setConstantBuffer(m_ps, m_cb);
@@ -59,7 +59,7 @@ void RenderObject::onUpdate()
 	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
 }
 
-void RenderObject::updateQuadPosition()
+void RenderObject::update()
 {
 
 	//unsigned long new_time = 0;
@@ -85,19 +85,36 @@ void RenderObject::updateQuadPosition()
 
 	cc.m_world.setScale(Vector3D(m_scale_object, m_scale_object, m_scale_object));
 	
-	temp.setIdentity();
-	temp.setRotationZ(0.0f);
-	cc.m_world *= temp;
+	//temp.setIdentity();
+	//temp.setRotationZ(0.0f);
+	//cc.m_world *= temp;
 
-	temp.setIdentity();
-	temp.setRotationY(m_rot_y);
-	cc.m_world *= temp;
+	//temp.setIdentity();
+	//temp.setRotationY(m_rot_y);
+	//cc.m_world *= temp;
+
+	//temp.setIdentity();
+	//temp.setRotationX(m_rot_x);
+	//cc.m_world *= temp;
+
+	cc.m_world.setIdentity();
+
+	Matrix4x4 world_cam;
+	world_cam.setIdentity();
 
 	temp.setIdentity();
 	temp.setRotationX(m_rot_x);
-	cc.m_world *= temp;
+	world_cam *= temp;
 
-	cc.m_view.setIdentity();
+	temp.setIdentity();
+	temp.setRotationY(m_rot_y);
+	world_cam *= temp;
+
+	world_cam.setTranslation(Vector3D(0, 0, -2));
+	world_cam.inverse();
+
+	cc.m_view = world_cam;
+
 	cc.m_proj.setOrthoLH(
 		(this->windowRef.right - this->windowRef.left) / 400.0f, 
 		(this->windowRef.bottom - this->windowRef.top) / 400.0f, 
