@@ -22,3 +22,10 @@ Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/.suo
 *.obj
 *.json
 *.ipch
+Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/.suo
+*.db
+*.db-shm
+*.db-wal
+Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/DocumentLayout.json
+*.ipch
+*.log
