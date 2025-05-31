@@ -4,6 +4,7 @@
 #include "DeviceContext.h"
 #include "VertexBuffer.h"
 #include "ConstantBuffer.h"
+#include "IndexBuffer.h"
 #include "VertexShader.h"
 #include "PixelShader.h"
 #include "Vertex.h"
@@ -16,7 +17,7 @@ class RenderObject
 		~RenderObject();
 
 	public:
-		void initialize(vertex* list, UINT size_list);
+		void initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list);
 		void onUpdate();
 		void updateQuadPosition();
 		void onRelease();
@@ -38,9 +39,11 @@ class RenderObject
 		RECT windowRef;
 
 	private:
-		VertexBuffer* m_vb;
+		VertexBuffer* m_vb;		
+		ConstantBuffer* m_cb;
+		IndexBuffer* m_ib;
+
 		VertexShader* m_vs;
 		PixelShader* m_ps;
-		ConstantBuffer* m_cb;
 };
 

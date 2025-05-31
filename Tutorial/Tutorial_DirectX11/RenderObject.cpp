@@ -8,10 +8,13 @@ RenderObject::~RenderObject()
 {
 }
 
-void RenderObject::initialize(vertex* list, UINT size_list) {
+void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list) {
 
 	m_vb = GraphicsEngine::get()->createVertexBuffer();
-	
+	m_ib = GraphicsEngine::get()->createIndexBuffer();
+		
+	m_ib->load(index_list, size_index_list);
+
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
 
@@ -46,8 +49,9 @@ void RenderObject::onUpdate()
 	GraphicsEngine::get()->getImmediateDeviceContext()->setPixelShader(m_ps);
 
 	GraphicsEngine::get()->getImmediateDeviceContext()->setVertexBuffer(m_vb);
+	GraphicsEngine::get()->getImmediateDeviceContext()->setIndexBuffer(m_ib);
 
-	GraphicsEngine::get()->getImmediateDeviceContext()->drawTriangleStrip(m_vb->getSizeVertexList(), 0);
+	GraphicsEngine::get()->getImmediateDeviceContext()->drawIndexedTriangleList(m_ib->getSizeIndexList(), m_vb->getSizeVertexList(), 0, 0);
 
 	this->m_old_time = this->m_new_time;
 	this->m_new_time = ::GetTickCount64();
@@ -72,13 +76,25 @@ void RenderObject::updateQuadPosition()
 		m_delta_pos = 0;
 
 	Matrix4x4 temp;
-	m_delta_scale += m_delta_time / 0.5f;
+	m_delta_scale += m_delta_time / 0.55f;
 
 	//cc.m_world.setTranslation(Vector3D::lerp(Vector3D(-2, -2, 0), Vector3D(2, 2, 0), m_delta_pos));
-	cc.m_world.setScale(Vector3D::lerp(Vector3D(0.5f, 0.5f, 0), Vector3D(1.0f, 1.0f, 0), (sin(m_delta_scale) + 1.0f)/2.0f));
+	//cc.m_world.setScale(Vector3D::lerp(Vector3D(0.5f, 0.5f, 0), Vector3D(1.0f, 1.0f, 0), (sin(m_delta_scale) + 1.0f)/2.0f));
 
-	temp.setTranslation(Vector3D::lerp(Vector3D(-1.5f, -1.5f, 0), Vector3D(1.5f, 1.5f, 0), m_delta_pos));
+	//temp.setTranslation(Vector3D::lerp(Vector3D(-1.5f, -1.5f, 0), Vector3D(1.5f, 1.5f, 0), m_delta_pos));
 
+	cc.m_world.setScale(Vector3D(1, 1, 1));
+	
+	temp.setIdentity();
+	temp.setRotationZ(m_delta_scale);
+	cc.m_world *= temp;
+
+	temp.setIdentity();
+	temp.setRotationY(m_delta_scale);
+	cc.m_world *= temp;
+
+	temp.setIdentity();
+	temp.setRotationX(m_delta_scale);
 	cc.m_world *= temp;
 
 	cc.m_view.setIdentity();
@@ -97,6 +113,8 @@ void RenderObject::updateQuadPosition()
 void RenderObject::onRelease()
 {
 	m_vb->release();
+	m_ib->release();
+	m_cb->release();
 	m_vs->release();
 	m_ps->release();
 }

@@ -2,6 +2,7 @@
 #include "SwapChain.h"
 #include "VertexBuffer.h"
 #include "ConstantBuffer.h"
+#include "IndexBuffer.h"
 #include "VertexShader.h"
 #include "PixelShader.h"
 
@@ -26,10 +27,21 @@ void DeviceContext::setVertexBuffer(VertexBuffer* vertexBuffer)
 	m_device_context->IASetInputLayout(vertexBuffer->m_layout);	
 }
 
+void DeviceContext::setIndexBuffer(IndexBuffer* indexBuffer)
+{
+	m_device_context->IASetIndexBuffer(indexBuffer->m_buffer, DXGI_FORMAT_R32_UINT, 0);
+}
+
 void DeviceContext::drawTriangleList(UINT vertext_count, UINT start_vertext_index)
 {
 	m_device_context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	m_device_context->Draw(vertext_count, start_vertext_index);
+}
+
+void DeviceContext::drawIndexedTriangleList(UINT index_count, UINT vertex_count, UINT start_vertex_index, UINT start_index_loc)
+{
+	m_device_context->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	m_device_context->DrawIndexed(index_count, start_index_loc, start_vertex_index);
 }
 
 void DeviceContext::drawTriangleStrip(UINT vertext_count, UINT start_vertext_index)

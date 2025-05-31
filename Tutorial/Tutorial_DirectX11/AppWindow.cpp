@@ -57,12 +57,49 @@ void AppWindow::createRenderObjects()
 
 	vertex list1[] =
 	{
-		{Vector3D(- 0.5f, -0.3f, 0.0f),	Vector3D(- 0.32f, -0.11f, 0.0f), Vector3D(0, 0 , 0), Vector3D(0, 1 , 0)}, // lower left
-		{Vector3D(-0.5f, 0.3f, 0.0f),	Vector3D(-0.11f, 0.78f, 0.0f),	 Vector3D(1, 1, 0),	 Vector3D(0, 1 , 0)}, // top left
-		{Vector3D(0.5f, -0.3f, 0.0f),	Vector3D(0.75f, -0.73f, 0.0f),	 Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)}, // lower right
-		{Vector3D(0.5f, 0.3f, 0.0f),	Vector3D(0.88f, 0.77f, 0.0f),	 Vector3D(1, 1, 1),	 Vector3D(0, 0 , 1)} // top right
+		//FRONT FACE
+		{Vector3D(-0.5f, -0.5f, -0.5f),	Vector3D(0, 0 , 0), Vector3D(0, 1 , 0)}, 
+		{Vector3D(-0.5f, 0.5f, -0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 1 , 0)}, 
+		{Vector3D(0.5f, 0.5f, -0.5f),	Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)}, 
+		{Vector3D(0.5f, -0.5f, -0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
+
+		//BACK FACE
+		{Vector3D(0.5f, -0.5f, 0.5f),	Vector3D(0, 0, 0),	 Vector3D(0, 0 , 1)},
+		{Vector3D(0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, 0.5f, 0.5f),	Vector3D(0, 0, 1),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, -0.5f, 0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
 	};
 
-	this->sampleObject1.initialize(list1, ARRAYSIZE(list1));
+	unsigned int index_list1[] =
+	{
+		//FRONT SIDE
+		0,1,2,
+		2,3,0,
+
+		//BACK SIDE
+		4,5,6,
+		6,7,4,
+
+		//TOP SIDE
+		1,6,5,
+		5,2,1,
+
+		//BOTTOM SIDE
+		7,0,3,
+		3,4,7,
+
+		//RIGHT SIDE
+		3,2,5,
+		5,4,3,
+
+		//LEFT SIDE
+		7,6,1,
+		1,0,7
+
+	};
+
+
+
+	this->sampleObject1.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
 
 }
