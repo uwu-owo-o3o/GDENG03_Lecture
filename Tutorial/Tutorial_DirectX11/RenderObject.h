@@ -9,6 +9,7 @@
 #include "PixelShader.h"
 #include "Vertex.h"
 #include "Matrix4x4.h"
+#include "Point.h"
 
 class RenderObject
 {
@@ -24,6 +25,8 @@ class RenderObject
 
 	public:
 		void rotateOnKey(int key);
+		void rotateOnMove(const Point& delta_mouse_pos);
+
 	public:
 		void setWindowRef(RECT window);
 

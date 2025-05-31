@@ -24,6 +24,8 @@ class AppWindow : public Window, public InputListener
 		virtual void OnKeyDown(int key) override;
 		virtual void OnKeyUp(int key) override;
 
+		virtual void OnMouseMove(const Point& deltaMousePos) override;
+
 	private:
 		SwapChain* m_swap_chain;
 		RenderObject sampleObject1;

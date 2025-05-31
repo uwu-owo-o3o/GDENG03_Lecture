@@ -139,6 +139,12 @@ void RenderObject::rotateOnKey(int key)
 	}
 }
 
+void RenderObject::rotateOnMove(const Point& delta_mouse_pos)
+{
+	m_rot_x -= delta_mouse_pos.m_y * m_delta_time;
+	m_rot_y -= delta_mouse_pos.m_x * m_delta_time;
+}
+
 void RenderObject::setWindowRef(RECT window)
 {
 	this->windowRef = window;
