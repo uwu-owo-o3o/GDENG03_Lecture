@@ -114,6 +114,8 @@ void RenderObject::update()
 
 	Vector3D new_pos = m_world_cam.getTranslation() + world_cam.getZDirection() * (m_forward * 0.0005f);
 
+	new_pos = new_pos + world_cam.getXDirection() * (m_rightward * 0.0005f);
+
 	world_cam.setTranslation(new_pos);
 
 	m_world_cam = world_cam;
@@ -163,15 +165,18 @@ void RenderObject::rotateOnKey(int key)
 	else if (key == 'A')
 	{
 		//m_rot_y += 0.707 * m_delta_time;
+		m_rightward = -1.0f;
 	}
 	else if (key == 'D')
 	{
 		//m_rot_y -= 0.707 * m_delta_time;
+		m_rightward = 1.0f;
 	}
 }
 
 void RenderObject::OnKeyRelease() {
 	m_forward = 0.0f;
+	m_rightward = 0.0f;
 }
 
 void RenderObject::rotateOnMove(const Point& delta_mouse_pos)

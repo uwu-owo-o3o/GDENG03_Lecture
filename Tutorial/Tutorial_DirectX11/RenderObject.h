@@ -61,7 +61,9 @@ class RenderObject
 		VertexShader* m_vs;
 		PixelShader* m_ps;
 
+	private:
 		Matrix4x4 m_world_cam;
 		float m_forward = 0.0f;
+		float m_rightward = 0.0f;	
 };
 
