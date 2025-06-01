@@ -11,19 +11,15 @@ RenderObject::~RenderObject()
 void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list) {
 
 	m_world_cam.setTranslation(Vector3D(0,0, -2));
-
-	m_vb = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer();
-	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer();
+	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
 		
-	m_ib->load(index_list, size_index_list);
-
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
 
 	GraphicsEngine::get()->getRenderSystem()->compileVertexShader(L"VertexShader.hlsl", "vsmain", &shader_byte_code, &size_shader);
 
 	m_vs = GraphicsEngine::get()->getRenderSystem()->createVertexShader(shader_byte_code, size_shader);
-	m_vb->load(list, sizeof(vertex), size_list, shader_byte_code, size_shader);
+	m_vb = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer(list, sizeof(vertex), size_list, shader_byte_code, size_shader);
 
 	GraphicsEngine::get()->getRenderSystem()->releaseCompiledShader();
 
@@ -36,8 +32,7 @@ void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_
 	constant cc;
 	cc.m_angle = 0;
 
-	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer();
-	m_cb->load(&cc, sizeof(constant));
+	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
 void RenderObject::onUpdate()
@@ -143,11 +138,6 @@ void RenderObject::update()
 
 void RenderObject::onRelease()
 {
-	m_vb->release();
-	m_ib->release();
-	m_cb->release();
-	m_vs->release();
-	m_ps->release();
 }
 
 void RenderObject::rotateOnKey(int key)

@@ -19,10 +19,9 @@ void AppWindow::onCreate()
 
 	InputSystem::get()->addListener(this);
 
-	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain();
 
 	RECT rc = this->getClientWindowRect();
-	m_swap_chain->init(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
+	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
 
 	this->sampleObject1.setWindowRef(this->getClientWindowRect());
 
@@ -48,7 +47,6 @@ void AppWindow::onUpdate()
 void AppWindow::onDestroy()
 {
 	Window::onDestroy();
-	m_swap_chain->release();
 
 	this->sampleObject1.onRelease();/*
 	this->sampleObject2.onRelease();
