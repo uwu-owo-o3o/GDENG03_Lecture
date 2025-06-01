@@ -1,2 +1,4 @@
-﻿  GraphicsEngine.cpp
+﻿  DeviceContext.cpp
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(59,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(60,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe

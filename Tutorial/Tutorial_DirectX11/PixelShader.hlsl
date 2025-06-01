@@ -19,6 +19,6 @@ cbuffer constant : register(b0)
 
 float4 psmain(PS_INPUT input) : SV_TARGET
 {
-    return Texture.Sample(TextureSampler, input.texcoord);
+    return Texture.Sample(TextureSampler, input.texcoord * 0.5f);
     //return float4(lerp(input.color, input.color1, (sin(m_time / 500.0f) + 1.0f) / 2.0f), 1.0f);
 }
