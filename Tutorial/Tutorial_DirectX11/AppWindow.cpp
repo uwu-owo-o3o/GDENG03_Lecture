@@ -5,7 +5,6 @@
 
 AppWindow::AppWindow()
 {
-	this->sampleObject1 = RenderObject();
 }
 
 AppWindow::~AppWindow()
@@ -21,9 +20,9 @@ void AppWindow::onCreate()
 	RECT rc = this->getClientWindowRect();
 	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
 
-	//this->sampleObject1.setWindowRef(this->getClientWindowRect());
+	this->sampleObject1.setWindowRef(this->getClientWindowRect());
 
-	//this->createRenderObjects();
+	this->createRenderObjects();
 }
 
 void AppWindow::onUpdate()
@@ -46,9 +45,7 @@ void AppWindow::onDestroy()
 {
 	Window::onDestroy();
 
-	this->sampleObject1.onRelease();/*
-	this->sampleObject2.onRelease();
-	this->sampleObject3.onRelease();*/
+	//this->sampleObject1.onRelease();/*
 
 	GraphicsEngine::get()->release();
 }
@@ -166,25 +163,25 @@ void AppWindow::OnKeyUp(int key)
 
 void AppWindow::OnMouseMove(const Point& deltaMousePos)
 {
-	this->sampleObject1.rotateOnMove(deltaMousePos);
+	//this->sampleObject1.rotateOnMove(deltaMousePos);
 }
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
-	this->sampleObject1.scaleOnClick('L');
+	//this->sampleObject1.scaleOnClick('L');
 }
 
 void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
 {
-	this->sampleObject1.scaleOnRelease('L');
+	//this->sampleObject1.scaleOnRelease('L');
 }
 
 void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
-	this->sampleObject1.scaleOnClick('R');
+	//this->sampleObject1.scaleOnClick('R');
 }
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
 {
-	this->sampleObject1.scaleOnRelease('R');
+	//this->sampleObject1.scaleOnRelease('R');
 }

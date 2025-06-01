@@ -2,6 +2,7 @@
 #include "VertexMesh.h"
 #include "GraphicsEngine.h"
 #define TINYOBJLOADER_IMPLEMENTATION
+#include <iostream>
 #include <tiny_obj_loader.h>
 #include <filesystem>
 #include <exception>
@@ -67,6 +68,10 @@ Mesh::Mesh(const wchar_t* full_path) : Resource(full_path)
 	GraphicsEngine::get()->getVertexMeshLayoutShaderByteCodeAndSize(&shader_byte_code, &size_shader);
 
 	m_vertex_buffer = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer(&list_vertices[0], sizeof(VertexMesh), (UINT)list_vertices.size(), shader_byte_code, (UINT)size_shader);
+
+	if (!m_vertex_buffer) {
+		std::cout << "Mesh vertex buffer is empty" << std::endl;
+	}
 
 	m_index_buffer = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(&list_indices[0], (UINT)list_indices.size());
 }

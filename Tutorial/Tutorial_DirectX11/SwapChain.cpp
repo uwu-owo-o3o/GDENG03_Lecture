@@ -8,6 +8,10 @@ SwapChain::SwapChain(HWND hwnd, UINT width, UINT height, RenderSystem* m_system)
 {
     ID3D11Device* device = m_system->m_d3d_device;
 
+    if (m_system) {
+        std::cerr << "Valid m_system SwapChain constructor." << std::endl;
+    }
+
     if (hwnd || ::IsWindow(hwnd)) {
         std::cerr << "Valid or not null HWND passed to SwapChain constructor." << std::endl;
         //throw std::runtime_error("Invalid HWND.");
@@ -19,7 +23,6 @@ SwapChain::SwapChain(HWND hwnd, UINT width, UINT height, RenderSystem* m_system)
 
     DXGI_SWAP_CHAIN_DESC desc;
     ZeroMemory(&desc, sizeof(desc));
-
     desc.BufferCount = 1;
     desc.BufferDesc.Width = width;
     desc.BufferDesc.Height = height;

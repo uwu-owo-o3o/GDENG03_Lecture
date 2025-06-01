@@ -31,9 +31,9 @@ GraphicsEngine::GraphicsEngine()
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
 
-	m_render_system->compileVertexShader(L"VertexShader.hlsl", "vsmain", &shader_byte_code, &size_shader);
+	m_render_system->compileVertexShader(L"VertexMeshLayoutShader.hlsl", "vsmain", &shader_byte_code, &size_shader);
+	std::cout << "shader size: " << size_shader << std::endl;
 	::memcpy(m_mesh_layout_byte_code, shader_byte_code, size_shader);
-
 	m_mesh_layout_size = size_shader;
 
 	m_render_system->releaseCompiledShader();

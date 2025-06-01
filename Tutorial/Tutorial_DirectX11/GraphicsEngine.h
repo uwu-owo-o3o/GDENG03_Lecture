@@ -28,6 +28,6 @@ class GraphicsEngine
 		static GraphicsEngine* m_engine;
 
 		unsigned char m_mesh_layout_byte_code[1024];
-		size_t m_mesh_layout_size;
+		size_t m_mesh_layout_size = 0;
 };
 

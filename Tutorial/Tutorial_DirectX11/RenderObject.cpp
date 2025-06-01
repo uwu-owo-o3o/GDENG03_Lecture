@@ -1,6 +1,7 @@
 #include "RenderObject.h"
 #include "Texture.h"
 #include "Mesh.h"
+#include <iostream>
 
 RenderObject::RenderObject()
 {
@@ -15,6 +16,10 @@ void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_
 	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\brick.png");
 	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(L"Assets\\Meshes\\teapot.obj");
 
+	if (m_mesh == nullptr) {
+		std::cout << "m_mesh is null" << std::endl;
+	}
+
 	m_world_cam.setTranslation(Vector3D(0,0, -2));
 	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
 		
@@ -24,7 +29,7 @@ void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_
 	GraphicsEngine::get()->getRenderSystem()->compileVertexShader(L"VertexShader.hlsl", "vsmain", &shader_byte_code, &size_shader);
 
 	m_vs = GraphicsEngine::get()->getRenderSystem()->createVertexShader(shader_byte_code, size_shader);
-	m_vb = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer(list, sizeof(vertex), size_list, shader_byte_code, size_shader);
+	//m_vb = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer(list, sizeof(vertex), size_list, shader_byte_code, size_shader);
 
 	GraphicsEngine::get()->getRenderSystem()->releaseCompiledShader();
 
