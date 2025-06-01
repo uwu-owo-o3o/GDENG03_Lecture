@@ -62,6 +62,7 @@ class RenderObject
 		PixelShaderPtr m_ps;
 
 		TexturePtr m_tex;
+		MeshPtr m_mesh;
 
 	private:
 		Matrix4x4 m_world_cam;

@@ -2,10 +2,20 @@
 #include "GraphicsEngine.h"
 #include "RenderSystem.h"
 #include <exception>
+#include <iostream>
 
 SwapChain::SwapChain(HWND hwnd, UINT width, UINT height, RenderSystem* m_system) : m_system(m_system)
 {
     ID3D11Device* device = m_system->m_d3d_device;
+
+    if (hwnd || ::IsWindow(hwnd)) {
+        std::cerr << "Valid or not null HWND passed to SwapChain constructor." << std::endl;
+        //throw std::runtime_error("Invalid HWND.");
+    }
+
+    if (device) {
+        std::cerr << "D3D11 device is not null" << std::endl;
+    }
 
     DXGI_SWAP_CHAIN_DESC desc;
     ZeroMemory(&desc, sizeof(desc));

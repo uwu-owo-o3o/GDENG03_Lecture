@@ -21,9 +21,9 @@ void AppWindow::onCreate()
 	RECT rc = this->getClientWindowRect();
 	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
 
-	this->sampleObject1.setWindowRef(this->getClientWindowRect());
+	//this->sampleObject1.setWindowRef(this->getClientWindowRect());
 
-	this->createRenderObjects();
+	//this->createRenderObjects();
 }
 
 void AppWindow::onUpdate()

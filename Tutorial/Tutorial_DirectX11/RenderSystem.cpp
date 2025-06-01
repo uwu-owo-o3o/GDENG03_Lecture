@@ -68,10 +68,12 @@ RenderSystem::~RenderSystem()
 SwapChainPtr RenderSystem::createSwapChain(HWND hwnd, UINT width, UINT height)
 {
 	SwapChainPtr sc = nullptr;
+	
 	try {
+		std::cout << "Attempt to create swap chain " << std::endl;
 		sc = std::make_shared<SwapChain>(hwnd, width, height, this);
 	}
-	catch(...) {}
+	catch (...) { std::cout << "Failed to create swap chain " << std::endl; }
 	return sc;
 }
 
