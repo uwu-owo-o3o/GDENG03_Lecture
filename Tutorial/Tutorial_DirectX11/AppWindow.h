@@ -36,7 +36,7 @@ class AppWindow : public Window, public InputListener
 		virtual void OnRightMouseUp(const Point& deltaMousePos) override;
 
 	private:
-		SwapChain* m_swap_chain;
+		SwapChainPtr m_swap_chain;
 		RenderObject sampleObject1;
 		//RenderObject sampleObject2;
 		//RenderObject sampleObject3;

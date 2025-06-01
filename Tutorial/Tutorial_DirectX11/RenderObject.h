@@ -54,12 +54,12 @@ class RenderObject
 		RECT windowRef;
 
 	private:
-		VertexBuffer* m_vb;		
-		ConstantBuffer* m_cb;
-		IndexBuffer* m_ib;
+		VertexBufferPtr m_vb;		
+		ConstantBufferPtr m_cb;
+		IndexBufferPtr m_ib;
 
-		VertexShader* m_vs;
-		PixelShader* m_ps;
+		VertexShaderPtr m_vs;
+		PixelShaderPtr m_ps;
 
 	private:
 		Matrix4x4 m_world_cam;

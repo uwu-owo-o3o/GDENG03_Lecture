@@ -14,8 +14,6 @@ AppWindow::~AppWindow()
 
 void AppWindow::onCreate()
 {
-	//Window::onCreate();
-	GraphicsEngine::get()->init();
 
 	InputSystem::get()->addListener(this);
 
