@@ -30,3 +30,4 @@ Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/DocumentLayout.json
 *.ipch
 *.log
 Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/ipch/AutoPCH/707f45265a44d4d4/APPWINDOW.ipch
+*.ipch

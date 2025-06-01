@@ -1,12 +1,11 @@
 #pragma once
 #include <d3d11.h>
-class GraphicsEngine;
-class DeviceContext;
+#include "Prerequisites.h"
 
 class VertexShader
 {
 	public:
-		VertexShader();
+		VertexShader(RenderSystem* m_system);
 		void release();
 		~VertexShader();
 
@@ -15,8 +14,9 @@ class VertexShader
 
 	private:
 		ID3D11VertexShader* m_vs;
-
+		RenderSystem* m_system = nullptr;
 	private:
+		friend class RenderSystem;
 		friend class GraphicsEngine;
 		friend class DeviceContext;
 };

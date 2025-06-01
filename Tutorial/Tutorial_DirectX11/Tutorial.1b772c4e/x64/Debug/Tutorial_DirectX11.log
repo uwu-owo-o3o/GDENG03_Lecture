@@ -16,6 +16,27 @@ C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tut
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(167,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  DeviceContext.cpp
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(56,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\DeviceContext.cpp(57,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+  main.cpp
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(41,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(42,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(43,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(44,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(50,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(51,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(52,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(53,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(59,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(60,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(61,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(62,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(101,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(166,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(167,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   RenderObject.cpp
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(41,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(42,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -37,23 +58,8 @@ C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tut
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\RenderObject.cpp(26,64): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\RenderObject.cpp(59,37): warning C4244: '=': conversion from 'ULONGLONG' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\RenderObject.cpp(74,31): warning C4244: '=': conversion from 'ULONGLONG' to 'float', possible loss of data
-  main.cpp
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(41,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(42,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(43,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(44,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(50,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(51,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(52,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(53,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(59,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(60,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(61,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(62,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(101,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(166,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(167,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  RenderSystem.cpp
+  VertexBuffer.cpp
+  VertexShader.cpp
   Generating Code...
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe
