@@ -16,6 +16,8 @@ class InputSystem
 
 	public:
 		static InputSystem* get();
+		static void create();
+		static void release();
 
 	private:
 		std::map<InputListener*, InputListener*> m_map_listeners;
@@ -24,5 +26,8 @@ class InputSystem
 		unsigned char m_old_keys_state[256] = {};
 		Point m_old_mouse_pos;
 		bool m_first_time = true;
+
+	private:
+		static InputSystem* m_input_system;
 };
 

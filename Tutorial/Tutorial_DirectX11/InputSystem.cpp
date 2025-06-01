@@ -1,12 +1,16 @@
 #include "InputSystem.h"
 #include <Windows.h>
 
+
+InputSystem* InputSystem::m_input_system = nullptr;
+
 InputSystem::InputSystem()
 {
 }
 
 InputSystem::~InputSystem()
 {
+	InputSystem::m_input_system = nullptr;
 }
 
 void InputSystem::update()
@@ -121,6 +125,18 @@ void InputSystem::removeListener(InputListener* listener)
 
 InputSystem* InputSystem::get()
 {
-	static InputSystem system;
-	return &system;
+	return m_input_system;
+}
+
+void InputSystem::create()
+{
+	if (InputSystem::m_input_system) throw std::exception("Input System already created.");
+
+	InputSystem::m_input_system = new InputSystem();
+}
+
+void InputSystem::release()
+{
+	if (!InputSystem::m_input_system) return;
+	delete InputSystem::m_input_system;
 }

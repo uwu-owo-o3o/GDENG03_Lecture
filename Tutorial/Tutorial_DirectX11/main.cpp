@@ -1,22 +1,23 @@
 #include "AppWindow.h"
-
+#include "InputSystem.h"
 
 int main() 
 {
 	try {
 		GraphicsEngine::create();
+		InputSystem::create();
 	}
 	catch (...) { return -1; }
 
 
-	AppWindow app;
-	if (app.init()) 
-	{
-		while (app.isRun()) {
-			app.broadcast();
-		}
-	}
+	try {
+		AppWindow app;
 
+		while (app.isRun()) {}
+
+	}
+	catch (...) {}
 	GraphicsEngine::release();
+	InputSystem::release();
 	return 0;
 }

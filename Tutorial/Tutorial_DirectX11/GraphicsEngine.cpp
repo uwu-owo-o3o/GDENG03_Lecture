@@ -18,6 +18,7 @@ GraphicsEngine::GraphicsEngine()
 
 GraphicsEngine::~GraphicsEngine()
 {
+	GraphicsEngine::m_engine = nullptr;
 	delete m_render_system;
 }
 
@@ -33,7 +34,7 @@ GraphicsEngine* GraphicsEngine::get()
 
 void GraphicsEngine::create()
 {
-	if (GraphicsEngine::m_engine) throw std::exception("Render System not created successfully.");
+	if (GraphicsEngine::m_engine) throw std::exception("Graphics Engine made already.");
 
 	GraphicsEngine::m_engine = new GraphicsEngine();
 }
