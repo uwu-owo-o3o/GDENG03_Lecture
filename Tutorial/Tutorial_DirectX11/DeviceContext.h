@@ -20,6 +20,9 @@ class DeviceContext
 		void setVertexShader(VertexShaderPtr vertex_shader);
 		void setPixelShader(PixelShaderPtr pixel_shader);
 
+		void setTexture(VertexShaderPtr vertex_shader, TexturePtr tex);
+		void setTexture(PixelShaderPtr pixel_shader, TexturePtr tex);
+
 		void setConstantBuffer(VertexShaderPtr vertex_shader, ConstantBufferPtr buffer);
 		void setConstantBuffer(PixelShaderPtr pixel_shader, ConstantBufferPtr buffer);
 

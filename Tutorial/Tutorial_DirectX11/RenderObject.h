@@ -61,6 +61,8 @@ class RenderObject
 		VertexShaderPtr m_vs;
 		PixelShaderPtr m_ps;
 
+		TexturePtr m_tex;
+
 	private:
 		Matrix4x4 m_world_cam;
 		float m_forward = 0.0f;

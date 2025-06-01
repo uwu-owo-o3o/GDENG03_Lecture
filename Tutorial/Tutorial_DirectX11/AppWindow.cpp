@@ -66,19 +66,60 @@ void AppWindow::onKillFocus()
 void AppWindow::createRenderObjects()
 {
 
-	vertex list1[] =
+	Vector3D poslist1[] =
 	{
 		//FRONT FACE
-		{Vector3D(-0.5f, -0.5f, -0.5f),	Vector3D(0, 0 , 0), Vector3D(0, 1 , 0)}, 
-		{Vector3D(-0.5f, 0.5f, -0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 1 , 0)}, 
-		{Vector3D(0.5f, 0.5f, -0.5f),	Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)}, 
-		{Vector3D(0.5f, -0.5f, -0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, -0.5f, -0.5f)}, 
+		{Vector3D(-0.5f, 0.5f, -0.5f)}, 
+		{Vector3D(0.5f, 0.5f, -0.5f)}, 
+		{Vector3D(0.5f, -0.5f, -0.5f)},
 
 		//BACK FACE
-		{Vector3D(0.5f, -0.5f, 0.5f),	Vector3D(0, 0, 0),	 Vector3D(0, 0 , 1)},
-		{Vector3D(0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 0 , 1)},
-		{Vector3D(-0.5f, 0.5f, 0.5f),	Vector3D(0, 0, 1),	 Vector3D(0, 0 , 1)},
-		{Vector3D(-0.5f, -0.5f, 0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
+		{Vector3D(0.5f, -0.5f, 0.5f)},
+		{Vector3D(0.5f, 0.5f, 0.5f)},
+		{Vector3D(-0.5f, 0.5f, 0.5f)},
+		{Vector3D(-0.5f, -0.5f, 0.5f)},
+	};
+
+	Vector2D texcoordlist1[] =
+	{
+		{Vector2D(0.0f, 0.0f)},
+		{Vector2D(0.0f, 1.0f)},
+		{Vector2D(1.0f, 0.0f)},
+		{Vector2D(1.0f, 1.0f)}
+	};
+
+	vertex list1[] =
+	{
+		{poslist1[0], texcoordlist1[1]},
+		{poslist1[1], texcoordlist1[0]},
+		{poslist1[2], texcoordlist1[2]},
+		{poslist1[3], texcoordlist1[3]},
+
+		{poslist1[4], texcoordlist1[1]},
+		{poslist1[5], texcoordlist1[0]},
+		{poslist1[6], texcoordlist1[2]},
+		{poslist1[7], texcoordlist1[3]},
+
+		{poslist1[1], texcoordlist1[1]},
+		{poslist1[6], texcoordlist1[0]},
+		{poslist1[5], texcoordlist1[2]},
+		{poslist1[2], texcoordlist1[3]},
+
+		{poslist1[7], texcoordlist1[1]},
+		{poslist1[0], texcoordlist1[0]},
+		{poslist1[3], texcoordlist1[2]},
+		{poslist1[4], texcoordlist1[3]},
+
+		{poslist1[3], texcoordlist1[1]},
+		{poslist1[2], texcoordlist1[0]},
+		{poslist1[5], texcoordlist1[2]},
+		{poslist1[4], texcoordlist1[3]},
+
+		{poslist1[7], texcoordlist1[1]},
+		{poslist1[6], texcoordlist1[0]},
+		{poslist1[1], texcoordlist1[2]},
+		{poslist1[0], texcoordlist1[3]},
 	};
 
 	unsigned int index_list1[] =
@@ -92,20 +133,20 @@ void AppWindow::createRenderObjects()
 		6,7,4,
 
 		//TOP SIDE
-		1,6,5,
-		5,2,1,
+		8,9,10,
+		10,11,8,
 
 		//BOTTOM SIDE
-		7,0,3,
-		3,4,7,
+		12,13,14,
+		14,15,12,
 
 		//RIGHT SIDE
-		3,2,5,
-		5,4,3,
+		16,17,18,
+		18,19,16,
 
 		//LEFT SIDE
-		7,6,1,
-		1,0,7
+		20,21,22,
+		22,23,20
 
 	};
 

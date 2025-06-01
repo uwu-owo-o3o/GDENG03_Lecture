@@ -1,5 +1,6 @@
 #pragma once
 #include "Matrix4x4.h"
+#include "Vector2D.h"
 
 struct vec3
 {
@@ -9,8 +10,7 @@ struct vec3
 struct vertex
 {
 	Vector3D position;
-	Vector3D color;
-	Vector3D color1;
+	Vector2D texcoord;
 };
 
 __declspec(align(16))
