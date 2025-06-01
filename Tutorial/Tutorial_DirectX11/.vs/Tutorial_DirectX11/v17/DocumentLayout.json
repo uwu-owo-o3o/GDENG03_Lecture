@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:AppWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:RenderObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:RenderSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -98,7 +98,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 21,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -116,13 +116,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "RenderSystem.cpp",
               "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderSystem.cpp",
               "RelativeDocumentMoniker": "RenderSystem.cpp",
               "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderSystem.cpp",
               "RelativeToolTip": "RenderSystem.cpp",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAswG4AAAALAAAA",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAmwH0AAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-01T01:13:53.476Z",
               "IsPinned": true,
@@ -368,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RenderObject.cpp",
               "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.cpp",
               "RelativeDocumentMoniker": "RenderObject.cpp",
@@ -382,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "RenderObject.h",
               "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.h",
               "RelativeDocumentMoniker": "RenderObject.h",
@@ -395,8 +395,12 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AppWindow.cpp",
               "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp",
               "RelativeDocumentMoniker": "AppWindow.cpp",
@@ -406,10 +410,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-01T04:32:20.687Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         },
@@ -417,10 +417,6 @@
           "DockedWidth": 305,
           "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
