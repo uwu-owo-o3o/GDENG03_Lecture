@@ -48,7 +48,7 @@ class RenderObject
 		float m_rot_y = 0.0f;
 		float m_rot_z = 0.0f;
 
-		float m_scale_object = 1.0f;
+		float m_scale_object = 10.0f;
 
 	private:
 		RECT windowRef;

@@ -3,12 +3,14 @@ struct VS_INPUT
 {
     float4 position : POSITION0;
     float2 texcoord : TEXCOORD0;
+    float3 normal : NORMAL0;
 };
 
 struct VS_OUTPUT
 {
     float4 position : SV_POSITION;
     float2 texcoord : TEXCOORD0;
+    float3 normal : TEXCOORD1;
 };
 
 cbuffer constant : register(b0)
@@ -16,14 +18,13 @@ cbuffer constant : register(b0)
     row_major float4x4 m_world;
     row_major float4x4 m_view;
     row_major float4x4 m_proj;
-    unsigned int m_time;
+    float4 m_light_direction;
+    
 }
 
 VS_OUTPUT vsmain(VS_INPUT input)
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
-    //output.position = input.position;
-    //output.position = lerp(input.position, float4(input.position1, 1.0), (sin(m_time / 1000.0f) + 1.0f) / 2.0f);
     
     output.position = mul(input.position, m_world); // WORLD SPACE
     
@@ -33,6 +34,6 @@ VS_OUTPUT vsmain(VS_INPUT input)
     
     
     output.texcoord = input.texcoord;
-    
+    output.normal = input.normal;
     return output;
 }

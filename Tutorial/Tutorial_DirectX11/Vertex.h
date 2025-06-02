@@ -1,7 +1,7 @@
 #pragma once
 #include "Matrix4x4.h"
 #include "Vector2D.h"
-
+#include "Vector4D.h"
 struct vec3
 {
 	float x, y, z;
@@ -19,5 +19,6 @@ struct constant
 	Matrix4x4 m_world;
 	Matrix4x4 m_view;
 	Matrix4x4 m_proj;
-	float m_angle;
+
+	Vector4D m_light_direction;
 };

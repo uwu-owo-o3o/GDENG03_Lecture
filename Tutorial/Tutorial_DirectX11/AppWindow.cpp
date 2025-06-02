@@ -31,7 +31,7 @@ void AppWindow::onUpdate()
 
 	InputSystem::get()->update();
 
-	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 1, 1, 1, 1);
+	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 0, 0, 0.1f, 0.1f);
 
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
@@ -163,7 +163,7 @@ void AppWindow::OnKeyUp(int key)
 
 void AppWindow::OnMouseMove(const Point& deltaMousePos)
 {
-	//this->sampleObject1.rotateOnMove(deltaMousePos);
+	this->sampleObject1.rotateOnMove(deltaMousePos);
 }
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
