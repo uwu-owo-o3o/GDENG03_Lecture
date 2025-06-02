@@ -37,11 +37,22 @@ float4 psmain(PS_INPUT input) : SV_TARGET
     //DIFFUSE LIGHT
     float kd = 0.7f;
     float3 light_dir = normalize(m_light_position.xyz - input.world_pos.xyz);
+    float distance_light_object = length(m_light_position.xyz - input.world_pos.xyz);
+    
+    float fade_area = max(0, distance_light_object - m_light_radius);
+    
+    float constant_func = 1.0;
+    float linear_func = 2.0;
+    float quadratic_func = 2.0;
+    
+    float attenuation = constant_func + linear_func * fade_area + quadratic_func * fade_area * fade_area;
+    
+    
     float3 id = float3(1.0f, 1.0f, 1.0f);
     
     float amount_diffuse_light = max(0.0, dot(light_dir.xyz, input.normal));
     
-    float3 diffuse_light = kd * id * amount_diffuse_light;
+    float3 diffuse_light = (kd * id * amount_diffuse_light) / attenuation;
     
     //SPECULAR LIGHT
     float ks = 1.0f;
@@ -52,7 +63,7 @@ float4 psmain(PS_INPUT input) : SV_TARGET
     float shininess = 30.0f;
     float amount_spec_light = pow(max(0.0, dot(reflected_light, dir_to_cam)), shininess);
     
-    float spec_light = ks * amount_spec_light * is;
+    float spec_light = (ks * amount_spec_light * is) / attenuation;
     
     
     float3 final_light = ambient_light + diffuse_light + spec_light;
