@@ -163,7 +163,7 @@ void AppWindow::OnKeyUp(int key)
 
 void AppWindow::OnMouseMove(const Point& deltaMousePos)
 {
-	this->sampleObject1.rotateOnMove(deltaMousePos);
+	//this->sampleObject1.rotateOnMove(deltaMousePos);
 }
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)

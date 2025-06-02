@@ -8,6 +8,7 @@ struct PS_INPUT
     float4 position : SV_POSITION;
     float2 texcoord : TEXCOORD0;
     float3 normal : TEXCOORD1;
+    float3 dir_to_cam : TEXCOORD2;
 };
 
 cbuffer constant : register(b0)
@@ -20,19 +21,31 @@ cbuffer constant : register(b0)
 
 float4 psmain(PS_INPUT input) : SV_TARGET
 {
-    float ka = 0.2f;
+    // AMBIENT LIGHT
+    float ka = 0.1f;
     float3 ia = float3(1.0f, 1.0f, 1.0f);
     
     float3 ambient_light = ka * ia;
     
-    float kd = 1.0f;
+    //DIFFUSE LIGHT
+    float kd = 0.7f;
     float3 id = float3(1.0f, 1.0f, 1.0f);
     
     float amount_diffuse_light = max(0.0, dot(m_light_direction.xyz, input.normal));
     
     float3 diffuse_light = kd * amount_diffuse_light * id;
     
-    float3 final_light = ambient_light + diffuse_light;
+    //SPECULAR LIGHT
+    float ks = 1.0f;
+    float3 is = float3(1.0f, 1.0f, 1.0f);
+    float3 reflected_light = reflect(m_light_direction.xyz, input.normal);
+    float shininess = 100.0f;
+    float amount_spec_light = pow(max(0.0, dot(reflected_light, input.dir_to_cam)), shininess);
+    
+    float spec_light = ks * amount_spec_light * is;
+    
+    
+    float3 final_light = ambient_light + diffuse_light + spec_light;
     
     //return Texture.Sample(TextureSampler, input.texcoord * 0.5f);
     return float4(final_light, 1.0f);

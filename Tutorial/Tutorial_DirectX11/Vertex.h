@@ -21,4 +21,5 @@ struct constant
 	Matrix4x4 m_proj;
 
 	Vector4D m_light_direction;
+	Vector4D m_cam_pos;
 };

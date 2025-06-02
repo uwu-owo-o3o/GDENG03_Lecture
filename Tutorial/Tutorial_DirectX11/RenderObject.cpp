@@ -20,7 +20,8 @@ void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_
 		std::cout << "m_mesh is null" << std::endl;
 	}
 
-	m_world_cam.setTranslation(Vector3D(0,0, -2));
+	m_world_cam.setTranslation(Vector3D(0,0.25, -1));
+	
 	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
 		
 	void* shader_byte_code = nullptr;
@@ -79,7 +80,7 @@ void RenderObject::update()
 	Matrix4x4 m_light_rot_matrix;
 
 	m_light_rot_matrix.setIdentity();
-	m_light_rot_matrix.setRotationY(90.0f);
+	m_light_rot_matrix.setRotationY(0.0f);
 
 	cc.m_light_direction = m_light_rot_matrix.getZDirection();
 
@@ -106,6 +107,7 @@ void RenderObject::update()
 
 	world_cam.setTranslation(new_pos);
 
+	cc.m_cam_pos = new_pos;	
 	m_world_cam = world_cam;
 
 	world_cam.inverse();
@@ -122,7 +124,7 @@ void RenderObject::update()
 	int width = (this->windowRef.right - this->windowRef.left);
 	int height = (this->windowRef.bottom - this->windowRef.top);
 
-	cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width/ (float)height), 0.1f, 100.0f);
+	cc.m_proj.setPerspectiveFovLH(0.5f, ((float)width/ (float)height), 0.01f, 100.0f);
 
 	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
 
@@ -154,6 +156,11 @@ void RenderObject::rotateOnKey(int key)
 	{
 		//m_rot_y -= 0.707 * m_delta_time;
 		m_rightward = 1.0f;
+	}
+	else if (key == 'R')
+	{
+		m_rot_y += 0.707 * m_delta_time;
+		
 	}
 }
 
