@@ -64,6 +64,9 @@
     <Filter Include="GameEngine\GraphicsEngine\ResourceManager\MeshManager\Mesh">
       <UniqueIdentifier>{bf30fe46-e40b-4c4c-a29c-796c81b829cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="App\Shaders">
+      <UniqueIdentifier>{d9188ddd-1936-4207-8eba-2da65be07d33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -222,6 +225,12 @@
     </FxCompile>
     <FxCompile Include="VertexMeshLayoutShader.hlsl">
       <Filter>GameEngine\GraphicsEngine</Filter>
+    </FxCompile>
+    <FxCompile Include="PointLightVertexShader.hlsl">
+      <Filter>App\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="PointLightPixelShader.hlsl">
+      <Filter>App\Shaders</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>

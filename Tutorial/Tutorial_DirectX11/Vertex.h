@@ -22,4 +22,7 @@ struct constant
 
 	Vector4D m_light_direction;
 	Vector4D m_cam_pos;
+
+	Vector4D m_light_position = Vector4D(0, 1, 0, 0);
+	float m_light_radius = 2.0f;
 };

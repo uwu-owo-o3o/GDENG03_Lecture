@@ -13,28 +13,28 @@ RenderObject::~RenderObject()
 
 void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list) {
 
-	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\brick.png");
-	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(L"Assets\\Meshes\\statue.obj");
+	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\sand.jpg");
+	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(L"Assets\\Meshes\\scene.obj");
 
 	if (m_mesh == nullptr) {
 		std::cout << "m_mesh is null" << std::endl;
 	}
 
-	m_world_cam.setTranslation(Vector3D(0,0.25, -1));
+	m_world_cam.setTranslation(Vector3D(0,1, -2));
 	
 	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
 		
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
 
-	GraphicsEngine::get()->getRenderSystem()->compileVertexShader(L"VertexShader.hlsl", "vsmain", &shader_byte_code, &size_shader);
+	GraphicsEngine::get()->getRenderSystem()->compileVertexShader(L"PointLightVertexShader.hlsl", "vsmain", &shader_byte_code, &size_shader);
 
 	m_vs = GraphicsEngine::get()->getRenderSystem()->createVertexShader(shader_byte_code, size_shader);
 	//m_vb = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer(list, sizeof(vertex), size_list, shader_byte_code, size_shader);
 
 	GraphicsEngine::get()->getRenderSystem()->releaseCompiledShader();
 
-	GraphicsEngine::get()->getRenderSystem()->compilePixelShader(L"PixelShader.hlsl", "psmain", &shader_byte_code, &size_shader);
+	GraphicsEngine::get()->getRenderSystem()->compilePixelShader(L"PointLightPixelShader.hlsl", "psmain", &shader_byte_code, &size_shader);
 
 	m_ps = GraphicsEngine::get()->getRenderSystem()->createPixelShader(shader_byte_code, size_shader);
 
@@ -124,7 +124,7 @@ void RenderObject::update()
 	int width = (this->windowRef.right - this->windowRef.left);
 	int height = (this->windowRef.bottom - this->windowRef.top);
 
-	cc.m_proj.setPerspectiveFovLH(0.5f, ((float)width/ (float)height), 0.01f, 100.0f);
+	cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width/ (float)height), 0.1f, 100.0f);
 
 	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
 
