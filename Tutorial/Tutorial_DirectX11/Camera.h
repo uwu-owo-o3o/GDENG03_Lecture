@@ -11,7 +11,7 @@ class Camera
 
 	public:
 		void initialize();
-		void onUpdate();
+		void onUpdate(constant cc);
 
 		void moveOnKey(int key);
 		void OnKeyRelease();

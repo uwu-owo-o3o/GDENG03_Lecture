@@ -5,6 +5,7 @@
 #include "RenderObject.h"
 #include "Camera.h"
 #include "InputListener.h"
+#include "PointLight.h"
 
 class AppWindow : public Window, public InputListener
 {
@@ -41,7 +42,8 @@ class AppWindow : public Window, public InputListener
 	private:
 		Camera worldCamera;
 		RenderObject sampleObject1;
-
+		RenderObject sampleObject2;
+		PointLight pointLight;
 		//RenderObject sampleObject2;
 };
 

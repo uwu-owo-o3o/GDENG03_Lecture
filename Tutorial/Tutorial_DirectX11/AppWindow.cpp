@@ -16,14 +16,20 @@ void AppWindow::onCreate()
 
 	InputSystem::get()->addListener(this);
 
-
 	RECT rc = this->getClientWindowRect();
 	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCamera.initialize();
+	this->worldCamera.setWindowReference(this->getClientWindowRect());
+
 	this->sampleObject1.setWindowRef(this->getClientWindowRect());
 	this->sampleObject1.setConstantBufferRef(this->worldCamera.m_cb);
-	this->worldCamera.setWindowReference(this->getClientWindowRect());
+
+	this->sampleObject2.setWindowRef(this->getClientWindowRect());
+	this->sampleObject2.setConstantBufferRef(this->worldCamera.m_cb);
+
+	this->pointLight.setConstantBufferRef(this->worldCamera.m_cb);
+	this->pointLight.initialize();
 
 	this->createRenderObjects();
 }
@@ -39,10 +45,15 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
-	this->worldCamera.onUpdate();
-	this->sampleObject1.onUpdate();
+	this->pointLight.onUpdate();
+	this->worldCamera.onUpdate(this->pointLight.constantRef);
 
-	this->sampleObject1.draw();
+	this->sampleObject1.onUpdate();
+	this->sampleObject2.onUpdate();
+
+	//this->sampleObject1.draw();
+	this->sampleObject2.draw();
+
 	m_swap_chain->present(false);
 }
 
@@ -51,6 +62,7 @@ void AppWindow::onDestroy()
 	Window::onDestroy();
 
 	this->sampleObject1.onRelease();
+	this->sampleObject2.onRelease();
 
 	GraphicsEngine::get()->release();
 }
@@ -152,8 +164,39 @@ void AppWindow::createRenderObjects()
 
 	};
 
-	this->sampleObject1.createMesh(L"Assets\\Meshes\\scene.obj");
+	unsigned int index_list2[] =
+	{
+		//FRONT SIDE
+		0,1,2,
+		2,3,0,
+
+		//BACK SIDE
+		4,5,6,
+		6,7,4,
+
+		//TOP SIDE
+		8,9,10,
+		10,11,8,
+
+		//BOTTOM SIDE
+		12,13,14,
+		14,15,12,
+
+		//RIGHT SIDE
+		16,17,18,
+		18,19,16,
+
+		//LEFT SIDE
+		20,21,22,
+		22,23,20
+
+	};
+
+	this->sampleObject1.createMesh(L"Assets\\Meshes\\sphere.obj");
 	this->sampleObject1.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
+
+	this->sampleObject2.createMesh(L"Assets\\Meshes\\teapot.obj");
+	this->sampleObject2.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
 
 }
 
@@ -161,6 +204,7 @@ void AppWindow::OnKeyDown(int key)
 {
 	//this->sampleObject1.rotateOnKey(key);
 	this->worldCamera.moveOnKey(key);
+	this->pointLight.onKeyMove(key);
 }
 
 void AppWindow::OnKeyUp(int key)

@@ -67,8 +67,6 @@ void RenderObject::update()
 	m_delta_pos += m_delta_time / 10.0f;
 	if (m_delta_pos > 1.0f)
 		m_delta_pos = 0;
-
-	
 }
 
 void RenderObject::onRelease()

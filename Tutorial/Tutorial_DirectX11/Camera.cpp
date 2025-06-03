@@ -20,17 +20,9 @@ void Camera::initialize()
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
-void Camera::onUpdate()
+void Camera::onUpdate(constant cc)
 {
-	constant cc;
 	Matrix4x4 temp;
-	Matrix4x4 m_light_rot_matrix;
-
-	m_light_rot_matrix.setIdentity();
-	m_light_rot_matrix.setRotationY(0.0f);
-
-	cc.m_light_direction = m_light_rot_matrix.getZDirection();
-
 
 	cc.m_world.setScale(Vector3D(1, 1, 1));
 
@@ -115,5 +107,5 @@ void Camera::OnKeyRelease()
 
 void Camera::setWindowReference(RECT og_window) {
 	this->windowRef = og_window;
-
 }
+
