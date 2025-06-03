@@ -107,6 +107,12 @@ void Camera::moveOnKey(int key)
 
 }
 
+void Camera::OnKeyRelease()
+{
+	this->m_forward = 0.0f;
+	this->m_rightward = 0.0f;
+}
+
 void Camera::setWindowReference(RECT og_window) {
 	this->windowRef = og_window;
 

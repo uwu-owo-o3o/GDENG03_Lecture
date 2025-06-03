@@ -13,9 +13,6 @@ RenderObject::~RenderObject()
 
 void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list) {
 
-	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\sand.jpg");
-	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(L"Assets\\Meshes\\scene.obj");
-
 	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
 		
 	void* shader_byte_code = nullptr;
@@ -40,6 +37,14 @@ void RenderObject::onUpdate()
 {
 	this->update();
 
+	this->m_old_time = this->m_new_time;
+	this->m_new_time = ::GetTickCount64();
+
+	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
+}
+
+void RenderObject::draw() {
+
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_vs, cb_reference);
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_ps, cb_reference);
 
@@ -54,10 +59,6 @@ void RenderObject::onUpdate()
 
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->drawIndexedTriangleList(m_mesh->getIndexBuffer()->getSizeIndexList(), m_mesh->getVertexBuffer()->getSizeVertexList(), 0, 0);
 
-	this->m_old_time = this->m_new_time;
-	this->m_new_time = ::GetTickCount64();
-
-	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
 }
 
 void RenderObject::update()
@@ -104,8 +105,8 @@ void RenderObject::rotateOnKey(int key)
 }
 
 void RenderObject::OnKeyRelease() {
-	m_forward = 0.0f;
-	m_rightward = 0.0f;
+	//m_forward = 0.0f;
+	//m_rightward = 0.0f;
 }
 
 void RenderObject::rotateOnMove(const Point& delta_mouse_pos)
@@ -141,7 +142,13 @@ void RenderObject::setWindowRef(RECT window)
 	this->windowRef = window;
 }
 
-void RenderObject::setConstantBuffer(ConstantBufferPtr cb)
+void RenderObject::setConstantBufferRef(ConstantBufferPtr cb)
 {
 	this->cb_reference = cb;
+}
+
+void RenderObject::createMesh(const wchar_t* filepath)
+{
+	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\sand.jpg");
+	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(filepath);
 }

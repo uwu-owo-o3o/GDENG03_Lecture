@@ -21,6 +21,7 @@ class RenderObject
 		void initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list);
 		void onUpdate();
 		void update();
+		void draw();
 		void onRelease();
 
 	public:
@@ -32,7 +33,9 @@ class RenderObject
 
 	public:
 		void setWindowRef(RECT window);
-		void setConstantBuffer(ConstantBufferPtr cb);
+		void setConstantBufferRef(ConstantBufferPtr cb);
+		void createMesh(const wchar_t* filepath);
+
 	public:
 		//unsigned long m_old_time = 0;
 		float m_old_time = 0;

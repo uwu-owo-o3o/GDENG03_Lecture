@@ -14,9 +14,11 @@ class Camera
 		void onUpdate();
 
 		void moveOnKey(int key);
+		void OnKeyRelease();
+
 		void setWindowReference(RECT window);
 
-	private:
+	public:
 		ConstantBufferPtr m_cb;
 		RECT windowRef;
 

@@ -22,6 +22,7 @@ void AppWindow::onCreate()
 
 	this->worldCamera.initialize();
 	this->sampleObject1.setWindowRef(this->getClientWindowRect());
+	this->sampleObject1.setConstantBufferRef(this->worldCamera.m_cb);
 	this->worldCamera.setWindowReference(this->getClientWindowRect());
 
 	this->createRenderObjects();
@@ -41,6 +42,7 @@ void AppWindow::onUpdate()
 	this->worldCamera.onUpdate();
 	this->sampleObject1.onUpdate();
 
+	this->sampleObject1.draw();
 	m_swap_chain->present(false);
 }
 
@@ -48,7 +50,7 @@ void AppWindow::onDestroy()
 {
 	Window::onDestroy();
 
-	//this->sampleObject1.onRelease();/*
+	this->sampleObject1.onRelease();
 
 	GraphicsEngine::get()->release();
 }
@@ -150,6 +152,7 @@ void AppWindow::createRenderObjects()
 
 	};
 
+	this->sampleObject1.createMesh(L"Assets\\Meshes\\scene.obj");
 	this->sampleObject1.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
 
 }
@@ -157,10 +160,12 @@ void AppWindow::createRenderObjects()
 void AppWindow::OnKeyDown(int key)
 {
 	//this->sampleObject1.rotateOnKey(key);
+	this->worldCamera.moveOnKey(key);
 }
 
 void AppWindow::OnKeyUp(int key)
-{
+{	
+	this->worldCamera.OnKeyRelease();
 	//this->sampleObject1.OnKeyRelease();
 }
 
