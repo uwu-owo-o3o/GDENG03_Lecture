@@ -47,7 +47,6 @@ float4 psmain(PS_INPUT input) : SV_TARGET
     
     float attenuation = constant_func + linear_func * fade_area + quadratic_func * fade_area * fade_area;
     
-    
     float3 id = float3(1.0f, 1.0f, 1.0f);
     
     float amount_diffuse_light = max(0.0, dot(light_dir.xyz, input.normal));

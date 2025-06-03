@@ -32,7 +32,7 @@ class RenderObject
 
 	public:
 		void setWindowRef(RECT window);
-
+		void setConstantBuffer(ConstantBufferPtr cb);
 	public:
 		//unsigned long m_old_time = 0;
 		float m_old_time = 0;
@@ -54,8 +54,8 @@ class RenderObject
 		RECT windowRef;
 
 	private:
-		VertexBufferPtr m_vb;		
-		ConstantBufferPtr m_cb;
+		VertexBufferPtr m_vb;	
+		ConstantBufferPtr cb_reference;
 		IndexBufferPtr m_ib;
 
 		VertexShaderPtr m_vs;
@@ -65,7 +65,6 @@ class RenderObject
 		MeshPtr m_mesh;
 
 	private:
-		Matrix4x4 m_world_cam;
 		float m_forward = 0.0f;
 		float m_rightward = 0.0f;	
 };

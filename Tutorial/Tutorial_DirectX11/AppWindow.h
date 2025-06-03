@@ -3,7 +3,7 @@
 #include "GraphicsEngine.h"
 #include "SwapChain.h"
 #include "RenderObject.h"
-
+#include "Camera.h"
 #include "InputListener.h"
 
 class AppWindow : public Window, public InputListener
@@ -37,9 +37,12 @@ class AppWindow : public Window, public InputListener
 
 	private:
 		SwapChainPtr m_swap_chain;
+
+	private:
+		Camera worldCamera;
 		RenderObject sampleObject1;
+
 		//RenderObject sampleObject2;
-		//RenderObject sampleObject3;
 };
 
 //TRIANGLE

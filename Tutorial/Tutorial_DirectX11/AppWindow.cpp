@@ -20,7 +20,9 @@ void AppWindow::onCreate()
 	RECT rc = this->getClientWindowRect();
 	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
 
+	this->worldCamera.initialize();
 	this->sampleObject1.setWindowRef(this->getClientWindowRect());
+	this->worldCamera.setWindowReference(this->getClientWindowRect());
 
 	this->createRenderObjects();
 }
@@ -36,6 +38,7 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
+	this->worldCamera.onUpdate();
 	this->sampleObject1.onUpdate();
 
 	m_swap_chain->present(false);
@@ -153,12 +156,12 @@ void AppWindow::createRenderObjects()
 
 void AppWindow::OnKeyDown(int key)
 {
-	this->sampleObject1.rotateOnKey(key);
+	//this->sampleObject1.rotateOnKey(key);
 }
 
 void AppWindow::OnKeyUp(int key)
 {
-	this->sampleObject1.OnKeyRelease();
+	//this->sampleObject1.OnKeyRelease();
 }
 
 void AppWindow::OnMouseMove(const Point& deltaMousePos)
