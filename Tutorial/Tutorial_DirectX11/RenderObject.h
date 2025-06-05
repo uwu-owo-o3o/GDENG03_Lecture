@@ -18,7 +18,7 @@ class RenderObject
 		~RenderObject();
 
 	public:
-		void initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list);
+		void initialize();
 		void onUpdate();
 		void update();
 		void draw();

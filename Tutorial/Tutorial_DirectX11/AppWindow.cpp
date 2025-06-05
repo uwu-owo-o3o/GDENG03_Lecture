@@ -193,10 +193,10 @@ void AppWindow::createRenderObjects()
 	};
 
 	this->sampleObject1.createMesh(L"Assets\\Meshes\\sphere.obj");
-	this->sampleObject1.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
+	this->sampleObject1.initialize();
 
 	this->sampleObject2.createMesh(L"Assets\\Meshes\\teapot.obj");
-	this->sampleObject2.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
+	this->sampleObject2.initialize();
 
 }
 

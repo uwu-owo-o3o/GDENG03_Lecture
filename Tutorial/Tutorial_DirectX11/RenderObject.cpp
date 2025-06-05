@@ -11,9 +11,9 @@ RenderObject::~RenderObject()
 {
 }
 
-void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list) {
+void RenderObject::initialize() {
 
-	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
+	//m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
 		
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
