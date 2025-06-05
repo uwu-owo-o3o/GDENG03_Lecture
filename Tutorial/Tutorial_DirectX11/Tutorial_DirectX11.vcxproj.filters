@@ -70,6 +70,9 @@
     <Filter Include="GameEngine\GraphicsEngine\Camera">
       <UniqueIdentifier>{470df537-9e8e-4878-9665-17638f387d4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\PointLight">
+      <UniqueIdentifier>{c4f4c5ef-6291-40af-b2d9-a2a01aad548f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -134,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>GameEngine\GraphicsEngine\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>GameEngine\PointLight</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +229,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>GameEngine\GraphicsEngine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
+      <Filter>GameEngine\PointLight</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

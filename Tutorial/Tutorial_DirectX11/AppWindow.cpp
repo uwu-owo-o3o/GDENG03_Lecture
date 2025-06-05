@@ -28,9 +28,6 @@ void AppWindow::onCreate()
 	this->sampleObject2.setWindowRef(this->getClientWindowRect());
 	this->sampleObject2.setConstantBufferRef(this->worldCamera.m_cb);
 
-	this->pointLight.setConstantBufferRef(this->worldCamera.m_cb);
-	this->pointLight.initialize();
-
 	this->createRenderObjects();
 }
 
@@ -45,14 +42,13 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
-	this->pointLight.onUpdate();
-	this->worldCamera.onUpdate(this->pointLight.constantRef);
+	this->worldCamera.onUpdate();
 
 	this->sampleObject1.onUpdate();
-	this->sampleObject2.onUpdate();
+	//this->sampleObject2.onUpdate();
 
-	//this->sampleObject1.draw();
-	this->sampleObject2.draw();
+	this->sampleObject1.draw();
+	//this->sampleObject2.draw();
 
 	m_swap_chain->present(false);
 }
@@ -195,7 +191,7 @@ void AppWindow::createRenderObjects()
 	this->sampleObject1.createMesh(L"Assets\\Meshes\\sphere.obj");
 	this->sampleObject1.initialize();
 
-	this->sampleObject2.createMesh(L"Assets\\Meshes\\teapot.obj");
+	this->sampleObject2.createMesh(L"Assets\\Meshes\\sphere.obj");
 	this->sampleObject2.initialize();
 
 }
@@ -204,7 +200,6 @@ void AppWindow::OnKeyDown(int key)
 {
 	//this->sampleObject1.rotateOnKey(key);
 	this->worldCamera.moveOnKey(key);
-	this->pointLight.onKeyMove(key);
 }
 
 void AppWindow::OnKeyUp(int key)

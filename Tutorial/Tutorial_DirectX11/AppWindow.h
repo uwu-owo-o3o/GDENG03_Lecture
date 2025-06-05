@@ -43,11 +43,5 @@ class AppWindow : public Window, public InputListener
 		Camera worldCamera;
 		RenderObject sampleObject1;
 		RenderObject sampleObject2;
-		PointLight pointLight;
-		//RenderObject sampleObject2;
+		
 };
-
-//TRIANGLE
-//{ -0.5f, -0.5f, 0.0f, 1, 0, 0 },
-//{ 0.0f, 0.5f, 0.0f, 0, 1, 0 },
-//{ 0.5f, -0.5f, 0.0f, 0, 0 , 1 }
