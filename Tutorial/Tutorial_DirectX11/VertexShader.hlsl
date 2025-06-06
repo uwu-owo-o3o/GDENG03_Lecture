@@ -19,8 +19,11 @@ cbuffer constant : register(b0)
     row_major float4x4 m_world;
     row_major float4x4 m_view;
     row_major float4x4 m_proj;
-    float4 m_light_direction;
+    
     float4 m_cam_pos;
+    
+    float4 startColor;
+    float4 endColor;
     
 }
 
@@ -30,7 +33,7 @@ VS_OUTPUT vsmain(VS_INPUT input)
     
     output.position = mul(input.position, m_world); // WORLD SPACE
     
-    output.dir_to_cam = normalize(output.position.xyz - m_cam_pos.xyz);
+    //output.dir_to_cam = normalize(output.position.xyz - m_cam_pos.xyz);
     
     output.position = mul(output.position, m_view); // VIEW SPACE
     

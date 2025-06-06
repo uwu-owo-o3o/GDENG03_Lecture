@@ -19,8 +19,7 @@ class RenderObject
 
 	public:
 		void initialize();
-		void onUpdate();
-		void update();
+		virtual void onUpdate();
 		void draw();
 		void onRelease();
 

@@ -22,13 +22,11 @@ void AppWindow::onCreate()
 	this->worldCamera.initialize();
 	this->worldCamera.setWindowReference(this->getClientWindowRect());
 
-	this->sampleObject1.setWindowRef(this->getClientWindowRect());
-	this->sampleObject1.setConstantBufferRef(this->worldCamera.m_cb);
+	this->particle_sys.setConstantRef(&this->worldCamera.cc);
+	this->particle_sys.setConstantBufferPtr(this->worldCamera.m_cb);
 
-	this->sampleObject2.setWindowRef(this->getClientWindowRect());
-	this->sampleObject2.setConstantBufferRef(this->worldCamera.m_cb);
-
-	this->createRenderObjects();
+	this->particle_sys.SpawnParticles();
+	//this->createRenderObjects();
 }
 
 void AppWindow::onUpdate()
@@ -43,12 +41,9 @@ void AppWindow::onUpdate()
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCamera.onUpdate();
+	this->particle_sys.updateParticles();
 
-	this->sampleObject1.onUpdate();
-	//this->sampleObject2.onUpdate();
-
-	this->sampleObject1.draw();
-	//this->sampleObject2.draw();
+	this->particle_sys.drawParticles();
 
 	m_swap_chain->present(false);
 }
@@ -57,8 +52,6 @@ void AppWindow::onDestroy()
 {
 	Window::onDestroy();
 
-	this->sampleObject1.onRelease();
-	this->sampleObject2.onRelease();
 
 	GraphicsEngine::get()->release();
 }
@@ -76,159 +69,40 @@ void AppWindow::onKillFocus()
 void AppWindow::createRenderObjects()
 {
 
-	Vector3D poslist1[] =
-	{
-		//FRONT FACE
-		{Vector3D(-0.5f, -0.5f, -0.5f)}, 
-		{Vector3D(-0.5f, 0.5f, -0.5f)}, 
-		{Vector3D(0.5f, 0.5f, -0.5f)}, 
-		{Vector3D(0.5f, -0.5f, -0.5f)},
-
-		//BACK FACE
-		{Vector3D(0.5f, -0.5f, 0.5f)},
-		{Vector3D(0.5f, 0.5f, 0.5f)},
-		{Vector3D(-0.5f, 0.5f, 0.5f)},
-		{Vector3D(-0.5f, -0.5f, 0.5f)},
-	};
-
-	Vector2D texcoordlist1[] =
-	{
-		{Vector2D(0.0f, 0.0f)},
-		{Vector2D(0.0f, 1.0f)},
-		{Vector2D(1.0f, 0.0f)},
-		{Vector2D(1.0f, 1.0f)}
-	};
-
-	vertex list1[] =
-	{
-		{poslist1[0], texcoordlist1[1]},
-		{poslist1[1], texcoordlist1[0]},
-		{poslist1[2], texcoordlist1[2]},
-		{poslist1[3], texcoordlist1[3]},
-
-		{poslist1[4], texcoordlist1[1]},
-		{poslist1[5], texcoordlist1[0]},
-		{poslist1[6], texcoordlist1[2]},
-		{poslist1[7], texcoordlist1[3]},
-
-		{poslist1[1], texcoordlist1[1]},
-		{poslist1[6], texcoordlist1[0]},
-		{poslist1[5], texcoordlist1[2]},
-		{poslist1[2], texcoordlist1[3]},
-
-		{poslist1[7], texcoordlist1[1]},
-		{poslist1[0], texcoordlist1[0]},
-		{poslist1[3], texcoordlist1[2]},
-		{poslist1[4], texcoordlist1[3]},
-
-		{poslist1[3], texcoordlist1[1]},
-		{poslist1[2], texcoordlist1[0]},
-		{poslist1[5], texcoordlist1[2]},
-		{poslist1[4], texcoordlist1[3]},
-
-		{poslist1[7], texcoordlist1[1]},
-		{poslist1[6], texcoordlist1[0]},
-		{poslist1[1], texcoordlist1[2]},
-		{poslist1[0], texcoordlist1[3]},
-	};
-
-	unsigned int index_list1[] =
-	{
-		//FRONT SIDE
-		0,1,2,
-		2,3,0,
-
-		//BACK SIDE
-		4,5,6,
-		6,7,4,
-
-		//TOP SIDE
-		8,9,10,
-		10,11,8,
-
-		//BOTTOM SIDE
-		12,13,14,
-		14,15,12,
-
-		//RIGHT SIDE
-		16,17,18,
-		18,19,16,
-
-		//LEFT SIDE
-		20,21,22,
-		22,23,20
-
-	};
-
-	unsigned int index_list2[] =
-	{
-		//FRONT SIDE
-		0,1,2,
-		2,3,0,
-
-		//BACK SIDE
-		4,5,6,
-		6,7,4,
-
-		//TOP SIDE
-		8,9,10,
-		10,11,8,
-
-		//BOTTOM SIDE
-		12,13,14,
-		14,15,12,
-
-		//RIGHT SIDE
-		16,17,18,
-		18,19,16,
-
-		//LEFT SIDE
-		20,21,22,
-		22,23,20
-
-	};
-
-	this->sampleObject1.createMesh(L"Assets\\Meshes\\sphere.obj");
+	/*this->sampleObject1.createMesh(L"Assets\\Meshes\\sphere.obj");
 	this->sampleObject1.initialize();
 
 	this->sampleObject2.createMesh(L"Assets\\Meshes\\sphere.obj");
-	this->sampleObject2.initialize();
+	this->sampleObject2.initialize();*/
 
 }
 
 void AppWindow::OnKeyDown(int key)
 {
-	//this->sampleObject1.rotateOnKey(key);
 	this->worldCamera.moveOnKey(key);
 }
 
 void AppWindow::OnKeyUp(int key)
 {	
 	this->worldCamera.OnKeyRelease();
-	//this->sampleObject1.OnKeyRelease();
 }
 
 void AppWindow::OnMouseMove(const Point& deltaMousePos)
 {
-	//this->sampleObject1.rotateOnMove(deltaMousePos);
 }
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
-	//this->sampleObject1.scaleOnClick('L');
 }
 
 void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
 {
-	//this->sampleObject1.scaleOnRelease('L');
 }
 
 void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
-	//this->sampleObject1.scaleOnClick('R');
 }
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
 {
-	//this->sampleObject1.scaleOnRelease('R');
 }

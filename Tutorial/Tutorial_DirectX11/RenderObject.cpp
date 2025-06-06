@@ -35,7 +35,9 @@ void RenderObject::initialize() {
 
 void RenderObject::onUpdate()
 {
-	this->update();
+	m_delta_pos += m_delta_time / 10.0f;
+	if (m_delta_pos > 1.0f)
+		m_delta_pos = 0;
 
 	this->m_old_time = this->m_new_time;
 	this->m_new_time = ::GetTickCount64();
@@ -59,14 +61,6 @@ void RenderObject::draw() {
 
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->drawIndexedTriangleList(m_mesh->getIndexBuffer()->getSizeIndexList(), m_mesh->getVertexBuffer()->getSizeVertexList(), 0, 0);
 
-}
-
-void RenderObject::update()
-{
-	constant cc;
-	m_delta_pos += m_delta_time / 10.0f;
-	if (m_delta_pos > 1.0f)
-		m_delta_pos = 0;
 }
 
 void RenderObject::onRelease()
@@ -109,30 +103,30 @@ void RenderObject::OnKeyRelease() {
 
 void RenderObject::rotateOnMove(const Point& delta_mouse_pos)
 {
-	m_rot_x -= delta_mouse_pos.m_y * m_delta_time;
-	m_rot_y -= delta_mouse_pos.m_x * m_delta_time;
+	//m_rot_x -= delta_mouse_pos.m_y * m_delta_time;
+	//m_rot_y -= delta_mouse_pos.m_x * m_delta_time;
 }
 
 void RenderObject::scaleOnClick(char c)
 {
-	switch (c) {
+	/*switch (c) {
 		case 'L':
 			m_scale_object = 0.5f;
 			break;
 		case 'R':
 			m_scale_object = 2.0f;
 			break;
-	}
+	}*/
 }
 
 void RenderObject::scaleOnRelease(char c)
 {
-	switch (c) {
+	/*switch (c) {
 		case 'L':
 		case 'R':
 			m_scale_object = 1.0f;
 			break;
-	}
+	}*/
 }
 
 void RenderObject::setWindowRef(RECT window)

@@ -20,9 +20,8 @@ struct constant
 	Matrix4x4 m_view;
 	Matrix4x4 m_proj;
 
-	Vector4D m_light_direction;
 	Vector4D m_cam_pos;
 
-	Vector4D m_light_position;
-	float m_light_radius = 2.0f;
+	Vector3D startColor;
+	Vector3D endColor;
 };

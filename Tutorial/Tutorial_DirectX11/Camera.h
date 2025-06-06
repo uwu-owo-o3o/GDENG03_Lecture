@@ -22,6 +22,9 @@ class Camera
 		ConstantBufferPtr m_cb;
 		RECT windowRef;
 
+	public:
+		constant cc;
+
 	private:
 		Matrix4x4 m_world_cam;
 

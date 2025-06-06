@@ -19,8 +19,8 @@ void PointLight::initialize()
 
 void PointLight::onUpdate()
 {
-	constantRef.m_light_position = lightPos;
-	constantRef.m_light_direction = m_light_rot_matrix.getZDirection();
+	//constantRef.m_light_position = lightPos;
+	//constantRef.m_light_direction = m_light_rot_matrix.getZDirection();
 }
 
 void PointLight::onKeyMove(int key)

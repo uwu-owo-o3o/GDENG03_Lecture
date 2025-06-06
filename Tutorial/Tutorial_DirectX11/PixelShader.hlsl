@@ -16,14 +16,19 @@ cbuffer constant : register(b0)
     row_major float4x4 m_world;
     row_major float4x4 m_view;
     row_major float4x4 m_proj;
-    float4 m_light_direction;
+   
+    float4 m_cam_pos;
+    
+    float3 startColor;
+    float3 endColor;
 }
 
 float4 psmain(PS_INPUT input) : SV_TARGET
 {
     
-    float4 objTexture = Texture.Sample(TextureSampler, input.texcoord * 1.0f);
-    float4 tintColor = float4(1, 0, 0, 0);
-    return objTexture * tintColor;
+    float4 objTexture = Texture.Sample(TextureSampler, input.texcoord * 0.5f);
+    float4 tintColor = float4(startColor, 1.0);
+    
+    return tintColor * objTexture;
 
 }

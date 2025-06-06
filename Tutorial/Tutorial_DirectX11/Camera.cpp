@@ -1,6 +1,7 @@
 #include "Camera.h"
 #include "GraphicsEngine.h"
 #include "ConstantBuffer.h"
+#include <iostream>
 
 Camera::Camera()
 {
@@ -14,17 +15,12 @@ Camera::~Camera()
 void Camera::initialize()
 {
 	m_world_cam.setTranslation(Vector3D(0, 1, -2));
-
-	constant cc;
-
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
 void Camera::onUpdate()
 {
-	constant cc;
 	Matrix4x4 temp;
-
 	cc.m_world.setScale(Vector3D(1, 1, 1));
 
 	cc.m_world.setIdentity();
