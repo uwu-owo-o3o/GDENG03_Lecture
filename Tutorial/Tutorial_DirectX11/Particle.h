@@ -13,5 +13,7 @@ class Particle : public RenderObject
 
 	public:
 		constant* ccRef;
+		Vector4D obj_scale;
+		Vector4D obj_pos;
 };
 

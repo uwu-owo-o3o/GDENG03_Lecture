@@ -23,5 +23,12 @@ struct constant
 	Vector4D m_cam_pos;
 
 	Vector3D startColor;
+	float padding1;
+
 	Vector3D endColor;
+	float padding2;
+
+	Vector4D m_obj_pos;
+	Vector4D m_obj_scale;
+
 };

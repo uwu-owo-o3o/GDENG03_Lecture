@@ -14,7 +14,7 @@ Camera::~Camera()
 
 void Camera::initialize()
 {
-	m_world_cam.setTranslation(Vector3D(0, 1, -2));
+	m_world_cam.setTranslation(Vector3D(0, 1, -5));
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 

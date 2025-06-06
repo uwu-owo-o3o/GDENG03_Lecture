@@ -22,8 +22,11 @@ cbuffer constant : register(b0)
     
     float4 m_cam_pos;
     
-    float4 startColor;
-    float4 endColor;
+    float3 startColor;
+    float3 endColor;
+    
+    float4 m_obj_pos;
+    float4 m_obj_scale;
     
 }
 
@@ -31,9 +34,10 @@ VS_OUTPUT vsmain(VS_INPUT input)
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
     
-    output.position = mul(input.position, m_world); // WORLD SPACE
+    float3 obj_scale = input.position.xyz * m_obj_scale.xyz;
+    float4 obj_transform = float4(obj_scale + m_obj_pos.xyz, 1.0f);
     
-    //output.dir_to_cam = normalize(output.position.xyz - m_cam_pos.xyz);
+    output.position = mul(obj_transform, m_world); // WORLD SPACE
     
     output.position = mul(output.position, m_view); // VIEW SPACE
     

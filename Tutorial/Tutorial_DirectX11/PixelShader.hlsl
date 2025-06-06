@@ -21,6 +21,9 @@ cbuffer constant : register(b0)
     
     float3 startColor;
     float3 endColor;
+    
+    float4 m_obj_pos;
+    float4 m_obj_scale;
 }
 
 float4 psmain(PS_INPUT input) : SV_TARGET
