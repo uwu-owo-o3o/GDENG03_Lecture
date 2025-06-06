@@ -34,7 +34,7 @@ void RenderObject::initialize() {
 }
 
 void RenderObject::onUpdate()
-{
+{/*
 	m_delta_pos += m_delta_time / 10.0f;
 	if (m_delta_pos > 1.0f)
 		m_delta_pos = 0;
@@ -42,7 +42,7 @@ void RenderObject::onUpdate()
 	this->m_old_time = this->m_new_time;
 	this->m_new_time = ::GetTickCount64();
 
-	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
+	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;*/
 }
 
 void RenderObject::draw() {

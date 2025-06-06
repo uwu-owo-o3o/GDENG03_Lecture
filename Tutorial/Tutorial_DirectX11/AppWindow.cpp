@@ -40,8 +40,8 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
-	this->worldCamera.onUpdate();
 	this->particle_sys.updateParticles();
+	this->worldCamera.onUpdate();
 
 	this->particle_sys.drawParticles();
 
