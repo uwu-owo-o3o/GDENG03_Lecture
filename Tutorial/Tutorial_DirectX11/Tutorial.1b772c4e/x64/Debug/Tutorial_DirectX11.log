@@ -1,8 +1,9 @@
-﻿  AppWindow.cpp
+﻿  Particle.cpp
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(166,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(167,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Particle.cpp(83,65): warning C4305: 'argument': truncation from 'double' to 'float'
   ParticleSystem.cpp
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Vector3D.h(52,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(41,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -23,10 +24,5 @@ C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tut
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\ParticleSystem.cpp(5,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  main.cpp
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(166,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(167,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe

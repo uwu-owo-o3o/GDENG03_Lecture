@@ -6,9 +6,12 @@
 #include <tiny_obj_loader.h>
 #include <filesystem>
 #include <exception>
+#include "iostream"
 
 Mesh::Mesh(const wchar_t* full_path) : Resource(full_path)
 {
+	std::cout << "attempt to make mesh" << std::endl;
+
 	tinyobj::attrib_t attribs;
 	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> materials;
@@ -20,17 +23,22 @@ Mesh::Mesh(const wchar_t* full_path) : Resource(full_path)
 	std::string utf8Path = path.u8string();
 
 	bool res = tinyobj::LoadObj(&attribs, &shapes, &materials, &warn, &err, utf8Path.c_str());
+	std::cout << "Load success!" << std::endl;
 
 	if (!err.empty() || !res) {
+		std::cout << "Mesh Error message not empty! " << err << std::endl;
 		throw std::exception("Mesh not created successfully.");
 	}
 
 	if (shapes.size() > 1) {
+		std::cout << "shapes size is greater than 1!" << err << std::endl;
 		throw std::exception("Mesh not created successfully.");
 	}
 
 	std::vector<VertexMesh> list_vertices;
 	std::vector<unsigned int> list_indices;
+
+	std::cout << "attempt to loop shapes" << std::endl;
 
 	for (size_t s = 0; s < shapes.size(); s++) {
 
@@ -72,13 +80,19 @@ Mesh::Mesh(const wchar_t* full_path) : Resource(full_path)
 
 	GraphicsEngine::get()->getVertexMeshLayoutShaderByteCodeAndSize(&shader_byte_code, &size_shader);
 
+	std::cout << "list_indices: " << list_indices.size() << std::endl;
+
 	m_vertex_buffer = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer(&list_vertices[0], sizeof(VertexMesh), (UINT)list_vertices.size(), shader_byte_code, (UINT)size_shader);
 
-	if (!m_vertex_buffer) {
+	if (m_vertex_buffer == nullptr) {
 		std::cout << "Mesh vertex buffer is empty" << std::endl;
 	}
 
 	m_index_buffer = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(&list_indices[0], (UINT)list_indices.size());
+
+	if (m_index_buffer == nullptr) {
+		std::cout << "Mesh index buffer is empty" << std::endl;
+	}
 }
 
 Mesh::~Mesh()

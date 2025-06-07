@@ -57,7 +57,7 @@ class RenderObject
 
 	protected:
 		VertexBufferPtr m_vb;	
-		ConstantBufferPtr cb_reference;
+		ConstantBufferPtr m_cb;
 		IndexBufferPtr m_ib;
 
 		VertexShaderPtr m_vs;

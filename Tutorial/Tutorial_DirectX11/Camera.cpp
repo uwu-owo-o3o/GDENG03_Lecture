@@ -15,7 +15,6 @@ Camera::~Camera()
 void Camera::initialize()
 {
 	m_world_cam.setTranslation(Vector3D(0, 1, -5));
-	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
 void Camera::onUpdate()
@@ -60,9 +59,6 @@ void Camera::onUpdate()
 	int height = (this->windowRef.bottom - this->windowRef.top);
 
 	cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width / (float)height), 0.1f, 100.0f);
-
-	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
-
 
 }
 

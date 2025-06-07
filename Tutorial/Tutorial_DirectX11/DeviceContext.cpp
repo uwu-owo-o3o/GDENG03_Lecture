@@ -7,6 +7,7 @@
 #include "PixelShader.h"
 #include "Texture.h"
 #include <exception>
+#include "iostream"
 
 DeviceContext::DeviceContext(ID3D11DeviceContext* device_context, RenderSystem* m_system) : m_device_context(device_context), m_system(m_system)
 {
@@ -21,7 +22,11 @@ void DeviceContext::clearRenderTargetColor(const SwapChainPtr& swap_chain, float
 }
 
 void DeviceContext::setVertexBuffer(const VertexBufferPtr& vertexBuffer)
-{
+{	
+	if (!vertexBuffer) {
+		std::cout << "vertexBuffer is null" << std::endl;
+	}
+
 	UINT stride = vertexBuffer->m_size_vertex;
 	UINT offset = 0;
 

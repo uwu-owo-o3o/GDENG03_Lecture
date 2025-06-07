@@ -47,8 +47,8 @@ void RenderObject::onUpdate()
 
 void RenderObject::draw() {
 
-	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_vs, cb_reference);
-	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_ps, cb_reference);
+	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_vs, m_cb);
+	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_ps, m_cb);
 
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setVertexShader(m_vs);
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setPixelShader(m_ps);
@@ -136,7 +136,7 @@ void RenderObject::setWindowRef(RECT window)
 
 void RenderObject::setConstantBufferRef(ConstantBufferPtr cb)
 {
-	this->cb_reference = cb;
+	this->m_cb = cb;
 }
 
 void RenderObject::createMesh(const wchar_t* filepath)

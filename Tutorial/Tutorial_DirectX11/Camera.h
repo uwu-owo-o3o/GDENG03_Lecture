@@ -19,7 +19,6 @@ class Camera
 		void setWindowReference(RECT window);
 
 	public:
-		ConstantBufferPtr m_cb;
 		RECT windowRef;
 
 	public:

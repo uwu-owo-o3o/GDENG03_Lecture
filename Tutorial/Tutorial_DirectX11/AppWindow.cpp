@@ -23,7 +23,7 @@ void AppWindow::onCreate()
 	this->worldCamera.setWindowReference(this->getClientWindowRect());
 
 	this->particle_sys.setConstantRef(&this->worldCamera.cc);
-	this->particle_sys.setConstantBufferPtr(this->worldCamera.m_cb);
+	//this->particle_sys.setConstantBufferPtr(this->worldCamera.m_cb);
 
 	this->particle_sys.spawnParticles();
 	//this->createRenderObjects();
@@ -40,9 +40,9 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
-	this->particle_sys.updateParticles();
 	this->worldCamera.onUpdate();
-
+	this->particle_sys.updateParticles();
+	
 	this->particle_sys.drawParticles();
 
 	m_swap_chain->present(false);

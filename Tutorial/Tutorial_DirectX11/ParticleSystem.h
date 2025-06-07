@@ -16,7 +16,6 @@ class ParticleSystem
 		Vector3D getTargetPos(float angle);
 
 		void setConstantRef(constant* ccRef);
-		void setConstantBufferPtr(ConstantBufferPtr cb_reference);
 
 		void updateParticles();
 		void drawParticles();
@@ -34,8 +33,7 @@ class ParticleSystem
 		float coneHeight = 5.0f;
 
 	protected:
-		constant* ccRef;
-		ConstantBufferPtr cb_reference;
+		constant* camRef;
 
 		
 

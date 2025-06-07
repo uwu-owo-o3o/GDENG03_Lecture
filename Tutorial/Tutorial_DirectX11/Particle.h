@@ -6,7 +6,7 @@
 class Particle : public RenderObject
 {
 	public:
-		Particle(constant* ref, ConstantBufferPtr cb_reference);
+		Particle(constant* ref);
 		~Particle();
 
 	public:
@@ -18,7 +18,8 @@ class Particle : public RenderObject
 		void addGravity();
 
 	public:
-		constant* ccRef;
+		constant cc;
+		constant* camCC;
 		Vector4D obj_scale;
 		Vector4D obj_pos;
 

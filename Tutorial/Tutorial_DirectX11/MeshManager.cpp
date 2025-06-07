@@ -1,6 +1,6 @@
 #include "MeshManager.h"
 #include "Mesh.h"
-
+#include "iostream"
 MeshManager::MeshManager()
 {
 }
@@ -20,7 +20,10 @@ Resource* MeshManager::createResourceFromFileConcrete(const wchar_t* file_path)
 	try {
 		mesh = new Mesh(file_path);
 	}
-	catch (...) {}
+	catch (...) {
+		std::cout << "MESH MANAGER: mesh creation failed" << std::endl;
+	
+	}
 
 	return mesh;
 }

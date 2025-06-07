@@ -12,7 +12,7 @@ ParticleSystem::~ParticleSystem()
 void ParticleSystem::spawnParticles()
 {
 	//for (int i = 0; i < this->maxSpawned; i++) {
-		Particle* newParticle = new Particle(ccRef, this->cb_reference);
+		Particle* newParticle = new Particle(camRef);
 		//std::cout << "Particle # " << i << std::endl;
 		
 		float spawn_angle = this->getRandNum(0.0f, 2.0f * 3.14f);
@@ -26,7 +26,7 @@ void ParticleSystem::spawnParticles()
 		this->spawnedParticles.push_back(newParticle);
 	//}
 
-		Particle* newParticle1 = new Particle(ccRef, this->cb_reference);
+		Particle* newParticle1 = new Particle(camRef);
 		//std::cout << "Particle # " << i << std::endl;
 		newParticle1->startColor = Vector3D(1.0f, 0.0f, 0.0f);
 
@@ -69,12 +69,7 @@ Vector3D ParticleSystem::getTargetPos(float angle)
 
 void ParticleSystem::setConstantRef(constant* ccRef)
 {
-	this->ccRef = ccRef;
-}
-
-void ParticleSystem::setConstantBufferPtr(ConstantBufferPtr cb_reference)
-{
-	this->cb_reference = cb_reference;
+	this->camRef = ccRef;
 }
 
 void ParticleSystem::updateParticles()
@@ -87,7 +82,7 @@ void ParticleSystem::updateParticles()
 void ParticleSystem::drawParticles()
 {
 	for (int i = 0; i < this->maxSpawned; i++) {
-		this->spawnedParticles[0]->draw();
+		this->spawnedParticles[i]->draw();
 	}
 }
 
