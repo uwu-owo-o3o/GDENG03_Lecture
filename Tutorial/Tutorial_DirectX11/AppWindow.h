@@ -3,7 +3,7 @@
 #include "GraphicsEngine.h"
 #include "SwapChain.h"
 #include "RenderObject.h"
-
+#include "vector"
 
 class AppWindow : public Window
 {
@@ -22,6 +22,8 @@ class AppWindow : public Window
 	private:
 		SwapChain* m_swap_chain;
 		RenderObject sampleObject1;
+
+		std::vector<RenderObject*> cubes;
 		//RenderObject sampleObject2;
 		//RenderObject sampleObject3;
 };

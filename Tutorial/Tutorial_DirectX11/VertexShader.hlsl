@@ -24,10 +24,10 @@ cbuffer constant : register(b0)
 VS_OUTPUT vsmain(VS_INPUT input)
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
-    //output.position = input.position;
-    //output.position = lerp(input.position, float4(input.position1, 1.0), (sin(m_time / 1000.0f) + 1.0f) / 2.0f);
     
-    output.position = mul(input.position, m_world); // WORLD SPACE
+    float4 scaled = input.position * float4(0.05f, 0.05f, 0.05f, 1.0f);
+    
+    output.position = mul(scaled, m_world); // WORLD SPACE
     
     output.position = mul(output.position, m_view); // VIEW SPACE
     
