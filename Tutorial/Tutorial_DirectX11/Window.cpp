@@ -4,6 +4,7 @@ Window* window = nullptr;
 
 Window::Window()
 {
+    EngineTime::initialize();
 }
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
@@ -62,15 +63,17 @@ bool Window::init()
 
 bool Window::broadcast()
 {
-    MSG msg;
 
+    EngineTime::LogFrameStart();
     window->onUpdate();
+    MSG msg;
     while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) > 0) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
 
-    Sleep(0);
+    Sleep(1);
+    EngineTime::LogFrameEnd();
     return true;
 }
 

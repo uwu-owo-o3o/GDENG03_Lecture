@@ -1,5 +1,7 @@
 #pragma once
+#include "EngineTime.h"
 #include <Windows.h>
+
 
 class Window
 {
@@ -23,6 +25,10 @@ class Window
 	protected:
 		HWND m_hwnd;
 		bool m_isRun;
+
+		//EngineTime engineTime;
+
+		
 
 };
 

@@ -84,14 +84,33 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
-	unsigned long new_time = 0;
-	if (m_old_time)
-		new_time = ::GetTickCount64() - m_old_time;
-	m_delta_time = new_time / 1000.0f;
-	m_old_time = ::GetTickCount64();
-	m_angle += 1.57f * m_delta_time;
 	constant cc;
+	//m_angle +=  currSpeed * EngineTime::getDeltaTime();
+
+	if (isIncreasing) {
+		std::cout << "Entered 1st condition" << std::endl;
+		this->currSpeed += 1000.0f * EngineTime::getDeltaTime();
+		m_angle += currSpeed * EngineTime::getDeltaTime();
+
+		if (currSpeed >= this->maxSpeed) {
+			isIncreasing = false;
+			currSpeed = this->maxSpeed;
+		}
+	}
+	else {
+		std::cout << "Entered 2nd condition" << std::endl;
+		this->currSpeed -= 1000.0f * EngineTime::getDeltaTime();
+		m_angle -= currSpeed * EngineTime::getDeltaTime();
+
+		if (currSpeed <= this->minSpeed) {
+			isIncreasing = true;
+			currSpeed = this->minSpeed;
+		}
+	}
+
 	cc.m_angle = m_angle;
+	
+	//std::cout << "EngineTime: " << EngineTime::id << std::endl;
 
 	m_cb->update(GraphicsEngine::get()->getImmediateDeviceContext(), &cc);
 

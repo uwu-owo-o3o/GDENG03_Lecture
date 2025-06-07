@@ -29,6 +29,13 @@ class AppWindow : public Window
 		VertexShader* m_vs;
 		PixelShader* m_ps;
 		ConstantBuffer* m_cb;
+
+		float maxSpeed = 20000.0f;
+		float minSpeed = 5000.0f;
+
+		float currSpeed = 10000.0f;
+
+		bool isIncreasing = true;
 };
 
 //TRIANGLE

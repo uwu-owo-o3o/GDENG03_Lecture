@@ -1,5 +1,7 @@
 ﻿  AppWindow.cpp
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(60,64): warning C4267: 'argument': conversion from 'size_t' to 'UINT', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(89,33): warning C4244: '=': conversion from 'ULONGLONG' to 'unsigned long', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(91,31): warning C4244: '=': conversion from 'ULONGLONG' to 'unsigned long', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(92,30): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(93,24): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(102,30): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(103,24): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe
