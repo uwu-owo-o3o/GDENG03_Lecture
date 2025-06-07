@@ -38,7 +38,7 @@ Vector3D ParticleSystem::getSpawnPos(float angle)
 	float z = dist * sin(angle);
 
 	Vector3D startPos = Vector3D(x, y, z);
-	std::cout << "startPos: " << x << " " << y << " " << z << std::endl;
+	//std::cout << "startPos: " << x << " " << y << " " << z << std::endl;
 	return startPos;
 }
 
@@ -51,7 +51,7 @@ Vector3D ParticleSystem::getTargetPos(float angle)
 	float z = dist * sin(angle);
 
 	Vector3D targetPos = Vector3D(x, y, z);
-	std::cout << "targetPos: " << x << " " << y << " " << z << std::endl;
+	//std::cout << "targetPos: " << x << " " << y << " " << z << std::endl;
 	return targetPos;
 }
 

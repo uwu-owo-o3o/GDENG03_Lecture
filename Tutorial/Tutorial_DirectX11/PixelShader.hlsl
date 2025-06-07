@@ -19,8 +19,7 @@ cbuffer constant : register(b0)
    
     float4 m_cam_pos;
     
-    float3 startColor;
-    float3 endColor;
+    float3 currentColor;
     
     float4 m_obj_pos;
     float4 m_obj_scale;
@@ -30,7 +29,7 @@ float4 psmain(PS_INPUT input) : SV_TARGET
 {
     
     float4 objTexture = Texture.Sample(TextureSampler, input.texcoord * 0.5f);
-    float4 tintColor = float4(startColor, 1.0);
+    float4 tintColor = float4(currentColor, 1.0);
     
     return tintColor * objTexture;
 

@@ -2,6 +2,7 @@
 #include "Prerequisites.h"
 #include "RenderObject.h"
 #include "iostream"
+#include "algorithm"
 
 class Particle : public RenderObject
 {

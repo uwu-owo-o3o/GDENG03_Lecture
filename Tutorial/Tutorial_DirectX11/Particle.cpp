@@ -42,8 +42,10 @@ void Particle::onUpdate()
 	if (toBeDestroyed) {
 		return;
 	}
-
-	cc.startColor = startColor;
+	float timeLived = this->lifeTicks / this->lifeSpan;
+	timeLived = std::clamp(timeLived, 0.0f, 1.0f);
+	cc.currentColor = startColor.lerp(startColor, endColor, timeLived);
+	
 	cc.m_obj_pos = obj_pos;
 
 	cc.m_cam_pos = camCC->m_cam_pos;

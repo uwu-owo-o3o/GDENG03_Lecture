@@ -22,8 +22,7 @@ cbuffer constant : register(b0)
     
     float4 m_cam_pos;
     
-    float3 startColor;
-    float3 endColor;
+    float3 currentColor;
     
     float4 m_obj_pos;
     float4 m_obj_scale;
