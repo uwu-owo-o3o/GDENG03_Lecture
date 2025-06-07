@@ -8,7 +8,9 @@ Particle::Particle(constant* ref) : RenderObject()
 	this->lifeTicks = 0.0f;
 
 	camCC = ref;
-	startColor = Vector3D(1.0, 1.0, 1.0);
+	startColor = Vector3D(0.5, 0, 1.0);
+	endColor = Vector3D(0.5, 0, 0.0);
+
 	cc.m_obj_scale = Vector4D(0.5, 0.5, 0.5, 1);
 	
 	obj_pos = Vector4D(0, 0, 0, 1);

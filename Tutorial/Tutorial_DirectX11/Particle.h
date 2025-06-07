@@ -30,6 +30,7 @@ class Particle : public RenderObject
 		Vector3D accumulatedForce;
 
 		Vector3D startColor;
+		Vector3D endColor;
 
 		float mass = 5.0f;
 		float damping = 0.9f;
