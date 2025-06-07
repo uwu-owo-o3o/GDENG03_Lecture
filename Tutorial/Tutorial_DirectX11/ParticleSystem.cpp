@@ -11,39 +11,25 @@ ParticleSystem::~ParticleSystem()
 
 void ParticleSystem::spawnParticles()
 {
-	//for (int i = 0; i < this->maxSpawned; i++) {
+	for (int i = 0; i < this->maxSpawned; i++) {
 		Particle* newParticle = new Particle(camRef);
 		//std::cout << "Particle # " << i << std::endl;
 		
 		float spawn_angle = this->getRandNum(0.0f, 2.0f * 3.14f);
 		float target_angle = this->getRandNum(0.0f, 2.0f * 3.14f);
 
-		Vector3D spawnPos = Vector3D(0, 0, 0);
+		Vector3D spawnPos = this->getSpawnPos(spawn_angle);
 		Vector3D dir = spawnPos.Normalize(this->getTargetPos(target_angle) - spawnPos);
 
 		newParticle->obj_pos = spawnPos;
 		newParticle->velocity = dir * newParticle->speed;
 		this->spawnedParticles.push_back(newParticle);
-	//}
-
-		Particle* newParticle1 = new Particle(camRef);
-		//std::cout << "Particle # " << i << std::endl;
-		newParticle1->startColor = Vector3D(1.0f, 0.0f, 0.0f);
-
-		float spawn_angle1 = this->getRandNum(0.0f, 2.0f * 3.14f);
-		float target_angle1 = this->getRandNum(0.0f, 2.0f * 3.14f);
-
-		Vector3D spawnPos1 = Vector3D(5, 5, 0);
-		Vector3D dir1 = spawnPos1.Normalize(this->getTargetPos(target_angle) - spawnPos);
-
-		newParticle1->obj_pos = spawnPos1;
-		newParticle1->velocity = dir1 * newParticle1->speed;
-		this->spawnedParticles.push_back(newParticle1);
+	}
 }
 
 Vector3D ParticleSystem::getSpawnPos(float angle)
 {
-	float dist = this->getRandNum(0.0f, 1.0f) * spawnRadius;
+	float dist = sqrt(this->getRandNum(0.0f, 1.0f)) * spawnRadius;
 
 	float x = dist * cos(angle);
 	float y = 0.0f;
@@ -56,7 +42,7 @@ Vector3D ParticleSystem::getSpawnPos(float angle)
 
 Vector3D ParticleSystem::getTargetPos(float angle)
 {
-	float dist = this->getRandNum(0.0f, 1.0f) * targetRadius;
+	float dist = sqrt(this->getRandNum(0.0f, 1.0f)) * targetRadius;
 
 	float x = dist * cos(angle);
 	float y = this->coneHeight;
@@ -74,14 +60,37 @@ void ParticleSystem::setConstantRef(constant* ccRef)
 
 void ParticleSystem::updateParticles()
 {
-	for (int i = 0; i < this->maxSpawned; i++) {
+	int curr_size = this->spawnedParticles.size();
+	for (int i = 0; i < curr_size; i++) {
 		this->spawnedParticles[i]->onUpdate();
+	}
+
+	this->destroyParticles();
+}
+
+void ParticleSystem::destroyParticles()
+{
+	int curr_size = this->spawnedParticles.size();
+	std::vector<int> destroyIndices;
+
+	for (int i = 0; i < curr_size; i++) {
+		if (this->spawnedParticles[i]->toBeDestroyed) {
+			destroyIndices.push_back(i);
+		}
+	}
+
+	for (int i = destroyIndices.size() - 1; i >= 0; i--) {
+		int index = destroyIndices[i];
+		Particle* targetParticle = this->spawnedParticles[index];
+		delete targetParticle;
+		this->spawnedParticles.erase(this->spawnedParticles.begin() + index);
 	}
 }
 
 void ParticleSystem::drawParticles()
 {
-	for (int i = 0; i < this->maxSpawned; i++) {
+	int curr_size = this->spawnedParticles.size();
+	for (int i = 0; i < curr_size; i++) {
 		this->spawnedParticles[i]->draw();
 	}
 }

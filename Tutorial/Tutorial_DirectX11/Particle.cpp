@@ -2,7 +2,11 @@
 
 Particle::Particle(constant* ref) : RenderObject()
 {
-	std::cout << "Particle constructer called!" << std::endl;
+	this->toBeDestroyed = false;
+
+	this->lifeSpan = 5.0f;
+	this->lifeTicks = 0.0f;
+
 	camCC = ref;
 	startColor = Vector3D(1.0, 1.0, 1.0);
 	cc.m_obj_scale = Vector4D(0.5, 0.5, 0.5, 1);
@@ -27,6 +31,16 @@ Particle::~Particle()
 
 void Particle::onUpdate()
 {
+	if (this->lifeTicks >= this->lifeSpan) {
+		this->toBeDestroyed = true;
+	}
+
+	lifeTicks += m_delta_time;
+
+	if (toBeDestroyed) {
+		return;
+	}
+
 	cc.startColor = startColor;
 	cc.m_obj_pos = obj_pos;
 
@@ -35,19 +49,18 @@ void Particle::onUpdate()
 	cc.m_proj = camCC->m_proj;
 	cc.m_world = camCC->m_world;
 
-	//this->acceleration = Vector3D(0, 0, 0);
+	this->acceleration = Vector3D(0, 0, 0);
 
-	//this->m_old_time = this->m_new_time;
-	//this->m_new_time = ::GetTickCount64();
+	this->m_old_time = this->m_new_time;
+	this->m_new_time = ::GetTickCount64();
 
-	//this->m_delta_time = (this->m_old_time) ? (this->m_new_time - this->m_old_time) / 1000.0f : 0;
+	this->m_delta_time = (this->m_old_time) ? (this->m_new_time - this->m_old_time) / 1000.0f : 0;
 
-	//this->addGravity();
+	this->addGravity();
 
-	//this->updateVelocity();
-	//this->updatePosition();
-	//this->resetForce();
-
+	this->updateVelocity();
+	this->updatePosition();
+	this->resetForce();
 
 	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
 }

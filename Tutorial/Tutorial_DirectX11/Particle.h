@@ -34,6 +34,12 @@ class Particle : public RenderObject
 		float mass = 5.0f;
 		float damping = 0.9f;
 		float speed = 5.0f;
+
+	public:
+		float lifeSpan;
+		float lifeTicks;
+
+		bool toBeDestroyed;
 		
 
 };

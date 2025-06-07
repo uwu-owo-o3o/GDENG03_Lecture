@@ -18,13 +18,14 @@ class ParticleSystem
 		void setConstantRef(constant* ccRef);
 
 		void updateParticles();
+		void destroyParticles();
 		void drawParticles();
 
 		float getRandNum(float lb, float u);
 
 	public:
 		std::vector<Particle*> spawnedParticles = std::vector<Particle*>();
-		int maxSpawned = 2;
+		int maxSpawned = 10;
 
 	public:
 		float spawnRadius = 1.0f; 
