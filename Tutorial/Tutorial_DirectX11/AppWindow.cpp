@@ -25,7 +25,7 @@ void AppWindow::onCreate()
 	this->particle_sys.setConstantRef(&this->worldCamera.cc);
 	this->particle_sys.setConstantBufferPtr(this->worldCamera.m_cb);
 
-	this->particle_sys.SpawnParticles();
+	this->particle_sys.spawnParticles();
 	//this->createRenderObjects();
 }
 

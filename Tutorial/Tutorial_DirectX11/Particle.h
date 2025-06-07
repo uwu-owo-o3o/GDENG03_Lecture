@@ -25,11 +25,15 @@ class Particle : public RenderObject
 	public:
 		Vector3D velocity;
 		Vector3D acceleration;
+		
+		Vector3D accumulatedForce;
 
-		Vector3D accumulatedForce = Vector3D(0, 0, 0);
+		Vector3D startColor;
 
 		float mass = 5.0f;
 		float damping = 0.9f;
+		float speed = 5.0f;
+		
 
 };
 

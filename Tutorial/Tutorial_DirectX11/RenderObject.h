@@ -55,7 +55,7 @@ class RenderObject
 	private:
 		RECT windowRef;
 
-	private:
+	protected:
 		VertexBufferPtr m_vb;	
 		ConstantBufferPtr cb_reference;
 		IndexBufferPtr m_ib;

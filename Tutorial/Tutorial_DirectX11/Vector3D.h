@@ -39,8 +39,26 @@ class Vector3D
 		}
 
 		Vector3D operator /(float num) {
-			return Vector3D(m_x / num, m_y / num, m_z + m_z / num);
+			return Vector3D(m_x / num, m_y / num, m_z / num);
 		}
+
+		Vector3D operator -(Vector3D vector) {
+			return Vector3D(m_x - vector.m_x , m_y - vector.m_y, m_z - vector.m_z);
+		}
+
+		static Vector3D Normalize(Vector3D vector) 
+		{
+			Vector3D v;
+			float magnitude = sqrt(powf(vector.m_x, 2) + powf(vector.m_y, 2) + powf(vector.m_z, 2));
+			if (magnitude == 0) {
+				v = Vector3D(0, 0, 0);
+			}
+			else {
+				v = vector / magnitude;
+			}
+			
+			return v;
+		} 
 
 		~Vector3D() 
 		{
