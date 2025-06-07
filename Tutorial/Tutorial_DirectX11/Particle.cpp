@@ -46,8 +46,6 @@ void Particle::onUpdate()
 	timeLived = std::clamp(timeLived, 0.0f, 1.0f);
 	cc.currentColor = startColor.lerp(startColor, endColor, timeLived);
 	
-	cc.m_obj_pos = obj_pos;
-
 	cc.m_cam_pos = camCC->m_cam_pos;
 	cc.m_view = camCC->m_view;
 	cc.m_proj = camCC->m_proj;
