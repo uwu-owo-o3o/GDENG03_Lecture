@@ -33,7 +33,7 @@ class AppWindow : public Window
 		float maxSpeed = 20000.0f;
 		float minSpeed = 5000.0f;
 
-		float currSpeed = 10000.0f;
+		float currSpeed = 5000.0f;
 
 		bool isIncreasing = true;
 };

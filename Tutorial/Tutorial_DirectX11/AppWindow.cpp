@@ -44,6 +44,11 @@ void AppWindow::onCreate()
 		{-0.5f, 0.5f, 0.0f,		-0.11f, 0.78f, 0.0f,	1, 1, 0,	0, 1 , 0}, //TOP LEFT
 		{0.5f, -0.5f, 0.0f,		 0.75f, -0.73f, 0.0f,	0, 0, 1,	1, 0 , 0}, //BOTTOM RIGHT
 		{-0.88f, -0.77f, 0.0f,	 1.0f, 1.5f, 0.0f,		1, 1, 1,	0, 0 , 1} //TOP RIGHT
+
+		//{ -0.5f, -0.5f, 0.0f,	-0.32f, -0.11f, 0.0f,	0, 0 , 0,	0, 1 , 0 },
+		//{-0.5f, 0.5f, 0.0f,		-0.11f, 0.78f, 0.0f,	1, 1, 0,	0, 1 , 0},
+		//{0.5f, -0.5f, 0.0f,		 0.75f, -0.73f, 0.0f,	0, 0, 1,	1, 0 , 0},
+		//{0.5f, 0.5f, 0.0f,		 0.88f, 0.77f, 0.0f,	1, 1, 1,	0, 0 , 1}
 	};
 
 	m_vb = GraphicsEngine::get()->createVertexBuffer();
@@ -88,7 +93,7 @@ void AppWindow::onUpdate()
 	m_angle +=  currSpeed * EngineTime::getDeltaTime();
 
 	//if (isIncreasing) {
-	//	std::cout << "Entered 1st condition" << std::endl;
+	//	//std::cout << "Entered 1st condition" << std::endl;
 	//	this->currSpeed += 1000.0f * EngineTime::getDeltaTime();
 	//	m_angle += currSpeed * EngineTime::getDeltaTime();
 
@@ -98,7 +103,7 @@ void AppWindow::onUpdate()
 	//	}
 	//}
 	//else {
-	//	std::cout << "Entered 2nd condition" << std::endl;
+	//	//std::cout << "Entered 2nd condition" << std::endl;
 	//	this->currSpeed -= 1000.0f * EngineTime::getDeltaTime();
 	//	m_angle -= currSpeed * EngineTime::getDeltaTime();
 
