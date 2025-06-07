@@ -3,6 +3,8 @@
 ParticleSystem::ParticleSystem()
 {
 	srand(time(0));
+	this->spawnTicks = 1.0f;
+	this->spawnThreshold = 1.0f;
 }
 
 ParticleSystem::~ParticleSystem()
@@ -94,6 +96,23 @@ void ParticleSystem::drawParticles()
 		this->spawnedParticles[i]->draw();
 	}
 }
+
+void ParticleSystem::continuousSpawn() {
+	
+	this->m_old_time = this->m_new_time;
+	this->m_new_time = ::GetTickCount64();
+
+	this->m_delta_time = (this->m_old_time) ? (this->m_new_time - this->m_old_time) / 1000.0f : 0;
+
+	if (this->spawnTicks >= this->spawnThreshold) {
+		this->spawnParticles();
+		this->spawnTicks = 0.0f;
+	}
+
+	this->spawnTicks += this->m_delta_time;
+
+}
+
 
 float ParticleSystem::getRandNum(float lb, float ub)
 {

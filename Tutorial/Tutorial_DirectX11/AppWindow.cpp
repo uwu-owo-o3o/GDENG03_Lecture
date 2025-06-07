@@ -25,7 +25,7 @@ void AppWindow::onCreate()
 	this->particle_sys.setConstantRef(&this->worldCamera.cc);
 	//this->particle_sys.setConstantBufferPtr(this->worldCamera.m_cb);
 
-	this->particle_sys.spawnParticles();
+	//this->particle_sys.spawnParticles();
 	//this->createRenderObjects();
 }
 
@@ -39,6 +39,8 @@ void AppWindow::onUpdate()
 
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
+
+	this->particle_sys.continuousSpawn();
 
 	this->worldCamera.onUpdate();
 	this->particle_sys.updateParticles();
