@@ -30,4 +30,3 @@ class InputSystem
 	private:
 		static InputSystem* m_input_system;
 };
-

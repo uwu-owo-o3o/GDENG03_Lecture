@@ -13,13 +13,24 @@ RenderObject::RenderObject()
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
+RenderObject::RenderObject(const wchar_t* filepath)
+{
+	this->obj_pos = Vector4D(0, 0, 0, 1);
+	this->obj_rot = Vector4D(1, 1, 1, 1);
+	this->obj_scale = Vector4D(1, 1, 1, 1);
+	this->currentColor = Vector3D(1, 1, 1);
+
+	this->createMesh(filepath);
+	this->initialize();
+	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
+}
+
+
 RenderObject::~RenderObject()
 {
 }
 
 void RenderObject::initialize() {
-
-	//m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer(index_list, size_index_list);
 		
 	void* shader_byte_code = nullptr;
 	size_t size_shader = 0;
@@ -27,7 +38,6 @@ void RenderObject::initialize() {
 	GraphicsEngine::get()->getRenderSystem()->compileVertexShader(L"VertexShader.hlsl", "vsmain", &shader_byte_code, &size_shader);
 
 	m_vs = GraphicsEngine::get()->getRenderSystem()->createVertexShader(shader_byte_code, size_shader);
-	//m_vb = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer(list, sizeof(vertex), size_list, shader_byte_code, size_shader);
 
 	GraphicsEngine::get()->getRenderSystem()->releaseCompiledShader();
 
@@ -82,66 +92,74 @@ void RenderObject::onRelease()
 {
 }
 
-void RenderObject::rotateOnKey(int key)
+void RenderObject::onKeyDown(int key)
 {
-	if (key == 'W') 
+	this->translateObj(key);
+}
+
+void RenderObject::onKeyRelease()
+{
+}
+
+void RenderObject::onMouseDown(char c)
+{
+}
+
+void RenderObject::onMouseUp()
+{
+}
+
+void RenderObject::onMouseMove(const Point& delta_mouse_pos)
+{
+}
+
+
+void RenderObject::translateObj(int key)
+{
+	if (key == VK_LEFT) 
 	{
-		//m_rot_x += 0.707 * m_delta_time;
-		//m_forward = 1.0f;
+		this->obj_pos.m_x -= 1.5f * m_delta_time;
 	}
-	else if (key == 'S')
+	else if (key == VK_RIGHT)
 	{
-		//m_rot_x -= 0.707 * m_delta_time;
-		//m_forward = -1.0f;
+		this->obj_pos.m_x += 1.5f * m_delta_time;
 	}
-	else if (key == 'A')
+	else if (key == VK_UP)
 	{
-		//m_rot_y += 0.707 * m_delta_time;
-		//m_rightward = -1.0f;
+		this->obj_pos.m_y += 1.5f * m_delta_time;
 	}
-	else if (key == 'D')
+	else if (key == VK_DOWN)
 	{
-		//m_rot_y -= 0.707 * m_delta_time;
-		//m_rightward = 1.0f;
+		this->obj_pos.m_y -= 1.5f * m_delta_time;
 	}
-	else if (key == 'R')
+	else if (key == VK_OEM_COMMA)
 	{
-		//m_rot_y += 0.707 * m_delta_time;
-		
+		this->obj_pos.m_z -= 1.5f * m_delta_time;
+	}
+	else if (key == VK_OEM_PERIOD)
+	{
+		this->obj_pos.m_z += 1.5f * m_delta_time;
 	}
 }
 
-void RenderObject::OnKeyRelease() {
-	//m_forward = 0.0f;
-	//m_rightward = 0.0f;
-}
-
-void RenderObject::rotateOnMove(const Point& delta_mouse_pos)
-{
-	//m_rot_x -= delta_mouse_pos.m_y * m_delta_time;
-	//m_rot_y -= delta_mouse_pos.m_x * m_delta_time;
-}
 
 void RenderObject::scaleOnClick(char c)
 {
-	/*switch (c) {
+	switch (c) {
 		case 'L':
-			m_scale_object = 0.5f;
 			break;
 		case 'R':
-			m_scale_object = 2.0f;
 			break;
-	}*/
+	}
 }
 
 void RenderObject::scaleOnRelease(char c)
 {
-	/*switch (c) {
+	switch (c) {
 		case 'L':
 		case 'R':
-			m_scale_object = 1.0f;
 			break;
-	}*/
+	}
 }
 
 void RenderObject::setWindowRef(RECT window)
@@ -156,6 +174,6 @@ void RenderObject::setCameraConstant(constant* cam_cc)
 
 void RenderObject::createMesh(const wchar_t* filepath)
 {
-	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\sand.jpg");
+	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\wood.jpg");
 	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(filepath);
 }

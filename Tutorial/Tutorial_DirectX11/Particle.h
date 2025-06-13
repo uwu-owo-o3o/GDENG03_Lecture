@@ -19,12 +19,6 @@ class Particle : public RenderObject
 		void addGravity();
 
 	public:
-		//constant cc;
-		//constant* camCC;
-		Vector4D obj_scale;
-		Vector4D obj_pos;
-
-	public:
 		Vector3D velocity;
 		Vector3D acceleration;
 		

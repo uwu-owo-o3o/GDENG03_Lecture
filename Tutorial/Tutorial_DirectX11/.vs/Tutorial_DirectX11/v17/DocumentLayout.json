@@ -11,40 +11,44 @@
       "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:RenderObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\PixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:PixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ConstantBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:ConstantBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\VertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:VertexShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ParticleSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:ParticleSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:AppWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:AppWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:AppWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ConstantBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:ConstantBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ParticleSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:ParticleSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\InputSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:InputSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\PixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:PixelShader.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1B772C4E-35A4-432B-9985-061AAFDC0442}|Tutorial_DirectX11.vcxproj|solutionrelative:Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,92 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppWindow.cpp",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp",
-              "RelativeDocumentMoniker": "AppWindow.cpp",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp",
-              "RelativeToolTip": "AppWindow.cpp",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAFQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-13T02:46:15.218Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppWindow.h",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.h",
-              "RelativeDocumentMoniker": "AppWindow.h",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.h",
-              "RelativeToolTip": "AppWindow.h",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAADAAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-05T13:58:48.789Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ParticleSystem.cpp",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ParticleSystem.cpp",
-              "RelativeDocumentMoniker": "ParticleSystem.cpp",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ParticleSystem.cpp",
-              "RelativeToolTip": "ParticleSystem.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-06T03:22:12.443Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Particle.h",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Particle.h",
-              "RelativeDocumentMoniker": "Particle.h",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Particle.h",
-              "RelativeToolTip": "Particle.h",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAABcAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-06T01:49:59.856Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RenderObject.cpp",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.cpp",
-              "RelativeDocumentMoniker": "RenderObject.cpp",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.cpp",
-              "RelativeToolTip": "RenderObject.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-13T03:06:47.627Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RenderObject.h",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.h",
-              "RelativeDocumentMoniker": "RenderObject.h",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.h",
-              "RelativeToolTip": "RenderObject.h",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEwAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-02T13:46:51.789Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "Vertex.h",
               "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Vertex.h",
               "RelativeDocumentMoniker": "Vertex.h",
@@ -153,13 +76,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "PixelShader.hlsl",
               "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\PixelShader.hlsl",
               "RelativeDocumentMoniker": "PixelShader.hlsl",
               "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\PixelShader.hlsl",
               "RelativeToolTip": "PixelShader.hlsl",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAACAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
               "WhenOpened": "2025-06-01T18:09:36.974Z",
               "IsPinned": true,
@@ -167,28 +90,114 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InputSystem.cpp",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\InputSystem.cpp",
+              "RelativeDocumentMoniker": "InputSystem.cpp",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\InputSystem.cpp",
+              "RelativeToolTip": "InputSystem.cpp",
+              "ViewState": "AQIAADcAAAAAAAAAAAAAABYAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-13T13:20:01.279Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InputSystem.h",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\InputSystem.h",
+              "RelativeDocumentMoniker": "InputSystem.h",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\InputSystem.h",
+              "RelativeToolTip": "InputSystem.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-13T13:20:41.998Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppWindow.cpp",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp",
+              "RelativeDocumentMoniker": "AppWindow.cpp",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.cpp",
+              "RelativeToolTip": "AppWindow.cpp",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-13T13:31:04.375Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppWindow.h",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.h",
+              "RelativeDocumentMoniker": "AppWindow.h",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\AppWindow.h",
+              "RelativeToolTip": "AppWindow.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-13T13:31:06.798Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RenderObject.cpp",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.cpp",
+              "RelativeDocumentMoniker": "RenderObject.cpp",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.cpp",
+              "RelativeToolTip": "RenderObject.cpp",
+              "ViewState": "AQIAAG0AAAAAAAAAAAAAAJUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-13T03:06:47.627Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RenderObject.h",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.h",
+              "RelativeDocumentMoniker": "RenderObject.h",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\RenderObject.h",
+              "RelativeToolTip": "RenderObject.h",
+              "ViewState": "AQIAACgAAAAAAAAAAAAAADEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-02T13:46:51.789Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "VertexShader.hlsl",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\VertexShader.hlsl",
-              "RelativeDocumentMoniker": "VertexShader.hlsl",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\VertexShader.hlsl",
-              "RelativeToolTip": "VertexShader.hlsl",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAuwCkAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2025-06-13T12:22:28.624Z",
+              "Title": "Camera.cpp",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Camera.cpp",
+              "RelativeDocumentMoniker": "Camera.cpp",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Camera.cpp",
+              "RelativeToolTip": "Camera.cpp",
+              "ViewState": "AQIAADoAAAAAAAAAAAAAAEIAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-13T14:15:51.02Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ParticleSystem.h",
-              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ParticleSystem.h",
-              "RelativeDocumentMoniker": "ParticleSystem.h",
-              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ParticleSystem.h",
-              "RelativeToolTip": "ParticleSystem.h",
-              "ViewState": "AQIAABAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Camera.h",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Camera.h",
+              "RelativeDocumentMoniker": "Camera.h",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\Camera.h",
+              "RelativeToolTip": "Camera.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-13T03:01:40.981Z",
+              "WhenOpened": "2025-06-13T14:16:11.329Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -197,7 +206,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
+              "Title": "VertexShader.hlsl",
+              "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\VertexShader.hlsl",
+              "RelativeDocumentMoniker": "VertexShader.hlsl",
+              "ToolTip": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\VertexShader.hlsl",
+              "RelativeToolTip": "VertexShader.hlsl",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAuwDYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
+              "WhenOpened": "2025-06-13T12:22:28.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ConstantBuffer.cpp",
               "DocumentMoniker": "C:\\Users\\Lance\u0027s\\Documents\\GitHub\\GDENG03 - Lecture\\GDENG03_Lecture\\Tutorial\\Tutorial_DirectX11\\ConstantBuffer.cpp",
               "RelativeDocumentMoniker": "ConstantBuffer.cpp",
@@ -205,7 +227,8 @@
               "RelativeToolTip": "ConstantBuffer.cpp",
               "ViewState": "AQIAAAgAAAAAAAAAAAAkwBAAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-13T03:46:59.61Z"
+              "WhenOpened": "2025-06-13T03:46:59.61Z",
+              "EditorCaption": ""
             }
           ]
         },

@@ -10,11 +10,13 @@
 #include "Vertex.h"
 #include "Matrix4x4.h"
 #include "Point.h"
+#include "Windows.h"
 
 class RenderObject
 {
 	public:
 		RenderObject();
+		RenderObject(const wchar_t* filepath);
 		~RenderObject();
 
 	public:
@@ -24,9 +26,14 @@ class RenderObject
 		void onRelease();
 
 	public:
-		void rotateOnKey(int key);
-		void OnKeyRelease();
-		void rotateOnMove(const Point& delta_mouse_pos);
+		void onKeyDown(int key);
+		void onKeyRelease();
+
+		void onMouseDown(char c);
+		void onMouseUp();
+		void onMouseMove(const Point& delta_mouse_pos);
+
+		void translateObj(int key);
 		void scaleOnClick(char c);
 		void scaleOnRelease(char c);
 
@@ -41,16 +48,6 @@ class RenderObject
 		float m_new_time = 0;
 		float m_delta_time = 0;
 
-		float m_delta_pos = 0;
-		float m_delta_scale = 0;
-
-		float m_angle = 0;
-
-		float m_rot_x = 0.0f;
-		float m_rot_y = 0.0f;
-		float m_rot_z = 0.0f;
-
-		float m_scale_object = 10.0f;
 
 	private:
 		RECT windowRef;

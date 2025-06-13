@@ -98,13 +98,6 @@ void InputSystem::update()
 
 		::memcpy(m_old_keys_state, m_keys_state, sizeof(unsigned char) * 256);
 	}
-
-
-
-
-
-
-
 }
 
 void InputSystem::addListener(InputListener* listener)

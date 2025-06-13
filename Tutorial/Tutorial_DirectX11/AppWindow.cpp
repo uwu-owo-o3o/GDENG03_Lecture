@@ -66,17 +66,14 @@ void AppWindow::onKillFocus()
 
 void AppWindow::createRenderObjects()
 {
-	this->cube.createMesh(L"Assets\\Meshes\\box.obj");
-	this->cube.initialize();
+	this->cube = RenderObject(L"Assets\\Meshes\\box.obj");	
 	this->cube.setCameraConstant(&this->worldCamera.cc);
 	
 	this->cube.obj_scale = Vector4D(1, 1, 0.5, 1);
-
 	this->cube.currentColor = Vector3D(0, 0.5, 0);
 	this->cube.obj_pos = Vector4D(0, -0.5, 0, 1);
 
-	this->plane.createMesh(L"Assets\\Meshes\\box.obj");
-	this->plane.initialize();
+	this->plane = RenderObject(L"Assets\\Meshes\\box.obj");
 	this->plane.setCameraConstant(&this->worldCamera.cc);
 
 	this->plane.obj_scale = Vector4D(5, 0.01, 5, 1);
@@ -86,6 +83,7 @@ void AppWindow::createRenderObjects()
 void AppWindow::OnKeyDown(int key)
 {
 	this->worldCamera.moveOnKey(key);
+	this->cube.onKeyDown(key);
 }
 
 void AppWindow::OnKeyUp(int key)
