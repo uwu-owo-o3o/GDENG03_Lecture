@@ -97,6 +97,7 @@ void AppWindow::OnMouseMove(const Point& deltaMousePos)
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
+	this->cube.onMouseDown('L');
 }
 
 void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
@@ -105,6 +106,7 @@ void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
 
 void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
+	this->cube.onMouseDown('R');
 }
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)

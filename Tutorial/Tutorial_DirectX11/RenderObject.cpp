@@ -103,6 +103,8 @@ void RenderObject::onKeyRelease()
 
 void RenderObject::onMouseDown(char c)
 {
+	this->scaleObj(c);
+	std::cout << this->obj_scale.m_x << std::endl;
 }
 
 void RenderObject::onMouseUp()
@@ -134,30 +136,28 @@ void RenderObject::translateObj(int key)
 	}
 	else if (key == VK_OEM_COMMA)
 	{
-		this->obj_pos.m_z -= 1.5f * m_delta_time;
+		this->obj_pos.m_z += 1.5f * m_delta_time;
 	}
 	else if (key == VK_OEM_PERIOD)
 	{
-		this->obj_pos.m_z += 1.5f * m_delta_time;
+		this->obj_pos.m_z -= 1.5f * m_delta_time;
 	}
 }
 
-
-void RenderObject::scaleOnClick(char c)
+void RenderObject::scaleObj(char c)
 {
+	float scaleMod = 0.5f;
 	switch (c) {
 		case 'L':
+			std::cout << "Left Click Scale!" << std::endl;
+			this->obj_scale.m_x += scaleMod;
+			this->obj_scale.m_y += scaleMod;
+			this->obj_scale.m_z += scaleMod;
 			break;
 		case 'R':
-			break;
-	}
-}
-
-void RenderObject::scaleOnRelease(char c)
-{
-	switch (c) {
-		case 'L':
-		case 'R':
+			this->obj_scale.m_x -= scaleMod;
+			this->obj_scale.m_y -= scaleMod;
+			this->obj_scale.m_z -= scaleMod;
 			break;
 	}
 }

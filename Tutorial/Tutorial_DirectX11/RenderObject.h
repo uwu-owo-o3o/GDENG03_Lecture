@@ -12,6 +12,7 @@
 #include "Point.h"
 #include "Windows.h"
 
+
 class RenderObject
 {
 	public:
@@ -34,8 +35,7 @@ class RenderObject
 		void onMouseMove(const Point& delta_mouse_pos);
 
 		void translateObj(int key);
-		void scaleOnClick(char c);
-		void scaleOnRelease(char c);
+		void scaleObj(char c);
 
 	public:
 		void setWindowRef(RECT window);
@@ -47,7 +47,6 @@ class RenderObject
 		float m_old_time = 0;
 		float m_new_time = 0;
 		float m_delta_time = 0;
-
 
 	private:
 		RECT windowRef;
