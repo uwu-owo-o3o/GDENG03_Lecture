@@ -6,7 +6,6 @@
 #include "Camera.h"
 #include "InputListener.h"
 #include "PointLight.h"
-#include "ParticleSystem.h"
 
 class AppWindow : public Window, public InputListener
 {
@@ -42,7 +41,6 @@ class AppWindow : public Window, public InputListener
 
 	private:
 		Camera worldCamera;
-		ParticleSystem particle_sys;
 
 	private:
 		RenderObject cube;

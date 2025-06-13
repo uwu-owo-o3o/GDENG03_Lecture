@@ -73,12 +73,6 @@
     <Filter Include="GameEngine\PointLight">
       <UniqueIdentifier>{c4f4c5ef-6291-40af-b2d9-a2a01aad548f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\ParticleSystem">
-      <UniqueIdentifier>{13f975f0-d4fe-4e8a-8625-2e71df3539b5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameEngine\ParticleSystem\Particle">
-      <UniqueIdentifier>{9be61866-4f0d-473a-9372-dbb9a4385e17}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -146,12 +140,6 @@
     </ClCompile>
     <ClCompile Include="PointLight.cpp">
       <Filter>GameEngine\PointLight</Filter>
-    </ClCompile>
-    <ClCompile Include="ParticleSystem.cpp">
-      <Filter>GameEngine\ParticleSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Particle.cpp">
-      <Filter>GameEngine\ParticleSystem\Particle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -244,12 +232,6 @@
     </ClInclude>
     <ClInclude Include="PointLight.h">
       <Filter>GameEngine\PointLight</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleSystem.h">
-      <Filter>GameEngine\ParticleSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Particle.h">
-      <Filter>GameEngine\ParticleSystem\Particle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

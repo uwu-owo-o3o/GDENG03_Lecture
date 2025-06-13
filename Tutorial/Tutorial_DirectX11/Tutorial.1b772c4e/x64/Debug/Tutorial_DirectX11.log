@@ -1,7 +1,24 @@
-﻿  RenderObject.cpp
+﻿  AppWindow.cpp
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(166,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(167,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\RenderObject.cpp(66,37): warning C4244: '=': conversion from 'ULONGLONG' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(79,38): warning C4305: 'argument': truncation from 'double' to 'float'
+  RenderObject.cpp
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(166,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(167,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(168,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(169,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\RenderObject.cpp(67,37): warning C4244: '=': conversion from 'ULONGLONG' to 'float', possible loss of data
+  Generating Code...
+DirectXTexD.lib(DirectXTexImage.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexImage.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(DirectXTexWIC.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexWIC.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(DirectXTexD3D11.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexD3D11.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(DirectXTexUtil.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexUtil.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(DirectXTexConvert.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexConvert.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(DirectXTexMipMaps.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexMipMaps.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(DirectXTexCompress.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexCompress.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(BC.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(BC.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(BC4BC5.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(BC4BC5.obj)' or at ''; linking object as if no debug info
+DirectXTexD.lib(BC6HBC7.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(BC6HBC7.obj)' or at ''; linking object as if no debug info
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe

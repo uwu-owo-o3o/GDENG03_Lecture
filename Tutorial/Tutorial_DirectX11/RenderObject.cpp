@@ -22,6 +22,7 @@ RenderObject::RenderObject(const wchar_t* filepath)
 
 	this->createMesh(filepath);
 	this->initialize();
+
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
