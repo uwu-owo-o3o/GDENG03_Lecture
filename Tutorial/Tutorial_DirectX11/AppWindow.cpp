@@ -22,11 +22,7 @@ void AppWindow::onCreate()
 	this->worldCamera.initialize();
 	this->worldCamera.setWindowReference(this->getClientWindowRect());
 
-	this->particle_sys.setConstantRef(&this->worldCamera.cc);
-	//this->particle_sys.setConstantBufferPtr(this->worldCamera.m_cb);
-
-	//this->particle_sys.spawnParticles();
-	//this->createRenderObjects();
+	this->createRenderObjects();
 }
 
 void AppWindow::onUpdate()
@@ -40,20 +36,20 @@ void AppWindow::onUpdate()
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
-	this->particle_sys.continuousSpawn();
-
 	this->worldCamera.onUpdate();
-	this->particle_sys.updateParticles();
-	
-	this->particle_sys.drawParticles();
+	this->cube.onUpdate();
+	this->plane.onUpdate();
 
+	this->cube.draw();
+	this->plane.draw();
 	m_swap_chain->present(false);
 }
 
 void AppWindow::onDestroy()
 {
 	Window::onDestroy();
-
+	this->cube.onRelease();
+	this->plane.onRelease();
 
 	GraphicsEngine::get()->release();
 }
@@ -70,12 +66,20 @@ void AppWindow::onKillFocus()
 
 void AppWindow::createRenderObjects()
 {
+	this->cube.createMesh(L"Assets\\Meshes\\box.obj");
+	this->cube.initialize();
+	this->cube.setCameraConstant(&this->worldCamera.cc);
+	
+	this->cube.obj_scale = Vector4D(1, 1, 0.5, 1);
 
-	/*this->sampleObject1.createMesh(L"Assets\\Meshes\\sphere.obj");
-	this->sampleObject1.initialize();
+	this->cube.currentColor = Vector3D(0, 0.5, 0);
+	this->cube.obj_pos = Vector4D(0, -0.5, 0, 1);
 
-	this->sampleObject2.createMesh(L"Assets\\Meshes\\sphere.obj");
-	this->sampleObject2.initialize();*/
+	this->plane.createMesh(L"Assets\\Meshes\\box.obj");
+	this->plane.initialize();
+	this->plane.setCameraConstant(&this->worldCamera.cc);
+
+	this->plane.obj_scale = Vector4D(5, 0.01, 5, 1);
 
 }
 

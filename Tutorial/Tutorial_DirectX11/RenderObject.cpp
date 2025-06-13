@@ -5,6 +5,12 @@
 
 RenderObject::RenderObject()
 {
+	this->obj_pos = Vector4D(0, 0, 0, 1);
+	this->obj_rot = Vector4D(1, 1, 1, 1);
+	this->obj_scale = Vector4D(1, 1, 1, 1);
+	this->currentColor = Vector3D(1, 1, 1);
+	
+	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
 RenderObject::~RenderObject()
@@ -34,15 +40,24 @@ void RenderObject::initialize() {
 }
 
 void RenderObject::onUpdate()
-{/*
-	m_delta_pos += m_delta_time / 10.0f;
-	if (m_delta_pos > 1.0f)
-		m_delta_pos = 0;
+{
+	cc.m_cam_pos = camCC->m_cam_pos;
+	cc.m_view = camCC->m_view;
+	cc.m_proj = camCC->m_proj;
+	cc.m_world = camCC->m_world;
+
+	cc.currentColor = this->currentColor;
+
+	cc.m_obj_scale = this->obj_scale;
+	cc.m_obj_rot = this->obj_rot;
+	cc.m_obj_pos = this->obj_pos;
 
 	this->m_old_time = this->m_new_time;
 	this->m_new_time = ::GetTickCount64();
 
-	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;*/
+	this->m_delta_time = (this->m_old_time) ? (this->m_new_time - this->m_old_time) / 1000.0f : 0;
+
+	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
 }
 
 void RenderObject::draw() {
@@ -134,9 +149,9 @@ void RenderObject::setWindowRef(RECT window)
 	this->windowRef = window;
 }
 
-void RenderObject::setConstantBufferRef(ConstantBufferPtr cb)
+void RenderObject::setCameraConstant(constant* cam_cc)
 {
-	this->m_cb = cb;
+	this->camCC = cam_cc;
 }
 
 void RenderObject::createMesh(const wchar_t* filepath)

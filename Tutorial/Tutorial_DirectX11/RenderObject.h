@@ -32,7 +32,7 @@ class RenderObject
 
 	public:
 		void setWindowRef(RECT window);
-		void setConstantBufferRef(ConstantBufferPtr cb);
+		void setCameraConstant(constant* cam_cc);
 		void createMesh(const wchar_t* filepath);
 
 	public:
@@ -66,8 +66,16 @@ class RenderObject
 		TexturePtr m_tex;
 		MeshPtr m_mesh;
 
-	private:
-		float m_forward = 0.0f;
-		float m_rightward = 0.0f;	
+		constant cc;
+		constant* camCC;
+
+	public:
+		Vector3D currentColor;
+
+		Vector4D obj_pos;
+		Vector4D obj_rot;
+		Vector4D obj_scale;
+		
+
 };
 

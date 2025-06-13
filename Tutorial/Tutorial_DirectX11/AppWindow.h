@@ -43,5 +43,9 @@ class AppWindow : public Window, public InputListener
 	private:
 		Camera worldCamera;
 		ParticleSystem particle_sys;
+
+	private:
+		RenderObject cube;
+		RenderObject plane;
 		
 };
