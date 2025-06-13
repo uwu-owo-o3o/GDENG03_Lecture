@@ -95,6 +95,7 @@ void RenderObject::onRelease()
 void RenderObject::onKeyDown(int key)
 {
 	this->translateObj(key);
+	this->rotateObj(key);
 }
 
 void RenderObject::onKeyRelease()
@@ -104,7 +105,6 @@ void RenderObject::onKeyRelease()
 void RenderObject::onMouseDown(char c)
 {
 	this->scaleObj(c);
-	std::cout << this->obj_scale.m_x << std::endl;
 }
 
 void RenderObject::onMouseUp()
@@ -144,12 +144,28 @@ void RenderObject::translateObj(int key)
 	}
 }
 
+void RenderObject::rotateObj(int key)
+{
+	float rotateMod = 0.5f * m_delta_time;
+	if (key == VK_OEM_1)
+	{
+		this->obj_rot.m_x += rotateMod;
+		this->obj_rot.m_y += rotateMod;
+		this->obj_rot.m_z += rotateMod;
+	}
+	else if (key == VK_OEM_7)
+	{
+		this->obj_rot.m_x -= rotateMod;
+		this->obj_rot.m_y -= rotateMod;
+		this->obj_rot.m_z -= rotateMod;
+	}
+}
+
 void RenderObject::scaleObj(char c)
 {
 	float scaleMod = 0.5f;
 	switch (c) {
 		case 'L':
-			std::cout << "Left Click Scale!" << std::endl;
 			this->obj_scale.m_x += scaleMod;
 			this->obj_scale.m_y += scaleMod;
 			this->obj_scale.m_z += scaleMod;

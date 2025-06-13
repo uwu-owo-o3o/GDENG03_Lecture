@@ -35,6 +35,7 @@ class RenderObject
 		void onMouseMove(const Point& delta_mouse_pos);
 
 		void translateObj(int key);
+		void rotateObj(int key);
 		void scaleObj(char c);
 
 	public:

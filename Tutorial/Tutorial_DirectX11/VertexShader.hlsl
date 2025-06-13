@@ -34,13 +34,13 @@ VS_OUTPUT vsmain(VS_INPUT input)
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
     
-    float3 obj_pos = input.position.xyz + m_obj_pos.xyz;
+    //float3 obj_scale = input.position.xyz + m_obj_pos.xyz;
     
-    float3 obj_rot = obj_pos.xyz * m_obj_rot.xyz;
+    //float3 obj_rot = obj_pos.xyz * m_obj_rot.xyz;
     
-    float3 obj_scale = obj_rot.xyz * m_obj_scale.xyz;
+    //float3 obj_scale = obj_rot.xyz * m_obj_scale.xyz;
     
-    float4 obj_transform = float4(obj_scale, 1.0f);
+    //float4 obj_transform = float4(obj_scale, 1.0f);
     
     output.position = mul(obj_transform, m_world); // WORLD SPACE
     
