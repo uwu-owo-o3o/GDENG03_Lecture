@@ -25,8 +25,6 @@ struct constant
 	Vector3D currentColor;
 	float padding1;
 
-	Vector4D m_obj_pos;
-	Vector4D m_obj_rot;
-	Vector4D m_obj_scale;
+	Matrix4x4 transform_matrix;
 
 };

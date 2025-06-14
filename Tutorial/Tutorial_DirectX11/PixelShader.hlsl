@@ -21,9 +21,7 @@ cbuffer constant : register(b0)
     
     float3 currentColor;
     
-    float4 m_obj_pos;
-    float4 m_obj_rot;
-    float4 m_obj_scale;
+    row_major float4x4 transform_matrix;
 }
 
 float4 psmain(PS_INPUT input) : SV_TARGET

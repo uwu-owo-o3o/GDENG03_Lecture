@@ -69,10 +69,9 @@ class RenderObject
 	public:
 		Vector3D currentColor;
 
-		Vector4D obj_pos;
-		Vector4D obj_rot;
-		Vector4D obj_scale;
-		
+		Vector3D obj_pos;
+		Vector3D obj_rot;
+		Vector3D obj_scale;
 
 };
 

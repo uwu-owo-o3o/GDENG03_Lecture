@@ -69,14 +69,14 @@ void AppWindow::createRenderObjects()
 	this->cube = RenderObject(L"Assets\\Meshes\\box.obj");	
 	this->cube.setCameraConstant(&this->worldCamera.cc);
 	
-	this->cube.obj_scale = Vector4D(1, 1, 0.5, 1);
+	this->cube.obj_scale = Vector3D(1, 1, 0.5);
 	this->cube.currentColor = Vector3D(0, 0.5, 0);
-	this->cube.obj_pos = Vector4D(0, -0.5, 0, 1);
+	this->cube.obj_pos = Vector3D(0, -0.5, 0);
 
 	this->plane = RenderObject(L"Assets\\Meshes\\box.obj");
 	this->plane.setCameraConstant(&this->worldCamera.cc);
 
-	this->plane.obj_scale = Vector4D(5, 0.01, 5, 1);
+	this->plane.obj_scale = Vector3D(5, 0.01, 5);
 
 }
 

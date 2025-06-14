@@ -5,9 +5,9 @@
 
 RenderObject::RenderObject()
 {
-	this->obj_pos = Vector4D(0, 0, 0, 1);
-	this->obj_rot = Vector4D(1, 1, 1, 1);
-	this->obj_scale = Vector4D(1, 1, 1, 1);
+	this->obj_pos = Vector3D(0, 0, 0);
+	this->obj_rot = Vector3D(0, 0, 0);
+	this->obj_scale = Vector3D(1, 1, 1);
 	this->currentColor = Vector3D(1, 1, 1);
 	
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
@@ -15,9 +15,9 @@ RenderObject::RenderObject()
 
 RenderObject::RenderObject(const wchar_t* filepath)
 {
-	this->obj_pos = Vector4D(0, 0, 0, 1);
-	this->obj_rot = Vector4D(1, 1, 1, 1);
-	this->obj_scale = Vector4D(1, 1, 1, 1);
+	this->obj_pos = Vector3D(0, 0, 0);
+	this->obj_rot = Vector3D(0, 0, 0);
+	this->obj_scale = Vector3D(1, 1, 1);
 	this->currentColor = Vector3D(1, 1, 1);
 
 	this->createMesh(filepath);
@@ -58,10 +58,33 @@ void RenderObject::onUpdate()
 	cc.m_world = camCC->m_world;
 
 	cc.currentColor = this->currentColor;
+	
+	Matrix4x4 scale_m;
+	scale_m.setIdentity();
+	scale_m.setScale(this->obj_scale);
 
-	cc.m_obj_scale = this->obj_scale;
-	cc.m_obj_rot = this->obj_rot;
-	cc.m_obj_pos = this->obj_pos;
+	Matrix4x4 rot_mx;
+	rot_mx.setIdentity();
+	rot_mx.setRotationX(this->obj_rot.m_x);
+
+	Matrix4x4 rot_my;
+	rot_my.setIdentity();
+	rot_my.setRotationY(this->obj_rot.m_y);
+
+	Matrix4x4 rot_mz;
+	rot_mz.setIdentity();
+	rot_mz.setRotationZ(this->obj_rot.m_z);
+	
+	Matrix4x4 rotation_m;
+	rotation_m = rot_mx * rot_my * rot_mz;
+
+	Matrix4x4 translation_m;
+	translation_m.setIdentity();
+	translation_m.setTranslation(this->obj_pos);
+	
+	Matrix4x4 transform_m = translation_m * rotation_m * scale_m;
+
+	cc.transform_matrix = transform_m;
 
 	this->m_old_time = this->m_new_time;
 	this->m_new_time = ::GetTickCount64();
@@ -147,18 +170,18 @@ void RenderObject::translateObj(int key)
 
 void RenderObject::rotateObj(int key)
 {
-	float rotateMod = 0.5f * m_delta_time;
+	float rotateMod = 1.5f * m_delta_time;
 	if (key == VK_OEM_1)
 	{
-		this->obj_rot.m_x += rotateMod;
+		//this->obj_rot.m_x += rotateMod;
 		this->obj_rot.m_y += rotateMod;
-		this->obj_rot.m_z += rotateMod;
+		//this->obj_rot.m_z += rotateMod;
 	}
 	else if (key == VK_OEM_7)
 	{
-		this->obj_rot.m_x -= rotateMod;
+		//this->obj_rot.m_x -= rotateMod;
 		this->obj_rot.m_y -= rotateMod;
-		this->obj_rot.m_z -= rotateMod;
+		//this->obj_rot.m_z -= rotateMod;
 	}
 }
 
