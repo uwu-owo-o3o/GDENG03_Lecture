@@ -20,6 +20,7 @@ cbuffer constant : register(b0)
     float4 m_cam_pos;
     
     float3 currentColor;
+    int isFlat;
     
     row_major float4x4 transform_matrix;
 }
@@ -30,6 +31,12 @@ float4 psmain(PS_INPUT input) : SV_TARGET
     float4 objTexture = Texture.Sample(TextureSampler, input.texcoord * 0.5f);
     float4 tintColor = float4(currentColor, 1.0);
     
-    return tintColor;
-
+    if (isFlat == 1)
+    {
+        return tintColor;
+    }
+    else
+    {
+        return tintColor * objTexture;
+    }
 }

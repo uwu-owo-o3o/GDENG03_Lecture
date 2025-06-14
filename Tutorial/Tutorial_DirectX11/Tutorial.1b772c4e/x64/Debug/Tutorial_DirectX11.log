@@ -3,17 +3,7 @@ C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tut
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(183,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(184,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(185,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(78,36): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(92,39): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(97,38): warning C4305: 'argument': truncation from 'double' to 'float'
-DirectXTexD.lib(DirectXTexImage.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexImage.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(DirectXTexWIC.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexWIC.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(DirectXTexD3D11.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexD3D11.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(DirectXTexUtil.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexUtil.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(DirectXTexConvert.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexConvert.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(DirectXTexMipMaps.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexMipMaps.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(DirectXTexCompress.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(DirectXTexCompress.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(BC.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(BC.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(BC4BC5.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(BC4BC5.obj)' or at ''; linking object as if no debug info
-DirectXTexD.lib(BC6HBC7.obj) : warning LNK4099: PDB '' was not found with 'DirectXTexD.lib(BC6HBC7.obj)' or at ''; linking object as if no debug info
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(77,36): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(90,39): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(95,38): warning C4305: 'argument': truncation from 'double' to 'float'
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe

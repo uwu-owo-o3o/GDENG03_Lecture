@@ -17,7 +17,7 @@ class RenderObject
 {
 	public:
 		RenderObject();
-		RenderObject(const wchar_t* filepath);
+		RenderObject(const wchar_t* filepath, int value);
 		~RenderObject();
 
 	public:
@@ -68,6 +68,7 @@ class RenderObject
 
 	public:
 		Vector3D currentColor;
+		int isFlat;
 
 		Vector3D obj_pos;
 		Vector3D obj_rot;

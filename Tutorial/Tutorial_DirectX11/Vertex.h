@@ -23,7 +23,7 @@ struct constant
 	Vector4D m_cam_pos;
 
 	Vector3D currentColor;
-	float padding1;
+	int isFlat;
 
 	Matrix4x4 transform_matrix;
 

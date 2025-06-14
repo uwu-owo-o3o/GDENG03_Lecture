@@ -10,10 +10,11 @@ RenderObject::RenderObject()
 	this->obj_scale = Vector3D(1, 1, 1);
 	this->currentColor = Vector3D(1, 1, 1);
 	
+	this->isFlat = 1;
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
-RenderObject::RenderObject(const wchar_t* filepath)
+RenderObject::RenderObject(const wchar_t* filepath, int value)
 {
 	this->obj_pos = Vector3D(0, 0, 0);
 	this->obj_rot = Vector3D(0, 0, 0);
@@ -23,6 +24,7 @@ RenderObject::RenderObject(const wchar_t* filepath)
 	this->createMesh(filepath);
 	this->initialize();
 
+	this->isFlat = value;
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
@@ -58,7 +60,8 @@ void RenderObject::onUpdate()
 	cc.m_world = camCC->m_world;
 
 	cc.currentColor = this->currentColor;
-	
+	cc.isFlat = this->isFlat;
+
 	Matrix4x4 scale_m;
 	scale_m.setIdentity();
 	scale_m.setScale(this->obj_scale);

@@ -47,5 +47,9 @@ class AppWindow : public Window, public InputListener
 		RenderObject cube2;
 		RenderObject cube3;
 		RenderObject plane;
-		
+
+		int currSelected;
+	
+	private:
+		void selectedObjectHelper(int key);
 };
