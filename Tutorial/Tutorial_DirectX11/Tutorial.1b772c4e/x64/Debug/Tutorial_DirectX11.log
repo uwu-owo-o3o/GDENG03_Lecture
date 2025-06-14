@@ -4,6 +4,6 @@ C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tut
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(184,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\Matrix4x4.h(185,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(77,36): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(90,39): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(95,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(89,39): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\AppWindow.cpp(94,38): warning C4305: 'argument': truncation from 'double' to 'float'
   Tutorial_DirectX11.vcxproj -> C:\Users\Lance's\Documents\GitHub\GDENG03 - Lecture\GDENG03_Lecture\Tutorial\Tutorial_DirectX11\x64\Debug\Tutorial_DirectX11.exe

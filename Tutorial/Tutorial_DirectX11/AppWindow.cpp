@@ -75,7 +75,7 @@ void AppWindow::createRenderObjects()
 	
 	this->cube.obj_scale = Vector3D(1, 1.5, 0.5);
 	this->cube.obj_pos = Vector3D(0, -0.3, 0);
-	this->cube.currentColor = Vector3D(0.5, 0, 0);
+	this->cube.currentColor = Vector3D(0.5, 1, 1);
 
 	this->cube2 = RenderObject(L"Assets\\Meshes\\box.obj", 0);
 	this->cube2.setCameraConstant(&this->worldCamera.cc);
@@ -84,6 +84,7 @@ void AppWindow::createRenderObjects()
 
 	this->cube3 = RenderObject(L"Assets\\Meshes\\box.obj", 1);
 	this->cube3.setCameraConstant(&this->worldCamera.cc);
+	this->cube3.currentColor = Vector3D(1, 0.5, 1);
 	this->cube3.obj_scale = Vector3D(1, 1, 0.5);
 	this->cube3.obj_pos = Vector3D(-0.5, 1.7, 2);
 
@@ -97,7 +98,22 @@ void AppWindow::createRenderObjects()
 void AppWindow::OnKeyDown(int key)
 {
 	this->worldCamera.moveOnKey(key);
-	this->cube.onKeyDown(key);
+	this->selectedObjectHelper(key);
+
+	switch (this->currSelected) {
+		case 1:
+			this->cube.onKeyDown(key);
+			break;
+		case 2:
+			this->cube2.onKeyDown(key);
+			break;
+		case 3:
+			this->cube3.onKeyDown(key);
+			break;
+		case 4:
+			this->plane.onKeyDown(key);
+			break;
+	}
 }
 
 void AppWindow::OnKeyUp(int key)
@@ -111,7 +127,20 @@ void AppWindow::OnMouseMove(const Point& deltaMousePos)
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
-	this->cube.onMouseDown('L');
+	switch (this->currSelected) {
+		case 1:
+			this->cube.onMouseDown('L');
+			break;
+		case 2:
+			this->cube2.onMouseDown('L');
+			break;
+		case 3:
+			this->cube3.onMouseDown('L');
+			break;
+		case 4:
+			this->plane.onMouseDown('L');
+			break;
+	}
 }
 
 void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
@@ -120,7 +149,20 @@ void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
 
 void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
-	this->cube.onMouseDown('R');
+	switch (this->currSelected) {
+		case 1:
+			this->cube.onMouseDown('R');
+			break;
+		case 2:
+			this->cube2.onMouseDown('R');
+			break;
+		case 3:
+			this->cube3.onMouseDown('R');
+			break;
+		case 4:
+			this->plane.onMouseDown('R');
+			break;
+	}
 }
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
@@ -129,5 +171,17 @@ void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
 
 void AppWindow::selectedObjectHelper(int key) 
 {
+	if (key == '1') {
+		this->currSelected = 1;
+	}
+	else if (key == '2') {
+		this->currSelected = 2;
+	}
+	else if (key == '3') {
+		this->currSelected = 3;
+	}
+	else if (key == '4') {
+		this->currSelected = 4;
+	}
 
 }
