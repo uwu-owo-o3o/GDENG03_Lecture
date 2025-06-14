@@ -195,12 +195,12 @@ void RenderObject::scaleObj(char c)
 		case 'L':
 			this->obj_scale.m_x += scaleMod;
 			this->obj_scale.m_y += scaleMod;
-			this->obj_scale.m_z += scaleMod;
+			//this->obj_scale.m_z += scaleMod;
 			break;
 		case 'R':
 			this->obj_scale.m_x -= scaleMod;
 			this->obj_scale.m_y -= scaleMod;
-			this->obj_scale.m_z -= scaleMod;
+			//this->obj_scale.m_z -= scaleMod;
 			break;
 	}
 }
