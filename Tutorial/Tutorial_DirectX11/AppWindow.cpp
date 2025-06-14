@@ -38,9 +38,13 @@ void AppWindow::onUpdate()
 
 	this->worldCamera.onUpdate();
 	this->cube.onUpdate();
+	this->cube2.onUpdate();
+	this->cube3.onUpdate();
 	this->plane.onUpdate();
 
 	this->cube.draw();
+	this->cube2.draw();
+	this->cube3.draw();
 	this->plane.draw();
 	m_swap_chain->present(false);
 }
@@ -69,9 +73,23 @@ void AppWindow::createRenderObjects()
 	this->cube = RenderObject(L"Assets\\Meshes\\box.obj");	
 	this->cube.setCameraConstant(&this->worldCamera.cc);
 	
-	this->cube.obj_scale = Vector3D(1, 1, 0.5);
+	this->cube.obj_scale = Vector3D(1, 1.5, 0.5);
 	this->cube.currentColor = Vector3D(0, 0.5, 0);
-	this->cube.obj_pos = Vector3D(0, -0.5, 0);
+	this->cube.obj_pos = Vector3D(0, -0.3, 0);
+
+	this->cube2 = RenderObject(L"Assets\\Meshes\\box.obj");
+	this->cube2.setCameraConstant(&this->worldCamera.cc);
+
+	this->cube2.obj_scale = Vector3D(1, 1, 0.5);
+	this->cube2.currentColor = Vector3D(0.5, 0, 0);
+	this->cube2.obj_pos = Vector3D(1, 1, 2);
+
+	this->cube3 = RenderObject(L"Assets\\Meshes\\box.obj");
+	this->cube3.setCameraConstant(&this->worldCamera.cc);
+
+	this->cube3.obj_scale = Vector3D(1, 1, 0.5);
+	this->cube3.currentColor = Vector3D(0, 0, 0.5);
+	this->cube3.obj_pos = Vector3D(-0.5, 1.7, 2);
 
 	this->plane = RenderObject(L"Assets\\Meshes\\box.obj");
 	this->plane.setCameraConstant(&this->worldCamera.cc);

@@ -44,6 +44,8 @@ class AppWindow : public Window, public InputListener
 
 	private:
 		RenderObject cube;
+		RenderObject cube2;
+		RenderObject cube3;
 		RenderObject plane;
 		
 };
