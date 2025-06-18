@@ -106,8 +106,6 @@ void RenderObject::updateQuadPosition()
 	);
 
 	m_cb->update(GraphicsEngine::get()->getImmediateDeviceContext(), &cc);
-
-
 }
 
 void RenderObject::onRelease()
