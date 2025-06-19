@@ -14,10 +14,7 @@ AppWindow::~AppWindow()
 
 void AppWindow::onCreate()
 {
-	//Window::onCreate();
-	GraphicsEngine::get()->init();
-
-	m_swap_chain = GraphicsEngine::get()->createSwapChain();
+	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain();
 
 	RECT rc = this->getClientWindowRect();
 	m_swap_chain->init(this->m_hwnd, rc.right - rc.left, rc.bottom - rc.top);
@@ -31,10 +28,10 @@ void AppWindow::onCreate()
 void AppWindow::onUpdate()
 {
 	Window::onUpdate();
-	GraphicsEngine::get()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 1, 1, 1, 1);
+	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 1, 1, 1, 1);
 
 	RECT rc = this->getClientWindowRect();
-	GraphicsEngine::get()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
+	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	for (int i = 0; i < 100; i++) {
 		this->cubes[i]->onUpdate();

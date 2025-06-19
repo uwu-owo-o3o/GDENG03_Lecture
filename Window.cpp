@@ -50,7 +50,7 @@ bool Window::init()
     if (!window)
         window = this;
 
-    m_hwnd=::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MyWindowClass", L"DirectX Application", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768, 
+    m_hwnd =::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MyWindowClass", L"DirectX Application", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768, 
                             NULL, NULL, NULL, NULL);
 
     ::ShowWindow(m_hwnd, SW_SHOW);

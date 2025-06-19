@@ -19,5 +19,6 @@ class VertexShader
 	private:
 		friend class GraphicsEngine;
 		friend class DeviceContext;
+		friend class RenderSystem;
 };
 

@@ -1,14 +1,13 @@
 #pragma once
 #include <d3d11.h>
-
-class DeviceContext;
+#include "Prerequisites.h"
 
 class ConstantBuffer
 {
 public:
 	ConstantBuffer();
 	bool load(void* buffer, UINT size_buffer);
-	void update(DeviceContext* context, void* buffer);
+	void update(DeviceContextPtr context, void* buffer);
 	UINT getSizeVertexList();
 	bool release();
 	~ConstantBuffer();

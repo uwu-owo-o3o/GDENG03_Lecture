@@ -1,7 +1,6 @@
 #pragma once
 #include <d3d11.h>
-class GraphicsEngine;
-class DeviceContext;
+#include "Prerequisites.h"
 
 class PixelShader
 {
@@ -18,6 +17,7 @@ class PixelShader
 
 	private:
 		friend class GraphicsEngine;
+		friend class RenderSystem;
 		friend class DeviceContext;
 };
 
