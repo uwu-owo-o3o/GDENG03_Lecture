@@ -101,6 +101,22 @@ void AppWindow::onKillFocus()
 void AppWindow::OnKeyDown(int key)
 {
 	this->worldCam.moveOnKey(key);
+	this->selectedObjectHelper(key);
+
+	switch (this->currSelected) {
+	case 1:
+		this->cube.onKeyDown(key);
+		break;
+	case 2:
+		this->cube2.onKeyDown(key);
+		break;
+	case 3:
+		this->cube3.onKeyDown(key);
+		break;
+	case 4:
+		this->plane.onKeyDown(key);
+		break;
+	}
 }
 
 void AppWindow::OnKeyUp(int key)
@@ -114,20 +130,20 @@ void AppWindow::OnMouseMove(const Point& deltaMousePos)
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
-	/*switch (this->currSelected) {
-	case 1:
-		this->cube.onMouseDown('L');
-		break;
-	case 2:
-		this->cube2.onMouseDown('L');
-		break;
-	case 3:
-		this->cube3.onMouseDown('L');
-		break;
-	case 4:
-		this->plane.onMouseDown('L');
-		break;
-	}*/
+	switch (this->currSelected) {
+		case 1:
+			this->cube.onMouseDown('L');
+			break;
+		case 2:
+			this->cube2.onMouseDown('L');
+			break;
+		case 3:
+			this->cube3.onMouseDown('L');
+			break;
+		case 4:
+			this->plane.onMouseDown('L');
+			break;
+	}
 }
 
 void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
@@ -136,20 +152,20 @@ void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
 
 void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
-	/*switch (this->currSelected) {
-	case 1:
-		this->cube.onMouseDown('R');
-		break;
-	case 2:
-		this->cube2.onMouseDown('R');
-		break;
-	case 3:
-		this->cube3.onMouseDown('R');
-		break;
-	case 4:
-		this->plane.onMouseDown('R');
-		break;
-	}*/
+	switch (this->currSelected) {
+		case 1:
+			this->cube.onMouseDown('R');
+			break;
+		case 2:
+			this->cube2.onMouseDown('R');
+			break;
+		case 3:
+			this->cube3.onMouseDown('R');
+			break;
+		case 4:
+			this->plane.onMouseDown('R');
+			break;
+	}
 }
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
