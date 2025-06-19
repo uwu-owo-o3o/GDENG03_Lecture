@@ -5,20 +5,20 @@ int main()
 {
 	try {
 		GraphicsEngine::create();
+		InputSystem::create();
 	}
 	catch (...) { return -1; }
 
 	try {
 		AppWindow app;
 		
-		if (app.init()) {
-			while (app.isRun()) { app.broadcast(); }
-		}
+		while (app.isRun()) {}
+		
 
 
 	}
 	catch (...) {}
 	GraphicsEngine::release();
-
+	InputSystem::release();
 	return 0;
 }

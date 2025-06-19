@@ -25,8 +25,9 @@ class RenderObject
 
 	public:
 		void setWindowRef(RECT window);
+		void setCameraConstant(constant* cam_cc);
+
 	public:
-		//unsigned long m_old_time = 0;
 		float m_old_time = 0;
 		float m_new_time = 0;
 		float m_delta_time = 0;
@@ -38,6 +39,8 @@ class RenderObject
 
 	private:
 		RECT windowRef;
+		constant cc;
+		constant* camCC;
 
 	private:
 		VertexBufferPtr m_vb;		
@@ -46,5 +49,6 @@ class RenderObject
 
 		VertexShaderPtr m_vs;
 		PixelShaderPtr m_ps;
+
 };
 

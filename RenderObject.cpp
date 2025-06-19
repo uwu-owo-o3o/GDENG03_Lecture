@@ -31,9 +31,6 @@ void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_
 
 	GraphicsEngine::get()->getRenderSystem()->releaseCompiledShader();
 
-	constant cc;
-	cc.m_angle = 0;
-
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer();
 	m_cb->load(&cc, sizeof(constant));
 }
@@ -61,49 +58,9 @@ void RenderObject::onUpdate()
 
 void RenderObject::updateQuadPosition()
 {
-
-	//unsigned long new_time = 0;
-	//if (m_old_time)
-	//	new_time = ::GetTickCount64() - m_old_time;
-	//m_delta_time = new_time / 1000.0f;
-	//m_old_time = ::GetTickCount64();
-	//m_angle += 1.57f * m_delta_time;
-	constant cc;
-	cc.m_angle = ::GetTickCount64();
-
-	m_delta_pos += m_delta_time / 10.0f;
-	if (m_delta_pos > 1.0f)
-		m_delta_pos = 0;
-
-	Matrix4x4 temp;
-	m_delta_scale += m_delta_time / 0.55f;
-
-	//cc.m_world.setTranslation(Vector3D::lerp(Vector3D(-2, -2, 0), Vector3D(2, 2, 0), m_delta_pos));
-	//cc.m_world.setScale(Vector3D::lerp(Vector3D(0.5f, 0.5f, 0), Vector3D(1.0f, 1.0f, 0), (sin(m_delta_scale) + 1.0f)/2.0f));
-
-	//temp.setTranslation(Vector3D::lerp(Vector3D(-1.5f, -1.5f, 0), Vector3D(1.5f, 1.5f, 0), m_delta_pos));
-
-	cc.m_world.setScale(Vector3D(1, 1, 1));
-	
-	temp.setIdentity();
-	temp.setRotationZ(m_delta_scale);
-	cc.m_world *= temp;
-
-	temp.setIdentity();
-	temp.setRotationY(m_delta_scale);
-	cc.m_world *= temp;
-
-	temp.setIdentity();
-	temp.setRotationX(m_delta_scale);
-	cc.m_world *= temp;
-
-	cc.m_view.setIdentity();
-	cc.m_proj.setOrthoLH(
-		(this->windowRef.right - this->windowRef.left) / 400.0f, 
-		(this->windowRef.bottom - this->windowRef.top) / 400.0f, 
-		-4.0f, 
-		4.0f
-	);
+	cc.m_world = camCC->m_world;
+	cc.m_proj = camCC->m_proj;
+	cc.m_view = camCC->m_view;
 
 	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
 }
@@ -118,4 +75,9 @@ void RenderObject::onRelease()
 void RenderObject::setWindowRef(RECT window)
 {
 	this->windowRef = window;
+}
+
+void RenderObject::setCameraConstant(constant* cam_cc)
+{
+	this->camCC = cam_cc;
 }

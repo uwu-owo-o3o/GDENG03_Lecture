@@ -16,9 +16,6 @@
     <Filter Include="GameEngine\Math">
       <UniqueIdentifier>{7a11f690-ce15-455a-aa68-178045099cf2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\Camera">
-      <UniqueIdentifier>{0c8dfa3b-0170-4bbd-95ba-4e3f42e8dcb8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameEngine\GraphicsEngine\RenderSystem">
       <UniqueIdentifier>{75161171-c628-4bf7-86ee-34f8b6bc750d}</UniqueIdentifier>
     </Filter>
@@ -48,6 +45,12 @@
     </Filter>
     <Filter Include="GameEngine\GraphicsEngine\RenderSystem\DeviceContext">
       <UniqueIdentifier>{85eb9192-9615-43e8-93e4-d863577f6373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\Camera">
+      <UniqueIdentifier>{0c8dfa3b-0170-4bbd-95ba-4e3f42e8dcb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\InputSystem">
+      <UniqueIdentifier>{7b7a3d98-01c6-49f4-8221-e4f7edc639cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,10 +91,13 @@
       <Filter>GameEngine\GraphicsEngine\RenderSystem\IndexBuffer</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>GameEngine\Camera</Filter>
+      <Filter>GameEngine\GraphicsEngine\Camera</Filter>
     </ClCompile>
     <ClCompile Include="RenderSystem.cpp">
       <Filter>GameEngine\GraphicsEngine\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>GameEngine\GraphicsEngine\InputSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,13 +144,25 @@
       <Filter>GameEngine\GraphicsEngine\RenderSystem\IndexBuffer</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>GameEngine\Camera</Filter>
+      <Filter>GameEngine\GraphicsEngine\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Prerequisites.h">
       <Filter>GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="RenderSystem.h">
       <Filter>GameEngine\GraphicsEngine\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4D.h">
+      <Filter>GameEngine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="InputListener.h">
+      <Filter>GameEngine\GraphicsEngine\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>GameEngine\GraphicsEngine\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>GameEngine\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

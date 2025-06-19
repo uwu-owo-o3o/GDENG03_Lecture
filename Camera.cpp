@@ -19,46 +19,46 @@ void Camera::initialize()
 
 void Camera::onUpdate()
 {
-	//Matrix4x4 temp;
-	//cc.m_world.setScale(Vector3D(1, 1, 1));
+	Matrix4x4 temp;
+	cc.m_world.setScale(Vector3D(1, 1, 1));
 
-	//cc.m_world.setIdentity();
+	cc.m_world.setIdentity();
 
-	//Matrix4x4 world_cam;
-	//world_cam.setIdentity();
+	Matrix4x4 world_cam;
+	world_cam.setIdentity();
 
-	//temp.setIdentity();
-	//temp.setRotationX(m_rot_x);
-	//world_cam *= temp;
+	temp.setIdentity();
+	temp.setRotationX(m_rot_x);
+	world_cam *= temp;
 
-	//temp.setIdentity();
-	//temp.setRotationY(m_rot_y);
-	//world_cam *= temp;
+	temp.setIdentity();
+	temp.setRotationY(m_rot_y);
+	world_cam *= temp;
 
-	//Vector3D new_pos = m_world_cam.getTranslation() + world_cam.getZDirection() * (m_forward * 0.0005f);
+	Vector3D new_pos = m_world_cam.getTranslation() + world_cam.getZDirection() * (m_forward * 0.05f);
 
-	//new_pos = new_pos + world_cam.getXDirection() * (m_rightward * 0.0005f);
+	new_pos = new_pos + world_cam.getXDirection() * (m_rightward * 0.05f);
 
-	//world_cam.setTranslation(new_pos);
+	world_cam.setTranslation(new_pos);
 
-	//cc.m_cam_pos = new_pos;
-	//m_world_cam = world_cam;
+	cc.m_cam_pos = new_pos;
+	m_world_cam = world_cam;
 
-	//world_cam.inverse();
+	world_cam.inverse();
 
-	//cc.m_view = world_cam;
+	cc.m_view = world_cam;
 
-	//cc.m_proj.setOrthoLH(
-	//	(this->windowRef.right - this->windowRef.left) / 400.0f,
-	//	(this->windowRef.bottom - this->windowRef.top) / 400.0f,
-	//	-4.0f,
-	//	4.0f
-	//);
+	cc.m_proj.setOrthoLH(
+		(this->windowRef.right - this->windowRef.left) / 400.0f,
+		(this->windowRef.bottom - this->windowRef.top) / 400.0f,
+		-4.0f,
+		4.0f
+	);
 
-	//int width = (this->windowRef.right - this->windowRef.left);
-	//int height = (this->windowRef.bottom - this->windowRef.top);
+	int width = (this->windowRef.right - this->windowRef.left);
+	int height = (this->windowRef.bottom - this->windowRef.top);
 
-	//cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width / (float)height), 0.1f, 100.0f);
+	cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width / (float)height), 0.1f, 100.0f);
 
 }
 
