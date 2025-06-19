@@ -39,6 +39,15 @@ class AppWindow : public Window, public InputListener
 		Camera worldCam;
 
 		SwapChainPtr m_swap_chain;
+
 		RenderObject cube;
+		RenderObject cube2;
+		RenderObject cube3;
+
 		RenderObject plane;
+
+		int currSelected;
+
+	private:
+		void selectedObjectHelper(int key);
 };

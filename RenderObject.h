@@ -8,6 +8,7 @@
 #include "VertexShader.h"
 #include "PixelShader.h"
 #include "Vertex.h"
+#include "Point.h"
 #include "Matrix4x4.h"
 #include "Prerequisites.h"
 
@@ -22,6 +23,18 @@ class RenderObject
 		void onUpdate();
 		void draw();
 		void onRelease();
+
+	public:
+		void onKeyDown(int key);
+		void onKeyRelease();
+
+		void onMouseDown(char c);
+		void onMouseUp();
+		void onMouseMove(const Point& delta_mouse_pos);
+
+		void translateObj(int key);
+		void rotateObj(int key);
+		void scaleObj(char c);
 
 	public:
 		void setWindowRef(RECT window);

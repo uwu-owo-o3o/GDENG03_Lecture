@@ -155,6 +155,91 @@ void RenderObject::onRelease()
 
 }
 
+void RenderObject::onKeyDown(int key)
+{
+	this->translateObj(key);
+	this->rotateObj(key);
+}
+
+void RenderObject::onKeyRelease()
+{
+}
+
+void RenderObject::onMouseDown(char c)
+{
+	this->scaleObj(c);
+}
+
+void RenderObject::onMouseUp()
+{
+}
+
+void RenderObject::onMouseMove(const Point& delta_mouse_pos)
+{
+}
+
+void RenderObject::translateObj(int key)
+{
+	if (key == VK_LEFT)
+	{
+		this->obj_pos.m_x -= 1.5f * m_delta_time;
+	}
+	else if (key == VK_RIGHT)
+	{
+		this->obj_pos.m_x += 1.5f * m_delta_time;
+	}
+	else if (key == VK_UP)
+	{
+		this->obj_pos.m_y += 1.5f * m_delta_time;
+	}
+	else if (key == VK_DOWN)
+	{
+		this->obj_pos.m_y -= 1.5f * m_delta_time;
+	}
+	else if (key == VK_OEM_COMMA)
+	{
+		this->obj_pos.m_z += 1.5f * m_delta_time;
+	}
+	else if (key == VK_OEM_PERIOD)
+	{
+		this->obj_pos.m_z -= 1.5f * m_delta_time;
+	}
+}
+
+void RenderObject::rotateObj(int key)
+{
+	float rotateMod = 1.5f * m_delta_time;
+	if (key == VK_OEM_1)
+	{
+		//this->obj_rot.m_x += rotateMod;
+		this->obj_rot.m_y += rotateMod;
+		//this->obj_rot.m_z += rotateMod;
+	}
+	else if (key == VK_OEM_7)
+	{
+		//this->obj_rot.m_x -= rotateMod;
+		this->obj_rot.m_y -= rotateMod;
+		//this->obj_rot.m_z -= rotateMod;
+	}
+}
+
+void RenderObject::scaleObj(char c)
+{
+	float scaleMod = 0.5f;
+	switch (c) {
+	case 'L':
+		this->obj_scale.m_x += scaleMod;
+		this->obj_scale.m_y += scaleMod;
+		//this->obj_scale.m_z += scaleMod;
+		break;
+	case 'R':
+		this->obj_scale.m_x -= scaleMod;
+		this->obj_scale.m_y -= scaleMod;
+		//this->obj_scale.m_z -= scaleMod;
+		break;
+	}
+}
+
 void RenderObject::setWindowRef(RECT window)
 {
 	this->windowRef = window;

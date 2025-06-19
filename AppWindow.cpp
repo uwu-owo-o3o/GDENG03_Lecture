@@ -38,9 +38,13 @@ void AppWindow::onUpdate()
 
 	this->worldCam.onUpdate();
 	this->cube.onUpdate();
+	this->cube2.onUpdate();
+	this->cube3.onUpdate();
 	this->plane.onUpdate();
 
 	this->cube.draw();
+	this->cube2.draw();
+	this->cube3.draw();
 	this->plane.draw();
 
 	m_swap_chain->present(true);
@@ -59,6 +63,22 @@ void AppWindow::createRenderObjects()
 		cube.initialize();
 		cube.setWindowRef(this->getClientWindowRect());
 		cube.setCameraConstant(&this->worldCam.cc);
+
+		cube2.initialize();
+		cube2.setWindowRef(this->getClientWindowRect());
+		cube2.setCameraConstant(&this->worldCam.cc);
+		cube2.obj_scale = Vector3D(1, 1, 0.5);
+		cube2.obj_pos = Vector3D(1, 1, 2);
+		cube2.isFlat = 1;
+		cube2.flat_color = Vector3D(0.7, 0.7, 1);
+
+		cube3.initialize();
+		cube3.setWindowRef(this->getClientWindowRect());
+		cube3.setCameraConstant(&this->worldCam.cc);
+		cube3.obj_scale = Vector3D(1, 1, 0.5);
+		cube3.obj_pos = Vector3D(-0.5, 1.7, 2);
+		cube3.isFlat = 1;
+		cube3.flat_color = Vector3D(0.7, 1, 1);
 
 		plane.initialize();
 		plane.setWindowRef(this->getClientWindowRect());
@@ -134,4 +154,21 @@ void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
 {
+}
+
+void AppWindow::selectedObjectHelper(int key)
+{
+	if (key == '1') {
+		this->currSelected = 1;
+	}
+	else if (key == '2') {
+		this->currSelected = 2;
+	}
+	else if (key == '3') {
+		this->currSelected = 3;
+	}
+	else if (key == '4') {
+		this->currSelected = 4;
+	}
+
 }
