@@ -1,5 +1,9 @@
-*.ipch
-/Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17
-/Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/ipch/AutoPCH/1f10fee66ff3c763
-/Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17
+*.vsidx
+Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/Browse.VC.db
 *.db
+*.db
+*.db
+Tutorial/Tutorial_DirectX11/.vs/Tutorial_DirectX11/v17/Browse.VC.opendb
+/.vs/Tutorial_DirectX11/v17/ipch/AutoPCH/112a902deab3f082
+/.vs
+/Tutorial.1b772c4e/x64/Debug
