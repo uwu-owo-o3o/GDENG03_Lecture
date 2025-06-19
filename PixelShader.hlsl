@@ -10,12 +10,24 @@ cbuffer constant : register(b0)
     row_major float4x4 m_world;
     row_major float4x4 m_view;
     row_major float4x4 m_proj;
-
-    float4 m_cam_pos;
+    
+    row_major float4x4 transform_matrix;
+    
+    float3 m_color;
+    int isFlat;
 }
 
 float4 psmain(PS_INPUT input) : SV_TARGET
 {
-    return float4(input.color, 1.0);
-    //return float4(lerp(input.color, input.color1, (sin(m_time / 500.0f) + 1.0f) / 2.0f), 1.0f);
+    
+    if (isFlat == 0)
+    {
+        return float4(input.color, 1.0);
+    }
+    else
+    {
+        return float4(m_color, 1.0);
+
+    }
+
 }

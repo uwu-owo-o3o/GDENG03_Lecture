@@ -31,13 +31,17 @@ void AppWindow::onUpdate()
 	Window::onUpdate();
 	InputSystem::get()->update();
 
-	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 1, 1, 1, 1);
+	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->clearRenderTargetColor(this->m_swap_chain, 0.5, 0.5, 0.5, 1);
 
 	RECT rc = this->getClientWindowRect();
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCam.onUpdate();
 	this->cube.onUpdate();
+	this->plane.onUpdate();
+
+	this->cube.draw();
+	this->plane.draw();
 
 	m_swap_chain->present(true);
 }
@@ -52,51 +56,16 @@ void AppWindow::onDestroy()
 
 void AppWindow::createRenderObjects()
 {
-		vertex list1[] =
-		{
-			//FRONT FACE
-			{Vector3D(-0.5f, -0.5f, -0.5f),	Vector3D(0, 0 , 0), Vector3D(0, 1 , 0)},
-			{Vector3D(-0.5f, 0.5f, -0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 1 , 0)},
-			{Vector3D(0.5f, 0.5f, -0.5f),	Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)},
-			{Vector3D(0.5f, -0.5f, -0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
-
-			//BACK FACE
-			{Vector3D(0.5f, -0.5f, 0.5f),	Vector3D(0, 0, 0),	 Vector3D(0, 0 , 1)},
-			{Vector3D(0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 0 , 1)},
-			{Vector3D(-0.5f, 0.5f, 0.5f),	Vector3D(0, 0, 1),	 Vector3D(0, 0 , 1)},
-			{Vector3D(-0.5f, -0.5f, 0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
-		};
-
-		unsigned int index_list1[] =
-		{
-			//FRONT SIDE
-			0,1,2,
-			2,3,0,
-
-			//BACK SIDE
-			4,5,6,
-			6,7,4,
-
-			//TOP SIDE
-			1,6,5,
-			5,2,1,
-
-			//BOTTOM SIDE
-			7,0,3,
-			3,4,7,
-
-			//RIGHT SIDE
-			3,2,5,
-			5,4,3,
-
-			//LEFT SIDE
-			7,6,1,
-			1,0,7
-
-		};
-		cube.initialize(list1, ARRAYSIZE(list1), index_list1, ARRAYSIZE(index_list1));
+		cube.initialize();
 		cube.setWindowRef(this->getClientWindowRect());
 		cube.setCameraConstant(&this->worldCam.cc);
+
+		plane.initialize();
+		plane.setWindowRef(this->getClientWindowRect());
+		plane.setCameraConstant(&this->worldCam.cc);
+		plane.isFlat = 1;
+		plane.obj_scale = Vector3D(5.0f, 0.1f, 5.0f);
+
 }
 
 void AppWindow::onFocus()
@@ -112,22 +81,6 @@ void AppWindow::onKillFocus()
 void AppWindow::OnKeyDown(int key)
 {
 	this->worldCam.moveOnKey(key);
-	//this->selectedObjectHelper(key);
-
-	//switch (this->currSelected) {
-	//case 1:
-	//	this->cube.onKeyDown(key);
-	//	break;
-	//case 2:
-	//	this->cube2.onKeyDown(key);
-	//	break;
-	//case 3:
-	//	this->cube3.onKeyDown(key);
-	//	break;
-	//case 4:
-	//	this->plane.onKeyDown(key);
-	//	break;
-	//}
 }
 
 void AppWindow::OnKeyUp(int key)

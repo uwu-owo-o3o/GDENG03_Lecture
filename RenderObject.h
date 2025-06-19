@@ -18,9 +18,9 @@ class RenderObject
 		~RenderObject();
 
 	public:
-		void initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list);
+		void initialize();
 		void onUpdate();
-		void updateQuadPosition();
+		void draw();
 		void onRelease();
 
 	public:
@@ -49,6 +49,15 @@ class RenderObject
 
 		VertexShaderPtr m_vs;
 		PixelShaderPtr m_ps;
+
+	public:
+		Vector3D obj_pos;
+		Vector3D obj_rot;
+		Vector3D obj_scale;
+
+		Vector3D flat_color;
+
+		int isFlat;
 
 };
 

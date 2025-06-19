@@ -41,7 +41,7 @@ void Camera::onUpdate()
 
 	world_cam.setTranslation(new_pos);
 
-	cc.m_cam_pos = new_pos;
+	//cc.m_cam_pos = new_pos;
 	m_world_cam = world_cam;
 
 	world_cam.inverse();

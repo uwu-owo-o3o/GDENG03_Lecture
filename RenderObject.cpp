@@ -2,13 +2,66 @@
 
 RenderObject::RenderObject()
 {
+	this->obj_pos = Vector3D(0, 0, 0);
+	this->obj_rot = Vector3D(0, 0, 0);
+	this->obj_scale = Vector3D(1, 1, 1);
+
+	this->isFlat = 0.0f;
+	this->flat_color = Vector3D(1, 1, 1);
 }
 
 RenderObject::~RenderObject()
 {
+
 }
 
-void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list) {
+void RenderObject::initialize() {
+	vertex list[] =
+	{
+		//FRONT FACE
+		{Vector3D(-0.5f, -0.5f, -0.5f),	Vector3D(0, 0 , 0), Vector3D(0, 1 , 0)},
+		{Vector3D(-0.5f, 0.5f, -0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 1 , 0)},
+		{Vector3D(0.5f, 0.5f, -0.5f),	Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)},
+		{Vector3D(0.5f, -0.5f, -0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
+
+		//BACK FACE
+		{Vector3D(0.5f, -0.5f, 0.5f),	Vector3D(0, 0, 0),	 Vector3D(0, 0 , 1)},
+		{Vector3D(0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, 0.5f, 0.5f),	Vector3D(0, 0, 1),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, -0.5f, 0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
+	};
+
+	unsigned int index_list[] =
+	{
+		//FRONT SIDE
+		0,1,2,
+		2,3,0,
+
+		//BACK SIDE
+		4,5,6,
+		6,7,4,
+
+		//TOP SIDE
+		1,6,5,
+		5,2,1,
+
+		//BOTTOM SIDE
+		7,0,3,
+		3,4,7,
+
+		//RIGHT SIDE
+		3,2,5,
+		5,4,3,
+
+		//LEFT SIDE
+		7,6,1,
+		1,0,7
+
+	};
+	//vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list
+
+	UINT size_list = ARRAYSIZE(list);
+	UINT size_index_list = ARRAYSIZE(index_list);
 
 	m_vb = GraphicsEngine::get()->getRenderSystem()->createVertexBuffer();
 	m_ib = GraphicsEngine::get()->getRenderSystem()->createIndexBuffer();
@@ -36,9 +89,51 @@ void RenderObject::initialize(vertex* list, UINT size_list, unsigned int* index_
 }
 
 void RenderObject::onUpdate()
-{
-	this->updateQuadPosition();
+{	
+	cc.m_world = camCC->m_world;
+	cc.m_proj = camCC->m_proj;
+	cc.m_view = camCC->m_view;
 
+	cc.isFlat = this->isFlat;
+	cc.color = this->flat_color;
+
+	Matrix4x4 scale_m;
+	scale_m.setIdentity();
+	scale_m.setScale(this->obj_scale);
+
+	Matrix4x4 rot_mx;
+	rot_mx.setIdentity();
+	rot_mx.setRotationX(this->obj_rot.m_x);
+
+	Matrix4x4 rot_my;
+	rot_my.setIdentity();
+	rot_my.setRotationY(this->obj_rot.m_y);
+
+	Matrix4x4 rot_mz;
+	rot_mz.setIdentity();
+	rot_mz.setRotationZ(this->obj_rot.m_z);
+
+	Matrix4x4 rotation_m;
+	rotation_m = rot_mx * rot_my * rot_mz;
+
+	Matrix4x4 translation_m;
+	translation_m.setIdentity();
+	translation_m.setTranslation(this->obj_pos);
+
+	Matrix4x4 transform_m = translation_m * rotation_m * scale_m;
+
+	cc.transform_matrix = transform_m;
+
+	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
+
+	this->m_old_time = this->m_new_time;
+	this->m_new_time = ::GetTickCount64();
+
+	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
+}
+
+void RenderObject::draw()
+{
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_vs, m_cb);
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setConstantBuffer(m_ps, m_cb);
 
@@ -50,19 +145,6 @@ void RenderObject::onUpdate()
 
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->drawIndexedTriangleList(m_ib->getSizeIndexList(), m_vb->getSizeVertexList(), 0, 0);
 
-	this->m_old_time = this->m_new_time;
-	this->m_new_time = ::GetTickCount64();
-
-	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
-}
-
-void RenderObject::updateQuadPosition()
-{
-	cc.m_world = camCC->m_world;
-	cc.m_proj = camCC->m_proj;
-	cc.m_view = camCC->m_view;
-
-	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
 }
 
 void RenderObject::onRelease()
@@ -70,6 +152,7 @@ void RenderObject::onRelease()
 	m_vb->release();
 	m_ib->release();
 	m_cb->release();
+
 }
 
 void RenderObject::setWindowRef(RECT window)
