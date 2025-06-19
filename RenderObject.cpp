@@ -113,8 +113,6 @@ void RenderObject::onRelease()
 	m_vb->release();
 	m_ib->release();
 	m_cb->release();
-	m_vs->release();
-	m_ps->release();
 }
 
 void RenderObject::setWindowRef(RECT window)

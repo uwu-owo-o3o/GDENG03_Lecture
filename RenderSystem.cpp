@@ -113,8 +113,7 @@ VertexShaderPtr RenderSystem::createVertexShader(const void* shader_byte_code, s
 {
 	VertexShaderPtr vs = nullptr;
 	try {
-		vs = std::make_shared<VertexShader>();
-		vs->init(shader_byte_code, byte_code_size);
+		vs = std::make_shared<VertexShader>(shader_byte_code, byte_code_size);
 	}
 	catch (...) {}
 	return vs;
@@ -124,8 +123,7 @@ PixelShaderPtr RenderSystem::createPixelShader(const void* shader_byte_code, siz
 {
 	PixelShaderPtr ps = nullptr;
 	try {
-		ps = std::make_shared<PixelShader>();
-		ps->init(shader_byte_code, byte_code_size);
+		ps = std::make_shared<PixelShader>(shader_byte_code, byte_code_size);
 	}
 	catch (...) {}
 	return ps;

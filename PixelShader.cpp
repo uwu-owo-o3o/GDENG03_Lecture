@@ -1,24 +1,14 @@
 #include "PixelShader.h"
 #include "GraphicsEngine.h"
 
-PixelShader::PixelShader()
+PixelShader::PixelShader(const void* shader_byte_code, size_t byte_code_size)
 {
-}
-
-void PixelShader::release()
-{
-	m_ps->Release();
-	delete this;
+	if (!SUCCEEDED(GraphicsEngine::get()->getRenderSystem()->m_d3d_device->CreatePixelShader(shader_byte_code, byte_code_size, nullptr, &m_ps)))
+		throw std::exception("VertexShader not created successfully.");
 }
 
 PixelShader::~PixelShader()
 {
-}
-
-bool PixelShader::init(const void* shader_byte_code, size_t byte_code_size)
-{
-	if (!SUCCEEDED(GraphicsEngine::get()->getRenderSystem()->m_d3d_device->CreatePixelShader(shader_byte_code, byte_code_size, nullptr, &m_ps)))
-		return false;
-
-	return true;
+	m_ps->Release();
+	delete this;
 }
