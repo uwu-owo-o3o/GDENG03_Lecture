@@ -24,6 +24,9 @@ class RenderObject
 		void draw();
 		void onRelease();
 
+	private:
+		void makeSphere();
+
 	public:
 		void onKeyDown(int key);
 		void onKeyRelease();

@@ -155,6 +155,12 @@ void RenderObject::onRelease()
 
 }
 
+void RenderObject::makeSphere(vertex* list, unsigned int* index_list)
+{
+
+
+}
+
 void RenderObject::onKeyDown(int key)
 {
 	this->translateObj(key);
