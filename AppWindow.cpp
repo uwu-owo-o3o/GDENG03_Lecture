@@ -63,6 +63,7 @@ void AppWindow::createRenderObjects()
 		cube.initialize();
 		cube.setWindowRef(this->getClientWindowRect());
 		cube.setCameraConstant(&this->worldCam.cc);
+		cube.isFlat = 1;
 
 		/*cube2.initialize();
 		cube2.setWindowRef(this->getClientWindowRect());
@@ -101,22 +102,22 @@ void AppWindow::onKillFocus()
 void AppWindow::OnKeyDown(int key)
 {
 	this->worldCam.moveOnKey(key);
-	this->selectedObjectHelper(key);
+	//this->selectedObjectHelper(key);
 
-	switch (this->currSelected) {
-	case 1:
-		this->cube.onKeyDown(key);
-		break;
-	case 2:
-		this->cube2.onKeyDown(key);
-		break;
-	case 3:
-		this->cube3.onKeyDown(key);
-		break;
-	case 4:
-		this->plane.onKeyDown(key);
-		break;
-	}
+	//switch (this->currSelected) {
+	//case 1:
+	//	this->cube.onKeyDown(key);
+	//	break;
+	//case 2:
+	//	this->cube2.onKeyDown(key);
+	//	break;
+	//case 3:
+	//	this->cube3.onKeyDown(key);
+	//	break;
+	//case 4:
+	//	this->plane.onKeyDown(key);
+	//	break;
+	//}
 }
 
 void AppWindow::OnKeyUp(int key)

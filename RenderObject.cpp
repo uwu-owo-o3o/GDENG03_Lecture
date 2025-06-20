@@ -97,6 +97,11 @@ void RenderObject::onUpdate()
 	cc.isFlat = this->isFlat;
 	cc.color = this->flat_color;
 
+
+	this->obj_rot.m_x += 0.5f * this->m_delta_time;
+	this->obj_rot.m_y += 0.5f * this->m_delta_time;
+	this->obj_rot.m_z += 0.5f * this->m_delta_time;
+
 	Matrix4x4 scale_m;
 	scale_m.setIdentity();
 	scale_m.setScale(this->obj_scale);
