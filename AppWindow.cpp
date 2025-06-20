@@ -38,14 +38,14 @@ void AppWindow::onUpdate()
 
 	this->worldCam.onUpdate();
 	this->cube.onUpdate();
-	this->cube2.onUpdate();
-	this->cube3.onUpdate();
-	this->plane.onUpdate();
+	//this->cube2.onUpdate();
+	//this->cube3.onUpdate();
+	//this->plane.onUpdate();
 
 	this->cube.draw();
-	this->cube2.draw();
-	this->cube3.draw();
-	this->plane.draw();
+	//this->cube2.draw();
+	//this->cube3.draw();
+	//this->plane.draw();
 
 	m_swap_chain->present(true);
 }
@@ -64,7 +64,7 @@ void AppWindow::createRenderObjects()
 		cube.setWindowRef(this->getClientWindowRect());
 		cube.setCameraConstant(&this->worldCam.cc);
 
-		cube2.initialize();
+		/*cube2.initialize();
 		cube2.setWindowRef(this->getClientWindowRect());
 		cube2.setCameraConstant(&this->worldCam.cc);
 		cube2.obj_scale = Vector3D(1, 1, 0.5);
@@ -84,7 +84,7 @@ void AppWindow::createRenderObjects()
 		plane.setWindowRef(this->getClientWindowRect());
 		plane.setCameraConstant(&this->worldCam.cc);
 		plane.isFlat = 1;
-		plane.obj_scale = Vector3D(5.0f, 0.1f, 5.0f);
+		plane.obj_scale = Vector3D(5.0f, 0.1f, 5.0f);*/
 
 }
 
