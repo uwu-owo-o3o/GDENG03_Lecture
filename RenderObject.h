@@ -25,7 +25,8 @@ class RenderObject
 		void onRelease();
 
 	private:
-		void makeSphere();
+		void makeSphere(vertex* list, unsigned int* index_list);
+		void bounceSphere();
 
 	public:
 		void onKeyDown(int key);
@@ -52,6 +53,14 @@ class RenderObject
 		float m_delta_scale = 0;
 
 		float m_angle = 0;
+
+		float window_up = 6.0f;
+		float window_down = -6.0f;
+		float window_right = 7.0f;
+		float window_left = -7.0f;
+
+		float speed_x = 1.75f;
+		float speed_y = 1.75f;
 
 	private:
 		RECT windowRef;

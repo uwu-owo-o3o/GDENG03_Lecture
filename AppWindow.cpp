@@ -23,7 +23,6 @@ void AppWindow::onCreate()
 	this->worldCam.initialize();
 	this->worldCam.setWindowReference(this->getClientWindowRect());
 
-	this->createRenderObjects();
 }
 
 void AppWindow::onUpdate()
@@ -37,15 +36,8 @@ void AppWindow::onUpdate()
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCam.onUpdate();
-	this->cube.onUpdate();
-	this->cube2.onUpdate();
-	this->cube3.onUpdate();
-	this->plane.onUpdate();
-
-	this->cube.draw();
-	this->cube2.draw();
-	this->cube3.draw();
-	this->plane.draw();
+	this->updateSpheres();
+	this->drawSpheres();
 
 	m_swap_chain->present(true);
 }
@@ -58,34 +50,33 @@ void AppWindow::onDestroy()
 	GraphicsEngine::get()->release();
 }
 
-void AppWindow::createRenderObjects()
+void AppWindow::createSpheres()
 {
-		cube.initialize();
-		cube.setWindowRef(this->getClientWindowRect());
-		cube.setCameraConstant(&this->worldCam.cc);
+	RenderObject* spawnedSphere = new RenderObject();
+	spawnedSphere->initialize();
+	spawnedSphere->setCameraConstant(&this->worldCam.cc);
+	spawnedSphere->setWindowRef(this->getClientWindowRect());
+	this->spheres.push_back(spawnedSphere);
+}
 
-		cube2.initialize();
-		cube2.setWindowRef(this->getClientWindowRect());
-		cube2.setCameraConstant(&this->worldCam.cc);
-		cube2.obj_scale = Vector3D(1, 1, 0.5);
-		cube2.obj_pos = Vector3D(1, 1, 2);
-		cube2.isFlat = 1;
-		cube2.flat_color = Vector3D(0.7, 0.7, 1);
+void AppWindow::updateSpheres()
+{
+	if (this->spheres.size() > 0) 
+	{
+		for (int i = 0; i < this->spheres.size(); i++) {
+			this->spheres[i]->onUpdate();
+		}
+	}
+}
 
-		cube3.initialize();
-		cube3.setWindowRef(this->getClientWindowRect());
-		cube3.setCameraConstant(&this->worldCam.cc);
-		cube3.obj_scale = Vector3D(1, 1, 0.5);
-		cube3.obj_pos = Vector3D(-0.5, 1.7, 2);
-		cube3.isFlat = 1;
-		cube3.flat_color = Vector3D(0.7, 1, 1);
-
-		plane.initialize();
-		plane.setWindowRef(this->getClientWindowRect());
-		plane.setCameraConstant(&this->worldCam.cc);
-		plane.isFlat = 1;
-		plane.obj_scale = Vector3D(5.0f, 0.1f, 5.0f);
-
+void AppWindow::drawSpheres()
+{
+	if (this->spheres.size() > 0)
+	{
+		for (int i = 0; i < this->spheres.size(); i++) {
+			this->spheres[i]->draw();
+		}
+	}
 }
 
 void AppWindow::onFocus()
@@ -101,27 +92,18 @@ void AppWindow::onKillFocus()
 void AppWindow::OnKeyDown(int key)
 {
 	this->worldCam.moveOnKey(key);
-	this->selectedObjectHelper(key);
 
-	switch (this->currSelected) {
-	case 1:
-		this->cube.onKeyDown(key);
-		break;
-	case 2:
-		this->cube2.onKeyDown(key);
-		break;
-	case 3:
-		this->cube3.onKeyDown(key);
-		break;
-	case 4:
-		this->plane.onKeyDown(key);
-		break;
+	if (key == VK_SPACE && makeSphere) {
+		this->createSpheres();
+		std::cout << "spheres count: " << spheres.size() << std::endl;
+		this->makeSphere = false;
 	}
 }
 
 void AppWindow::OnKeyUp(int key)
 {
 	this->worldCam.OnKeyRelease();
+	this->makeSphere = true;
 }
 
 void AppWindow::OnMouseMove(const Point& deltaMousePos)
@@ -130,20 +112,7 @@ void AppWindow::OnMouseMove(const Point& deltaMousePos)
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
-	switch (this->currSelected) {
-		case 1:
-			this->cube.onMouseDown('L');
-			break;
-		case 2:
-			this->cube2.onMouseDown('L');
-			break;
-		case 3:
-			this->cube3.onMouseDown('L');
-			break;
-		case 4:
-			this->plane.onMouseDown('L');
-			break;
-	}
+	
 }
 
 void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
@@ -152,39 +121,10 @@ void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
 
 void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
-	switch (this->currSelected) {
-		case 1:
-			this->cube.onMouseDown('R');
-			break;
-		case 2:
-			this->cube2.onMouseDown('R');
-			break;
-		case 3:
-			this->cube3.onMouseDown('R');
-			break;
-		case 4:
-			this->plane.onMouseDown('R');
-			break;
-	}
+	
 }
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
 {
 }
 
-void AppWindow::selectedObjectHelper(int key)
-{
-	if (key == '1') {
-		this->currSelected = 1;
-	}
-	else if (key == '2') {
-		this->currSelected = 2;
-	}
-	else if (key == '3') {
-		this->currSelected = 3;
-	}
-	else if (key == '4') {
-		this->currSelected = 4;
-	}
-
-}

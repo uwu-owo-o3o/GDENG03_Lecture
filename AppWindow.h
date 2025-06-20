@@ -22,7 +22,9 @@ class AppWindow : public Window, public InputListener
 		virtual void onKillFocus() override;
 	
 	private:
-		void createRenderObjects();
+		void createSpheres();
+		void updateSpheres();
+		void drawSpheres();
 
 		virtual void OnKeyDown(int key) override;
 		virtual void OnKeyUp(int key) override;
@@ -39,15 +41,7 @@ class AppWindow : public Window, public InputListener
 		Camera worldCam;
 
 		SwapChainPtr m_swap_chain;
+		bool makeSphere = true;
 
-		RenderObject cube;
-		RenderObject cube2;
-		RenderObject cube3;
-
-		RenderObject plane;
-
-		int currSelected;
-
-	private:
-		void selectedObjectHelper(int key);
+		std::vector<RenderObject*> spheres;
 };

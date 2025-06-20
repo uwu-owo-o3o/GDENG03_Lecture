@@ -23,4 +23,5 @@ struct constant
 
 	Vector3D color;
 	int isFlat;
+	float padding2[3] = {};
 };

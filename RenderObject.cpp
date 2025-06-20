@@ -16,49 +16,11 @@ RenderObject::~RenderObject()
 }
 
 void RenderObject::initialize() {
-	vertex list[] =
-	{
-		//FRONT FACE
-		{Vector3D(-0.5f, -0.5f, -0.5f),	Vector3D(0, 0 , 0), Vector3D(0, 1 , 0)},
-		{Vector3D(-0.5f, 0.5f, -0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 1 , 0)},
-		{Vector3D(0.5f, 0.5f, -0.5f),	Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)},
-		{Vector3D(0.5f, -0.5f, -0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
+	vertex list[121] ={};
 
-		//BACK FACE
-		{Vector3D(0.5f, -0.5f, 0.5f),	Vector3D(0, 0, 0),	 Vector3D(0, 0 , 1)},
-		{Vector3D(0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 0 , 1)},
-		{Vector3D(-0.5f, 0.5f, 0.5f),	Vector3D(0, 0, 1),	 Vector3D(0, 0 , 1)},
-		{Vector3D(-0.5f, -0.5f, 0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
-	};
+	unsigned int index_list[600] = {};
 
-	unsigned int index_list[] =
-	{
-		//FRONT SIDE
-		0,1,2,
-		2,3,0,
-
-		//BACK SIDE
-		4,5,6,
-		6,7,4,
-
-		//TOP SIDE
-		1,6,5,
-		5,2,1,
-
-		//BOTTOM SIDE
-		7,0,3,
-		3,4,7,
-
-		//RIGHT SIDE
-		3,2,5,
-		5,4,3,
-
-		//LEFT SIDE
-		7,6,1,
-		1,0,7
-
-	};
-	//vertex* list, UINT size_list, unsigned int* index_list, UINT size_index_list
+	this->makeSphere(list, index_list);
 
 	UINT size_list = ARRAYSIZE(list);
 	UINT size_index_list = ARRAYSIZE(index_list);
@@ -96,6 +58,8 @@ void RenderObject::onUpdate()
 
 	cc.isFlat = this->isFlat;
 	cc.color = this->flat_color;
+
+	this->bounceSphere();
 
 	Matrix4x4 scale_m;
 	scale_m.setIdentity();
@@ -157,8 +121,76 @@ void RenderObject::onRelease()
 
 void RenderObject::makeSphere(vertex* list, unsigned int* index_list)
 {
+	float radius = 1.0f;
+	float pi = 3.14;
+	Vector3D center = this->obj_pos;
+
+	int stacks = 10;
+	int slices = 10;
+
+	int index = 0;
+
+	for (int i = 0; i <= stacks; i++) {
+		float stack_angle = (float)i / stacks * pi;
+		for (int j = 0; j <= slices; j++) {
+			float slice_angle = (float)j / slices * 2 * pi;
+
+			float x = radius * sin(stack_angle) * cos(slice_angle);
+			float y = radius * cos(stack_angle);
+			float z = radius * sin(stack_angle) * sin(slice_angle);
+
+			Vector3D pos = Vector3D(x, y, z);
+			Vector3D color1 = Vector3D(1, 0, 1);
+			Vector3D color2 = Vector3D(0, 0, 1);
+
+			list[index] = {pos, color1, color2};
+			index++;
+		}
+	}
+
+	index = 0;
+	for (int i = 0; i < stacks; i++) {
+		for (int j = 0; j < slices; j++) {
+			int top_left = i * (slices + 1) + j;
+			int bot_left = top_left + (slices + 1);
+
+			index_list[index + 0] = top_left;
+			index_list[index + 1] = bot_left;
+			index_list[index + 2] = top_left + 1;
+
+			index_list[index + 3] = bot_left;
+			index_list[index + 4] = bot_left + 1;
+			index_list[index + 5] = top_left + 1;
+
+			index = index + 6;
+		}
+	}
 
 
+}
+
+void RenderObject::bounceSphere()
+{
+	float radius = 1.0f;
+	this->obj_pos.m_x = this->obj_pos.m_x + (this->speed_x * this->m_delta_time);
+	this->obj_pos.m_y = this->obj_pos.m_y + (this->speed_y * this->m_delta_time);
+
+	if (this->obj_pos.m_y + radius == this->window_up) {
+		this->obj_pos.m_y = this->obj_pos.m_y - 1.0f;
+		this->speed_y *= -1.0f;
+	}
+	else if (this->obj_pos.m_y - radius == this->window_down) {
+		this->obj_pos.m_y = this->obj_pos.m_y + 1.0f;
+		this->speed_y *= 1.0f;
+	}
+	else if (this->obj_pos.m_x + radius == this->window_right) {
+		this->obj_pos.m_x = this->obj_pos.m_x - 1.0f;
+		this->speed_y *= -1.0f;
+	}
+	else if (this->obj_pos.m_x - radius == this->window_left) {
+		this->obj_pos.m_x = this->obj_pos.m_x + 1.0f;
+		this->speed_y *= 1.0f;
+	}
 }
 
 void RenderObject::onKeyDown(int key)
