@@ -224,13 +224,15 @@ void RenderObject::rotateObj(int key)
 	if (key == VK_OEM_1)
 	{
 		//this->obj_rot.m_x += rotateMod;
-		this->obj_rot.m_y += rotateMod;
+		this->obj_rot.m_z += rotateMod;
+		//std::cout << "Rotate Z: " << this->obj_rot.m_z << std::endl;
 		//this->obj_rot.m_z += rotateMod;
 	}
 	else if (key == VK_OEM_7)
 	{
 		//this->obj_rot.m_x -= rotateMod;
-		this->obj_rot.m_y -= rotateMod;
+		this->obj_rot.m_z -= rotateMod;
+		//std::cout << "Rotate Z: " << this->obj_rot.m_z << std::endl;
 		//this->obj_rot.m_z -= rotateMod;
 	}
 }

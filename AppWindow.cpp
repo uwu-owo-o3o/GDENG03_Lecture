@@ -23,7 +23,8 @@ void AppWindow::onCreate()
 	this->worldCam.initialize();
 	this->worldCam.setWindowReference(this->getClientWindowRect());
 
-	this->createRenderObjects();
+	this->iniCardReferences();
+	this->formCardStructure();
 }
 
 void AppWindow::onUpdate()
@@ -37,15 +38,15 @@ void AppWindow::onUpdate()
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCam.onUpdate();
-	this->cube.onUpdate();
-	this->cube2.onUpdate();
-	this->cube3.onUpdate();
-	this->plane.onUpdate();
+	this->updateCards();
+	this->drawCards();
+	/*this->tiltCardRef1.onUpdate();
+	this->tiltCardRef2.onUpdate();
+	this->flatCardRef.onUpdate();
 
-	this->cube.draw();
-	this->cube2.draw();
-	this->cube3.draw();
-	this->plane.draw();
+	this->tiltCardRef1.draw();
+	this->tiltCardRef2.draw();
+	this->flatCardRef.draw();*/
 
 	m_swap_chain->present(true);
 }
@@ -60,14 +61,14 @@ void AppWindow::onDestroy()
 
 void AppWindow::createRenderObjects()
 {
-		cube.initialize();
-		cube.setWindowRef(this->getClientWindowRect());
-		cube.setCameraConstant(&this->worldCam.cc);
-		cube.obj_pos = Vector3D(0, 0.9, 0);
-		cube.isFlat = 1;
+		//cube.initialize();
+		//cube.setWindowRef(this->getClientWindowRect());
+		//cube.setCameraConstant(&this->worldCam.cc);
+		//cube.obj_pos = Vector3D(0, 0.9, 0);
+		//cube.isFlat = 1;
 
 
-		cube2.initialize();
+	/*	cube2.initialize();
 		cube2.setWindowRef(this->getClientWindowRect());
 		cube2.setCameraConstant(&this->worldCam.cc);
 		cube2.obj_pos = Vector3D(-1.5, 2.0, 0);
@@ -84,7 +85,7 @@ void AppWindow::createRenderObjects()
 		plane.setCameraConstant(&this->worldCam.cc);
 		plane.obj_scale = Vector3D(10.0f, 0.1f, 10.0f);
 		plane.obj_pos = Vector3D(0, -1.0, 0);
-		plane.isFlat = 1;
+		plane.isFlat = 1;*/
 
 }
 
@@ -101,6 +102,7 @@ void AppWindow::onKillFocus()
 void AppWindow::OnKeyDown(int key)
 {
 	this->worldCam.moveOnKey(key);
+	this->flatCardRef.rotateObj(key);
 	//this->selectedObjectHelper(key);
 
 	//switch (this->currSelected) {
@@ -237,5 +239,145 @@ void AppWindow::drawCubes()
 {
 	for (int i = 0; i < this->cubes.size(); i++) {
 		this->cubes[i]->draw();
+	}
+}
+
+void AppWindow::iniCardReferences()
+{
+	this->tiltCardRef1 = RenderObject();
+	this->tiltCardRef1.initialize();
+	this->tiltCardRef1.setCameraConstant(&this->worldCam.cc);
+	this->tiltCardRef1.setWindowRef(this->getClientWindowRect());
+	this->tiltCardRef1.obj_scale = Vector3D(0.1f, 5.0f, 1.0f);
+	this->tiltCardRef1.obj_rot = Vector3D(0.0f, 0.0f, 2.7f);
+
+	this->tiltCardRef2 = RenderObject();
+	this->tiltCardRef2.initialize();
+	this->tiltCardRef2.setCameraConstant(&this->worldCam.cc);
+	this->tiltCardRef2.setWindowRef(this->getClientWindowRect());
+
+	this->tiltCardRef2.obj_pos = Vector3D(2.1f, 0.0f, 0.0f); // 2 units difference of width from 1 card to another.
+	this->tiltCardRef2.obj_scale = Vector3D(0.1f,5.0f, 1.0f);
+	this->tiltCardRef2.obj_rot = Vector3D(0.0f, 0.0f, -2.7f);
+
+
+	this->flatCardRef = RenderObject();
+	this->flatCardRef.initialize();
+	this->flatCardRef.setCameraConstant(&this->worldCam.cc);
+	this->flatCardRef.setWindowRef(this->getClientWindowRect());
+
+	this->flatCardRef.obj_pos = Vector3D(2.5f, 2.3f, 0.0f); // 2.5 units difference of width from first tilted card and 2.3f for height.
+	this->flatCardRef.obj_scale = Vector3D(0.1f, 5.0f, 1.0f);
+	this->flatCardRef.obj_rot = Vector3D(0.0f, 0.0f, 1.576f);
+}
+
+void AppWindow::formCardStructure()
+{
+	for (int i = 0; i < 15; i++) {
+		RenderObject* spawnedCard = new RenderObject();
+		spawnedCard->initialize();
+		spawnedCard->setCameraConstant(&this->worldCam.cc);
+		spawnedCard->setWindowRef(this->getClientWindowRect());
+		this->setCard(i, spawnedCard);
+		this->cards.push_back(spawnedCard);
+	}
+}
+
+void AppWindow::setCard(int index, RenderObject* cardSpawned)
+{
+	float width_diff = 2.1f;
+	float flat_width_diff = 5.2f;
+	float height_diff = 4.7f;
+	switch (index) {
+		case 0:
+			cardSpawned->obj_pos = this->tiltCardRef1.obj_pos;
+			cardSpawned->obj_rot = this->tiltCardRef1.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef1.obj_scale;
+			break;
+		case 1:
+			cardSpawned->obj_pos = this->tiltCardRef2.obj_pos;
+			cardSpawned->obj_rot = this->tiltCardRef2.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef2.obj_scale;
+			break;
+		case 2:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef1.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef1.obj_scale;
+			break;
+		case 3:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef2.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef2.obj_scale;
+			break;
+		case 4:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef1.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef1.obj_scale;
+			break;
+		case 5:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef2.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef2.obj_scale;
+			break;
+		case 6:
+			cardSpawned->obj_pos = this->flatCardRef.obj_pos;
+			cardSpawned->obj_rot = this->flatCardRef.obj_rot;
+			cardSpawned->obj_scale = this->flatCardRef.obj_scale;
+			break;
+		case 7:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + flat_width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->flatCardRef.obj_rot;
+			cardSpawned->obj_scale = this->flatCardRef.obj_scale;
+			break;
+		case 8:
+			cardSpawned->obj_pos = Vector3D(this->tiltCardRef1.obj_pos.m_x + width_diff, this->tiltCardRef1.obj_pos.m_y + height_diff, this->tiltCardRef1.obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef1.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef1.obj_scale;
+			break;
+		case 9:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef2.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef2.obj_scale;
+			break;
+		case 10:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef1.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef1.obj_scale;
+			break;
+		case 11:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef2.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef2.obj_scale;
+			break;
+		case 12:
+			cardSpawned->obj_pos = Vector3D(this->flatCardRef.obj_pos.m_x + width_diff + 0.5f, this->flatCardRef.obj_pos.m_y + height_diff, this->flatCardRef.obj_pos.m_z);
+			cardSpawned->obj_rot = this->flatCardRef.obj_rot;
+			cardSpawned->obj_scale = this->flatCardRef.obj_scale;
+			break;
+		case 13:
+			cardSpawned->obj_pos = Vector3D(this->tiltCardRef1.obj_pos.m_x + width_diff * 2, this->tiltCardRef1.obj_pos.m_y + height_diff * 2, this->tiltCardRef1.obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef1.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef1.obj_scale;
+			break;
+		case 14:
+			cardSpawned->obj_pos = Vector3D(this->cards[index - 1]->obj_pos.m_x + width_diff, this->cards[index - 1]->obj_pos.m_y, this->cards[index - 1]->obj_pos.m_z);
+			cardSpawned->obj_rot = this->tiltCardRef2.obj_rot;
+			cardSpawned->obj_scale = this->tiltCardRef2.obj_scale;
+			break;
+
+	}
+}
+
+void AppWindow::updateCards()
+{
+	for (int i = 0; i < this->cards.size(); i++) {
+		this->cards[i]->onUpdate();
+	}
+}
+
+void AppWindow::drawCards()
+{
+	for (int i = 0; i < this->cards.size(); i++) {
+		this->cards[i]->draw();
 	}
 }
