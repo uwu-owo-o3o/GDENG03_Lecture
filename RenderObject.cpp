@@ -175,22 +175,26 @@ void RenderObject::bounceSphere()
 	this->obj_pos.m_x = this->obj_pos.m_x + (this->speed_x * this->m_delta_time);
 	this->obj_pos.m_y = this->obj_pos.m_y + (this->speed_y * this->m_delta_time);
 
-	if (this->obj_pos.m_y + radius == this->window_up) {
-		this->obj_pos.m_y = this->obj_pos.m_y - 1.0f;
+	std::cout << "obj_pos x: " << this->obj_pos.m_x << std::endl;
+	std::cout << "obj_pos y: " << this->obj_pos.m_y << std::endl;
+
+	if (this->obj_pos.m_y + radius >= this->window_up) {
+		this->obj_pos.m_y = this->window_up - radius;
 		this->speed_y *= -1.0f;
 	}
-	else if (this->obj_pos.m_y - radius == this->window_down) {
-		this->obj_pos.m_y = this->obj_pos.m_y + 1.0f;
-		this->speed_y *= 1.0f;
-	}
-	else if (this->obj_pos.m_x + radius == this->window_right) {
-		this->obj_pos.m_x = this->obj_pos.m_x - 1.0f;
+	else if (this->obj_pos.m_y - radius <= this->window_down) {
+		this->obj_pos.m_y = this->window_down + radius;
 		this->speed_y *= -1.0f;
 	}
-	else if (this->obj_pos.m_x - radius == this->window_left) {
-		this->obj_pos.m_x = this->obj_pos.m_x + 1.0f;
-		this->speed_y *= 1.0f;
+	else if (this->obj_pos.m_x + radius >= this->window_right) {
+		this->obj_pos.m_x = this->window_right - radius;
+		this->speed_x *= -1.0f;
 	}
+	else if (this->obj_pos.m_x - radius <= this->window_left) {
+		this->obj_pos.m_x = this->window_left + radius;
+		this->speed_x *= -1.0f;
+	}
+
 }
 
 void RenderObject::onKeyDown(int key)

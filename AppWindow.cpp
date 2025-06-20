@@ -98,6 +98,10 @@ void AppWindow::OnKeyDown(int key)
 		std::cout << "spheres count: " << spheres.size() << std::endl;
 		this->makeSphere = false;
 	}
+	else if (key == VK_DELETE) {
+		this->spheres.clear();
+	}
+
 }
 
 void AppWindow::OnKeyUp(int key)
