@@ -107,24 +107,6 @@ void RenderObject::onUpdate()
 	cc.isFlat = this->isFlat;
 	cc.color = this->flat_color;
 	
-	if (this->m_time_elapsed >= this->m_delay_threshold) {
-		if (this->startScale == this->obj_scale) {
-			this->reachedEndScale = false;
-			this->m_time_elapsed = 0.0f;
-		}
-		else if (this->endScale == this->endScale) {
-			this->reachedEndScale = true;
-			this->m_time_elapsed = 0.0f;
-		}
-	}
-
-	if (!this->reachedEndScale) {
-		this->obj_scale = Vector3D::lerp(this->obj_scale, this->endScale, ((sin(this->m_time_elapsed / 500.0f) + 1.0f) / 2.0f));
-	}
-	else {
-		this->obj_scale = Vector3D::lerp(this->obj_scale, this->startScale, ((sin(this->m_time_elapsed / 500.0f) + 1.0f) / 2.0f));
-	}
-
 	Matrix4x4 scale_m;
 	scale_m.setIdentity();
 	scale_m.setScale(this->obj_scale);
@@ -158,7 +140,7 @@ void RenderObject::onUpdate()
 	this->m_new_time = ::GetTickCount64();
 
 	this->m_delta_time = (this->m_old_time)?(this->m_new_time - this->m_old_time) / 1000.0f:0;
-	this->m_time_elapsed = this->m_time_elapsed + (this->m_delta_time * 1.0f);
+	//this->m_time_elapsed = this->m_time_elapsed + (this->m_delta_time * 1.0f);
 
 }
 

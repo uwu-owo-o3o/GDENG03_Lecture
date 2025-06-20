@@ -38,14 +38,14 @@ void AppWindow::onUpdate()
 
 	this->worldCam.onUpdate();
 	this->cube.onUpdate();
-	//this->cube2.onUpdate();
-	//this->cube3.onUpdate();
-	//this->plane.onUpdate();
+	this->cube2.onUpdate();
+	this->cube3.onUpdate();
+	this->plane.onUpdate();
 
 	this->cube.draw();
-	//this->cube2.draw();
-	//this->cube3.draw();
-	//this->plane.draw();
+	this->cube2.draw();
+	this->cube3.draw();
+	this->plane.draw();
 
 	m_swap_chain->present(true);
 }
@@ -63,28 +63,28 @@ void AppWindow::createRenderObjects()
 		cube.initialize();
 		cube.setWindowRef(this->getClientWindowRect());
 		cube.setCameraConstant(&this->worldCam.cc);
+		cube.obj_pos = Vector3D(0, 0.9, 0);
+		cube.isFlat = 1;
 
-		/*cube2.initialize();
+
+		cube2.initialize();
 		cube2.setWindowRef(this->getClientWindowRect());
 		cube2.setCameraConstant(&this->worldCam.cc);
-		cube2.obj_scale = Vector3D(1, 1, 0.5);
-		cube2.obj_pos = Vector3D(1, 1, 2);
+		cube2.obj_pos = Vector3D(-1.5, 2.0, 0);
 		cube2.isFlat = 1;
-		cube2.flat_color = Vector3D(0.7, 0.7, 1);
 
 		cube3.initialize();
 		cube3.setWindowRef(this->getClientWindowRect());
 		cube3.setCameraConstant(&this->worldCam.cc);
-		cube3.obj_scale = Vector3D(1, 1, 0.5);
-		cube3.obj_pos = Vector3D(-0.5, 1.7, 2);
+		cube3.obj_pos = Vector3D(-1.5, 3.0, -2);
 		cube3.isFlat = 1;
-		cube3.flat_color = Vector3D(0.7, 1, 1);
 
 		plane.initialize();
 		plane.setWindowRef(this->getClientWindowRect());
 		plane.setCameraConstant(&this->worldCam.cc);
+		plane.obj_scale = Vector3D(10.0f, 0.1f, 10.0f);
+		plane.obj_pos = Vector3D(0, -1.0, 0);
 		plane.isFlat = 1;
-		plane.obj_scale = Vector3D(5.0f, 0.1f, 5.0f);*/
 
 }
 

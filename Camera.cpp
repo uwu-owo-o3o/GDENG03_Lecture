@@ -90,6 +90,12 @@ void Camera::moveOnKey(int key)
 		m_rot_y += 0.5f * m_delta_time;
 
 	}
+	else if (key == 'T')
+	{
+		m_rot_y -= 0.5f * m_delta_time;
+
+	}
+
 
 }
 
