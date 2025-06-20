@@ -23,7 +23,6 @@ void AppWindow::onCreate()
 	this->worldCam.initialize();
 	this->worldCam.setWindowReference(this->getClientWindowRect());
 
-	this->spawnCubes();
 	this->createRenderObjects();
 }
 
@@ -38,20 +37,17 @@ void AppWindow::onUpdate()
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCam.onUpdate();
-
-	this->updateCubes();
-	this->drawCubes();
-	//this->cube.onUpdate();
+	this->cube.onUpdate();
 	//this->cube2.onUpdate();
 	//this->cube3.onUpdate();
 	//this->plane.onUpdate();
 
-	//this->cube.draw();
+	this->cube.draw();
 	//this->cube2.draw();
 	//this->cube3.draw();
 	//this->plane.draw();
 
-	m_swap_chain->present(false);
+	m_swap_chain->present(true);
 }
 
 void AppWindow::onDestroy()
@@ -64,9 +60,9 @@ void AppWindow::onDestroy()
 
 void AppWindow::createRenderObjects()
 {
-		/*cube.initialize();
+		cube.initialize();
 		cube.setWindowRef(this->getClientWindowRect());
-		cube.setCameraConstant(&this->worldCam.cc);*/
+		cube.setCameraConstant(&this->worldCam.cc);
 
 		/*cube2.initialize();
 		cube2.setWindowRef(this->getClientWindowRect());

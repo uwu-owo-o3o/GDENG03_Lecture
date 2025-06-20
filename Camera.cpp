@@ -60,33 +60,34 @@ void Camera::onUpdate()
 
 	cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width / (float)height), 0.1f, 100.0f);
 
+	this->m_old_time = this->m_new_time;
+	this->m_new_time = ::GetTickCount64();
+
+	this->m_delta_time = (this->m_old_time) ? (this->m_new_time - this->m_old_time) / 1000.0f : 0;
+
 }
 
 void Camera::moveOnKey(int key)
 {
 	if (key == 'W')
 	{
-		//m_rot_x += 0.707 * m_delta_time;
 		m_forward = 1.0f;
 	}
 	else if (key == 'S')
 	{
-		//m_rot_x -= 0.707 * m_delta_time;
 		m_forward = -1.0f;
 	}
 	else if (key == 'A')
 	{
-		//m_rot_y += 0.707 * m_delta_time;
 		m_rightward = -1.0f;
 	}
 	else if (key == 'D')
 	{
-		//m_rot_y -= 0.707 * m_delta_time;
 		m_rightward = 1.0f;
 	}
 	else if (key == 'R')
 	{
-		m_rot_y += 0.707 * m_delta_time;
+		m_rot_y += 0.5f * m_delta_time;
 
 	}
 
