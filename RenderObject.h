@@ -45,10 +45,7 @@ class RenderObject
 		float m_new_time = 0;
 		float m_delta_time = 0;
 
-		float m_delta_pos = 0;
-		float m_delta_scale = 0;
-
-		float m_angle = 0;
+		float m_time_elapsed = 0;
 
 	private:
 		RECT windowRef;
@@ -70,7 +67,17 @@ class RenderObject
 
 		Vector3D flat_color;
 
+		Vector3D startScale;
+		Vector3D endScale;
+
+
+		Vector3D startPos;
+		Vector3D endPos;
+
 		int isFlat;
+
+		bool reachedEndScale;
+		bool reachedEndPos;
 
 };
 

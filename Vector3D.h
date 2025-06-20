@@ -46,6 +46,16 @@ public:
 		return Vector3D(m_x - vector.m_x, m_y - vector.m_y, m_z - vector.m_z);
 	}
 
+	bool operator ==(Vector3D vector) {
+		if (this->m_x == vector.m_x && this->m_y == vector.m_y && this->m_z == vector.m_z) {
+			return true;
+		}
+		else {
+			return false;
+		}
+
+	}
+
 	static Vector3D Normalize(Vector3D vector)
 	{
 		Vector3D v;

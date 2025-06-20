@@ -63,7 +63,6 @@ void AppWindow::createRenderObjects()
 		cube.initialize();
 		cube.setWindowRef(this->getClientWindowRect());
 		cube.setCameraConstant(&this->worldCam.cc);
-		cube.isFlat = 1;
 
 		/*cube2.initialize();
 		cube2.setWindowRef(this->getClientWindowRect());
