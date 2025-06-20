@@ -46,7 +46,7 @@ class RenderObject
 		float m_delta_time = 0;
 
 		float m_time_elapsed = 0;
-		float m_delay_threshold;
+		float m_delay_threshold = 2.0f;
 
 	private:
 		RECT windowRef;

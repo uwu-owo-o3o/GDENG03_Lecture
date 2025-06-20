@@ -6,6 +6,7 @@
 #include "RenderObject.h"
 #include "Camera.h"
 #include "InputSystem.h"
+#include "vector"
 
 class AppWindow : public Window, public InputListener
 {
@@ -40,6 +41,8 @@ class AppWindow : public Window, public InputListener
 
 		SwapChainPtr m_swap_chain;
 
+		std::vector<RenderObject*> cubes;
+
 		RenderObject cube;
 		RenderObject cube2;
 		RenderObject cube3;
@@ -50,4 +53,8 @@ class AppWindow : public Window, public InputListener
 
 	private:
 		void selectedObjectHelper(int key);
+		void spawnCubes();
+		Vector3D randomPosHelper();
+		void updateCubes();
+		void drawCubes();
 };

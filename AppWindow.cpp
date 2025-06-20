@@ -23,6 +23,7 @@ void AppWindow::onCreate()
 	this->worldCam.initialize();
 	this->worldCam.setWindowReference(this->getClientWindowRect());
 
+	this->spawnCubes();
 	this->createRenderObjects();
 }
 
@@ -37,17 +38,20 @@ void AppWindow::onUpdate()
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCam.onUpdate();
-	this->cube.onUpdate();
+
+	this->updateCubes();
+	this->drawCubes();
+	//this->cube.onUpdate();
 	//this->cube2.onUpdate();
 	//this->cube3.onUpdate();
 	//this->plane.onUpdate();
 
-	this->cube.draw();
+	//this->cube.draw();
 	//this->cube2.draw();
 	//this->cube3.draw();
 	//this->plane.draw();
 
-	m_swap_chain->present(true);
+	m_swap_chain->present(false);
 }
 
 void AppWindow::onDestroy()
@@ -60,9 +64,9 @@ void AppWindow::onDestroy()
 
 void AppWindow::createRenderObjects()
 {
-		cube.initialize();
+		/*cube.initialize();
 		cube.setWindowRef(this->getClientWindowRect());
-		cube.setCameraConstant(&this->worldCam.cc);
+		cube.setCameraConstant(&this->worldCam.cc);*/
 
 		/*cube2.initialize();
 		cube2.setWindowRef(this->getClientWindowRect());
@@ -130,20 +134,20 @@ void AppWindow::OnMouseMove(const Point& deltaMousePos)
 
 void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
-	switch (this->currSelected) {
-		case 1:
-			this->cube.onMouseDown('L');
-			break;
-		case 2:
-			this->cube2.onMouseDown('L');
-			break;
-		case 3:
-			this->cube3.onMouseDown('L');
-			break;
-		case 4:
-			this->plane.onMouseDown('L');
-			break;
-	}
+	//switch (this->currSelected) {
+	//	case 1:
+	//		this->cube.onMouseDown('L');
+	//		break;
+	//	case 2:
+	//		this->cube2.onMouseDown('L');
+	//		break;
+	//	case 3:
+	//		this->cube3.onMouseDown('L');
+	//		break;
+	//	case 4:
+	//		this->plane.onMouseDown('L');
+	//		break;
+	//}
 }
 
 void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
@@ -152,7 +156,7 @@ void AppWindow::OnLeftMouseUp(const Point& deltaMousePos)
 
 void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
-	switch (this->currSelected) {
+	/*switch (this->currSelected) {
 		case 1:
 			this->cube.onMouseDown('R');
 			break;
@@ -165,7 +169,7 @@ void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 		case 4:
 			this->plane.onMouseDown('R');
 			break;
-	}
+	}*/
 }
 
 void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
@@ -174,7 +178,7 @@ void AppWindow::OnRightMouseUp(const Point& deltaMousePos)
 
 void AppWindow::selectedObjectHelper(int key)
 {
-	if (key == '1') {
+	/*if (key == '1') {
 		this->currSelected = 1;
 	}
 	else if (key == '2') {
@@ -185,6 +189,57 @@ void AppWindow::selectedObjectHelper(int key)
 	}
 	else if (key == '4') {
 		this->currSelected = 4;
+	}*/
+
+}
+
+void AppWindow::spawnCubes()
+{
+	srand(time(0));
+
+	for (int i = 0; i < 50; i++) {
+		RenderObject* spawnedCube = new RenderObject();
+		spawnedCube->initialize();
+		spawnedCube->setCameraConstant(&this->worldCam.cc);
+		spawnedCube->setWindowRef(this->getClientWindowRect());
+		spawnedCube->obj_pos = this->randomPosHelper();
+		this->cubes.push_back(spawnedCube);
+
 	}
 
+}
+
+Vector3D AppWindow::randomPosHelper()
+{
+	float x_ub = 3.0f;
+	float x_lb = -3.0f;
+
+	float y_ub = 3.0f;
+	float y_lb = -3.0f;
+
+	float z_ub = 2.0f;
+	float z_lb = 1.0f;
+
+
+	float rand_x = x_lb + (x_ub - x_lb) * ((float)rand() / (float)RAND_MAX);
+	float rand_y = y_lb + (y_ub - y_lb) * ((float)rand() / (float)RAND_MAX);
+	float rand_z = z_lb + (z_ub - z_lb) * ((float)rand() / (float)RAND_MAX);
+
+	Vector3D newPos = Vector3D(rand_x, rand_y, rand_z);
+
+	return newPos;
+}
+
+void AppWindow::updateCubes()
+{
+	for (int i = 0; i < this->cubes.size(); i++) {
+		this->cubes[i]->onUpdate();
+	}
+}
+
+void AppWindow::drawCubes()
+{
+	for (int i = 0; i < this->cubes.size(); i++) {
+		this->cubes[i]->draw();
+	}
 }
