@@ -24,6 +24,8 @@ void AppWindow::onCreate()
 
 	SceneCameraHandler::getInstance()->initialize();
 	this->cube = new Cube("Cube 1");
+	this->plane = new Plane("Plane 1");
+
 }
 
 void AppWindow::onUpdate()
@@ -40,6 +42,9 @@ void AppWindow::onUpdate()
 	SceneCameraHandler::getInstance()->getSceneCamera()->update(deltaTime, width, height);
 	cube->update(deltaTime, width, height);
 	cube->draw();
+
+	plane->update(deltaTime, width, height);
+	plane->draw();
 
 	m_swap_chain->present(true);
 }

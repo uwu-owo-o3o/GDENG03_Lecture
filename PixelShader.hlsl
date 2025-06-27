@@ -10,9 +10,6 @@ cbuffer constant : register(b0)
     row_major float4x4 m_world;
     row_major float4x4 m_view;
     row_major float4x4 m_proj;
-    
-    row_major float4x4 transform_matrix;
-    
 }
 
 float4 psmain(PS_INPUT input) : SV_TARGET

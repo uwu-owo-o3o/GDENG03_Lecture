@@ -45,6 +45,8 @@ void Camera::update(float deltaTime, int width, int height)
 
 	cc.m_view = world_cam;
 
+	this->m_delta_time = deltaTime;
+
 }
 
 void Camera::draw()
@@ -82,6 +84,18 @@ void Camera::moveOnKey(int key)
 	else if (key == 'R')
 	{
 		this->rot.m_y += 0.707 * m_delta_time;
+	}
+	else if (key == 'T')
+	{
+		this->rot.m_y -= 0.707 * m_delta_time;
+	}
+	else if (key == 'F')
+	{
+		this->rot.m_x += 0.707 * m_delta_time;
+	}
+	else if (key == 'G')
+	{
+		this->rot.m_x -= 0.707 * m_delta_time;
 	}
 
 }

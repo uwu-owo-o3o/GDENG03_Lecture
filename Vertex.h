@@ -19,5 +19,4 @@ struct constant
 	Matrix4x4 m_world;
 	Matrix4x4 m_view;
 	Matrix4x4 m_proj;
-	Matrix4x4 transform_matrix;
 };

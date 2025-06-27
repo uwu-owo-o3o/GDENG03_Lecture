@@ -132,8 +132,6 @@ void RenderObject::onUpdate()
 
 	Matrix4x4 transform_m = scale_m * rotation_m * translation_m;
 
-	cc.transform_matrix = transform_m;
-
 	m_cb->update(GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext(), &cc);
 
 	this->m_old_time = this->m_new_time;

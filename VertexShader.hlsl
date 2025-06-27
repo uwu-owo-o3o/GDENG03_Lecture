@@ -18,8 +18,6 @@ cbuffer constant : register(b0)
     row_major float4x4 m_world;
     row_major float4x4 m_view;
     row_major float4x4 m_proj;
-    
-    row_major float4x4 transform_matrix;
 }
 
 VS_OUTPUT vsmain(VS_INPUT input)

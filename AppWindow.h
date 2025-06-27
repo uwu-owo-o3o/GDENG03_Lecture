@@ -4,6 +4,7 @@
 #include "GraphicsEngine.h"
 #include "SwapChain.h"
 #include "Cube.h"
+#include "Plane.h"
 #include "Camera.h"
 #include "InputSystem.h"
 #include "EngineTime.h"
@@ -41,6 +42,7 @@ class AppWindow : public Window, public InputListener
 	private:
 		SwapChainPtr m_swap_chain;
 		Cube* cube;
+		Plane* plane;
 
 		
 };

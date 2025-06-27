@@ -11,7 +11,6 @@ Cube::~Cube()
 
 void Cube::create()
 {
-	std::cout << "Caled cube create" << std::endl;
 	vertex list[] =
 	{
 		//FRONT FACE
@@ -109,8 +108,6 @@ void Cube::update(float deltaTime, int width, int height)
 	translation_m.setTranslation(this->pos);
 
 	Matrix4x4 transform_m = scale_m * rotation_m * translation_m;
-
-	cc.transform_matrix = transform_m;
 
 	cc.m_world = transform_m;
 	
