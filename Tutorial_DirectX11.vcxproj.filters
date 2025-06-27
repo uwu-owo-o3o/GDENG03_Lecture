@@ -52,6 +52,15 @@
     <Filter Include="GameEngine\GraphicsEngine\InputSystem">
       <UniqueIdentifier>{7b7a3d98-01c6-49f4-8221-e4f7edc639cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\RenderSystem\GameObject">
+      <UniqueIdentifier>{868cf443-faf5-46da-aefe-47ee05ca89d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\SceneCameraHandler">
+      <UniqueIdentifier>{4b7b7c05-692f-4433-8879-5b7ee5b37ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube">
+      <UniqueIdentifier>{4c264dbf-9dab-4c63-b4c7-242ed09f1045}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -98,6 +107,18 @@
     </ClCompile>
     <ClCompile Include="InputSystem.cpp">
       <Filter>GameEngine\GraphicsEngine\InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AGameObject.cpp">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCameraHandler.cpp">
+      <Filter>GameEngine\GraphicsEngine\SceneCameraHandler</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineTime.cpp">
+      <Filter>GameEngine\GraphicsEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +184,18 @@
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>GameEngine\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="AGameObject.h">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCameraHandler.h">
+      <Filter>GameEngine\GraphicsEngine\SceneCameraHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineTime.h">
+      <Filter>GameEngine\GraphicsEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

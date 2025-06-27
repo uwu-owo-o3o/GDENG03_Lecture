@@ -17,6 +17,7 @@ public:
 	void OnKeyRelease();
 
 	void setWindowReference(RECT window);
+	Matrix4x4 getViewMatrix();
 
 public:
 	RECT windowRef;

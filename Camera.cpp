@@ -48,12 +48,12 @@ void Camera::onUpdate()
 
 	cc.m_view = world_cam;
 
-	cc.m_proj.setOrthoLH(
-		(this->windowRef.right - this->windowRef.left) / 400.0f,
-		(this->windowRef.bottom - this->windowRef.top) / 400.0f,
-		-4.0f,
-		4.0f
-	);
+	//cc.m_proj.setOrthoLH(
+	//	(this->windowRef.right - this->windowRef.left) / 400.0f,
+	//	(this->windowRef.bottom - this->windowRef.top) / 400.0f,
+	//	-4.0f,
+	//	4.0f
+	//);
 
 	int width = (this->windowRef.right - this->windowRef.left);
 	int height = (this->windowRef.bottom - this->windowRef.top);
@@ -117,5 +117,10 @@ void Camera::OnKeyRelease()
 
 void Camera::setWindowReference(RECT og_window) {
 	this->windowRef = og_window;
+}
+
+Matrix4x4 Camera::getViewMatrix()
+{
+	return Matrix4x4();
 }
 

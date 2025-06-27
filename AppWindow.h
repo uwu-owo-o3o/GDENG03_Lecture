@@ -6,8 +6,8 @@
 #include "RenderObject.h"
 #include "Camera.h"
 #include "InputSystem.h"
+#include "EngineTime.h"
 #include "vector"
-
 class AppWindow : public Window, public InputListener
 {
 	public:
@@ -38,35 +38,8 @@ class AppWindow : public Window, public InputListener
 
 	private:
 		Camera worldCam;
-
 		SwapChainPtr m_swap_chain;
 
-		std::vector<RenderObject*> cubes;
-		std::vector<RenderObject*> cards;
-
-		RenderObject cube;
-		RenderObject cube2;
-		RenderObject cube3;
-
-		RenderObject plane;
-
-		RenderObject tiltCardRef1;
-		RenderObject tiltCardRef2;
-		RenderObject flatCardRef;
-
-		int currSelected;
-
 	private:
-		void selectedObjectHelper(int key);
-
-		void spawnCubes();
-		Vector3D randomPosHelper();
-		void updateCubes();
-		void drawCubes();
-
-		void iniCardReferences();
-		void formCardStructure();
-		void setCard(int index, RenderObject* cardSpawned);
-		void updateCards();
-		void drawCards();
+		
 };
