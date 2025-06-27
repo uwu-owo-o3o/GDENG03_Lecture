@@ -20,23 +20,17 @@ cbuffer constant : register(b0)
     row_major float4x4 m_proj;
     
     row_major float4x4 transform_matrix;
-      
-    float3 m_color;
-    int isFlat;
 }
 
 VS_OUTPUT vsmain(VS_INPUT input)
 {
     VS_OUTPUT output = (VS_OUTPUT)0;
     
-    float4 m_transform = mul(input.position, transform_matrix);
-    
-    output.position = mul(m_transform, m_world); // WORLD SPACE
+    output.position = mul(input.position, m_world); // WORLD SPACE
     
     output.position = mul(output.position, m_view); // VIEW SPACE
     
     output.position = mul(output.position, m_proj); // SCREEN SPACE
-    
     
     output.color = input.color;
     output.color1 = input.color1;

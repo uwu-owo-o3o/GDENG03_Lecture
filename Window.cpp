@@ -59,10 +59,13 @@ Window::Window()
 
     m_isRun = true;
     m_is_init = false;
+
+    EngineTime::initialize();
 }
 
 bool Window::broadcast()
 {
+    EngineTime::LogFrameStart();
     MSG msg;
     if (!this->m_is_init) {
         //Window* window = (Window*)((LPCREATESTRUCT)lparam)->lpCreateParams;
@@ -79,6 +82,7 @@ bool Window::broadcast()
     }
 
     Sleep(0);
+    EngineTime::LogFrameEnd();
     return true;
 }
 

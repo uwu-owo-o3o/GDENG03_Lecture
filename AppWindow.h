@@ -3,7 +3,7 @@
 #include "Window.h"
 #include "GraphicsEngine.h"
 #include "SwapChain.h"
-#include "RenderObject.h"
+#include "Cube.h"
 #include "Camera.h"
 #include "InputSystem.h"
 #include "EngineTime.h"
@@ -23,8 +23,6 @@ class AppWindow : public Window, public InputListener
 		virtual void onKillFocus() override;
 	
 	private:
-		void createRenderObjects();
-
 		virtual void OnKeyDown(int key) override;
 		virtual void OnKeyUp(int key) override;
 
@@ -37,9 +35,12 @@ class AppWindow : public Window, public InputListener
 		virtual void OnRightMouseUp(const Point& deltaMousePos) override;
 
 	private:
-		Camera worldCam;
-		SwapChainPtr m_swap_chain;
+		int width;
+		int height;
 
 	private:
+		SwapChainPtr m_swap_chain;
+		Cube* cube;
+
 		
 };

@@ -34,9 +34,6 @@
     <Filter Include="GameEngine\GraphicsEngine\RenderSystem\RenderObject">
       <UniqueIdentifier>{a80d02d2-db4c-4dfa-8ebe-5fdf2d7ef90e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\GraphicsEngine\RenderSystem\RenderObject\Vertex">
-      <UniqueIdentifier>{d8c8fe62-6e36-4b32-8d10-30b8918785f2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameEngine\GraphicsEngine\RenderSystem\VertexBuffer">
       <UniqueIdentifier>{827c91ca-87bd-48e3-948b-4ce34eb6c534}</UniqueIdentifier>
     </Filter>
@@ -60,6 +57,9 @@
     </Filter>
     <Filter Include="GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube">
       <UniqueIdentifier>{4c264dbf-9dab-4c63-b4c7-242ed09f1045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\RenderSystem\Vertex">
+      <UniqueIdentifier>{d8c8fe62-6e36-4b32-8d10-30b8918785f2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -153,7 +153,7 @@
       <Filter>GameEngine\GraphicsEngine\RenderSystem\RenderObject</Filter>
     </ClInclude>
     <ClInclude Include="Vertex.h">
-      <Filter>GameEngine\GraphicsEngine\RenderSystem\RenderObject\Vertex</Filter>
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\Vertex</Filter>
     </ClInclude>
     <ClInclude Include="Vector3D.h">
       <Filter>GameEngine\Math</Filter>

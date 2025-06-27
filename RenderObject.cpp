@@ -104,8 +104,8 @@ void RenderObject::onUpdate()
 	cc.m_proj = camCC->m_proj;
 	cc.m_view = camCC->m_view;
 
-	cc.isFlat = this->isFlat;
-	cc.color = this->flat_color;
+	//cc.isFlat = this->isFlat;
+	//cc.color = this->flat_color;
 	
 	Matrix4x4 scale_m;
 	scale_m.setIdentity();

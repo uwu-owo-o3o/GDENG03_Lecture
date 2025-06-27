@@ -13,21 +13,9 @@ cbuffer constant : register(b0)
     
     row_major float4x4 transform_matrix;
     
-    float3 m_color;
-    int isFlat;
 }
 
 float4 psmain(PS_INPUT input) : SV_TARGET
 {
-    
-    if (isFlat == 0)
-    {
-        return float4(input.color, 1.0);
-    }
-    else
-    {
-        return float4(m_color, 1.0);
-
-    }
-
+    return float4(input.color, 1.0);
 }

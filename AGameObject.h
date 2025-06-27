@@ -1,6 +1,16 @@
 #pragma once
 #include "string"
-#include "Vector3D.h"
+#include "GraphicsEngine.h"
+#include "SwapChain.h"
+#include "DeviceContext.h"
+#include "VertexBuffer.h"
+#include "ConstantBuffer.h"
+#include "IndexBuffer.h"
+#include "VertexShader.h"
+#include "PixelShader.h"
+#include "Vertex.h"
+#include "Point.h"
+#include "Matrix4x4.h"
 #include "Prerequisites.h"
 
 class AGameObject
@@ -10,8 +20,9 @@ class AGameObject
 		~AGameObject();
 
 	public:
-		virtual void update(float deltaTime) = 0;
-		virtual void draw(int width, int height, VertexShader* vertexShader, PixelShader* pixelShader) = 0;
+		virtual void create() = 0;
+		virtual void update(float deltaTime, int width, int height) = 0;
+		virtual void draw() = 0;
 
 		void setPosition(float x, float y, float z);
 		void setPosition(Vector3D pos);
@@ -24,11 +35,23 @@ class AGameObject
 		void setRot(float x, float y, float z);
 		void setRot(Vector3D scale);
 		Vector3D getLocalRot();
+	
+	protected:
+		VertexBufferPtr m_vb;
+		ConstantBufferPtr m_cb;
+		IndexBufferPtr m_ib;
 
-	private:
+		VertexShaderPtr m_vs;
+		PixelShaderPtr m_ps;
+	
+	protected:
+		constant cc;
+
+	protected:
 		Vector3D pos;
 		Vector3D scale;
 		Vector3D rot;
+
 		std::string name;
 
 

@@ -1,23 +1,21 @@
 #include "Camera.h"
-#include "GraphicsEngine.h"
-#include "ConstantBuffer.h"
-#include <iostream>
 
-Camera::Camera()
+Camera::Camera(std::string name) : AGameObject(name)
 {
-
+	this->create();
 }
 
 Camera::~Camera()
 {
 }
 
-void Camera::initialize()
+void Camera::create()
 {
+	std::cout << "called camera create" << std::endl;
 	m_world_cam.setTranslation(Vector3D(0, 1, -5));
 }
 
-void Camera::onUpdate()
+void Camera::update(float deltaTime, int width, int height)
 {
 	Matrix4x4 temp;
 	cc.m_world.setScale(Vector3D(1, 1, 1));
@@ -28,42 +26,30 @@ void Camera::onUpdate()
 	world_cam.setIdentity();
 
 	temp.setIdentity();
-	temp.setRotationX(m_rot_x);
+	temp.setRotationX(this->rot.m_x);
 	world_cam *= temp;
 
 	temp.setIdentity();
-	temp.setRotationY(m_rot_y);
+	temp.setRotationY(this->rot.m_y);
 	world_cam *= temp;
 
-	Vector3D new_pos = m_world_cam.getTranslation() + world_cam.getZDirection() * (m_forward * 0.05f);
-
+	Vector3D new_pos =  m_world_cam.getTranslation() + world_cam.getZDirection() * (m_forward * 0.05f);
 	new_pos = new_pos + world_cam.getXDirection() * (m_rightward * 0.05f);
+	new_pos = new_pos + world_cam.getYDirection() * (m_upward * 0.05f);
 
 	world_cam.setTranslation(new_pos);
 
-	//cc.m_cam_pos = new_pos;
 	m_world_cam = world_cam;
 
 	world_cam.inverse();
 
 	cc.m_view = world_cam;
 
-	//cc.m_proj.setOrthoLH(
-	//	(this->windowRef.right - this->windowRef.left) / 400.0f,
-	//	(this->windowRef.bottom - this->windowRef.top) / 400.0f,
-	//	-4.0f,
-	//	4.0f
-	//);
+}
 
-	int width = (this->windowRef.right - this->windowRef.left);
-	int height = (this->windowRef.bottom - this->windowRef.top);
-
-	cc.m_proj.setPerspectiveFovLH(1.57f, ((float)width / (float)height), 0.1f, 100.0f);
-
-	this->m_old_time = this->m_new_time;
-	this->m_new_time = ::GetTickCount64();
-
-	this->m_delta_time = (this->m_old_time) ? (this->m_new_time - this->m_old_time) / 1000.0f : 0;
+void Camera::draw()
+{
+	std::cout << "Draw Function is called." << std::endl;
 
 }
 
@@ -85,27 +71,18 @@ void Camera::moveOnKey(int key)
 	{
 		m_rightward = 1.0f;
 	}
+	else if (key == 'Z')
+	{
+		m_upward = -1.0f;
+	}
+	else if (key == 'X')
+	{
+		m_upward = 1.0f;
+	}
 	else if (key == 'R')
 	{
-		m_rot_y += 0.5f * m_delta_time;
-
+		this->rot.m_y += 0.707 * m_delta_time;
 	}
-	else if (key == 'T')
-	{
-		m_rot_y -= 0.5f * m_delta_time;
-
-	}
-	else if (key == 'G')
-	{
-		m_rot_x += 0.5f * m_delta_time;
-
-	}
-	else if (key == 'H')
-	{
-		m_rot_x -= 0.5f * m_delta_time;
-
-	}
-
 
 }
 
@@ -113,14 +90,11 @@ void Camera::OnKeyRelease()
 {
 	this->m_forward = 0.0f;
 	this->m_rightward = 0.0f;
+	this->m_upward = 0.0f;
 }
 
 void Camera::setWindowReference(RECT og_window) {
 	this->windowRef = og_window;
 }
 
-Matrix4x4 Camera::getViewMatrix()
-{
-	return Matrix4x4();
-}
 
