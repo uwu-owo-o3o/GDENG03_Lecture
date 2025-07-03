@@ -1,6 +1,7 @@
 #pragma once
 #include "EngineTime.h"
 #include <Windows.h>
+#include "imgui.h"
 
 class Window
 {

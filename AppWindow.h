@@ -8,6 +8,7 @@
 #include "Camera.h"
 #include "InputSystem.h"
 #include "EngineTime.h"
+#include "UIManager.h"
 #include "vector"
 class AppWindow : public Window, public InputListener
 {
@@ -44,5 +45,4 @@ class AppWindow : public Window, public InputListener
 		Cube* cube;
 		Plane* plane;
 
-		
 };

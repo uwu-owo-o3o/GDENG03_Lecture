@@ -28,11 +28,11 @@ class RenderSystem
 	private:
 		DeviceContextPtr m_imm_device_context;
 
-	private:
+	public:
 		ID3D11Device* m_d3d_device;
 		D3D_FEATURE_LEVEL m_feature_level;
 
-	private:
+	public:
 		IDXGIDevice* m_dxgi_device;
 		IDXGIAdapter* m_dxgi_adapter;
 		IDXGIFactory* m_dxgi_factory;

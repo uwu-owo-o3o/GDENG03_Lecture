@@ -7,27 +7,27 @@ class Window;
 
 class EngineTime
 {
-public:
-	static void initialize();
-	static double getDeltaTime();
+	public:
+		static void initialize();
+		static double getDeltaTime();
 
-	static int id;
-private:
-	EngineTime();
-	~EngineTime();
-	EngineTime& operator=(EngineTime const&) {};
+		static int id;
+	private:
+		EngineTime();
+		~EngineTime();
+		EngineTime& operator=(EngineTime const&) {};
 
-	static EngineTime* sharedInstance;
+		static EngineTime* sharedInstance;
 
-private:
-	std::chrono::system_clock::time_point start;
-	std::chrono::system_clock::time_point end;
+	private:
+		std::chrono::system_clock::time_point start;
+		std::chrono::system_clock::time_point end;
 
-	double deltaTime = 0.0f;
+		double deltaTime = 0.0f;
 
-	static void LogFrameStart();
-	static void LogFrameEnd();
+		static void LogFrameStart();
+		static void LogFrameEnd();
 
-	friend class Window;
+		friend class Window;
 
 };

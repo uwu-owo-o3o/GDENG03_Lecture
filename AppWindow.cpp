@@ -26,6 +26,8 @@ void AppWindow::onCreate()
 	this->cube = new Cube("Cube 1");
 	this->plane = new Plane("Plane 1");
 
+	UIManager::initialize(this->m_hwnd, GraphicsEngine::get()->getRenderSystem()->m_d3d_device, GraphicsEngine::get()->getRenderSystem()->m_imm_context);
+
 }
 
 void AppWindow::onUpdate()
@@ -45,6 +47,8 @@ void AppWindow::onUpdate()
 
 	plane->update(deltaTime, width, height);
 	plane->draw();
+
+	UIManager::update();
 
 	m_swap_chain->present(true);
 }
