@@ -1,7 +1,7 @@
 #include "UIManager.h"
 
 UIManager* UIManager::sharedInstance = nullptr;
-bool UIManager::showWindow = true;
+std::vector<UIScreen*> UIManager::uiScreens = std::vector<UIScreen*>();
 
 void UIManager::initialize(HWND hwnd, ID3D11Device* device, ID3D11DeviceContext* device_context)
 {
@@ -17,26 +17,36 @@ void UIManager::initialize(HWND hwnd, ID3D11Device* device, ID3D11DeviceContext*
 	if (sharedInstance == nullptr) {
 		sharedInstance = new UIManager();
 	}
+
+	RECT rc;
+	::GetClientRect(hwnd, &rc);
+
+	float width = rc.right - rc.left;
+	float height = rc.bottom - rc.top;
+
+	ToolBar* toolBarScreen = new ToolBar(width, height);
+	CreditsScreen* creditsScreen = new CreditsScreen(width, height);
+	addScreen(toolBarScreen);
+	addScreen(creditsScreen);
 }
 
-void UIManager::update()
+void UIManager::draw()
 {
 	ImGui_ImplDX11_NewFrame();
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
-	ImGui::Begin("Credits", &showWindow);                          
-	ImGui::Text("Scene Editor Version 1.0.0     ");
-	ImGui::Text("Developed by: Lance Ong        ");
-
-	if (ImGui::Button("Close")) {
-		std::cout << "clicked!" << std::endl;
+	for (UIScreen* screen : uiScreens) {
+		screen->draw();
 	}
-
-	ImGui::End();
 
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+}
+
+void UIManager::addScreen(UIScreen* screen)
+{
+	uiScreens.push_back(screen);
 }
 
 

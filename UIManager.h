@@ -1,17 +1,17 @@
 #pragma once
 #include "iostream"
 #include <Windows.h>
-#include "imgui_impl_dx11.h"
-#include "imgui_impl_win32.h"
-#include "imgui.h"
+#include "vector"
+#include "UIScreen.h"
+#include "ToolBar.h"
+#include "CreditsScreen.h"
 
 class UIManager
 {
 	public:
 		static void initialize(HWND hwnd, ID3D11Device* device, ID3D11DeviceContext* device_context);
-		static void update();
-
-		static bool showWindow;
+		static void draw();
+		static void addScreen(UIScreen* screen);
 
 	private:
 		UIManager();
@@ -20,5 +20,7 @@ class UIManager
 
 		static UIManager* sharedInstance;
 
+	private:
+		static std::vector<UIScreen*> uiScreens;
 };
 

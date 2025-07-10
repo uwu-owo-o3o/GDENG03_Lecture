@@ -48,7 +48,7 @@ void AppWindow::onUpdate()
 	plane->update(deltaTime, width, height);
 	plane->draw();
 
-	UIManager::update();
+	UIManager::draw();
 
 	m_swap_chain->present(true);
 }

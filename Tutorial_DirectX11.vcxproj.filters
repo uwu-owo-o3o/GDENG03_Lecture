@@ -70,6 +70,18 @@
     <Filter Include="GameEngine\IMGUI">
       <UniqueIdentifier>{a8fdb4bf-216b-4a92-9009-822a1be65eb9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\UIScreen">
+      <UniqueIdentifier>{b1d069a8-1c54-4092-a2a1-e98aea7748f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\UIScreen\ToolBar">
+      <UniqueIdentifier>{9aa3e8e7-27f0-43c1-9fad-e92c68097b73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\UIScreen\CreditsScreen">
+      <UniqueIdentifier>{f356698d-72aa-4568-824d-6b17e49c5b50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\UIImage">
+      <UniqueIdentifier>{4ecf704d-7427-4fdf-83e7-a484a399e67d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -155,6 +167,15 @@
     </ClCompile>
     <ClCompile Include="imgui_tables.cpp">
       <Filter>GameEngine\IMGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolBar.cpp">
+      <Filter>GameEngine\UIScreen\ToolBar</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditsScreen.cpp">
+      <Filter>GameEngine\UIScreen\CreditsScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="UIImage.cpp">
+      <Filter>GameEngine\GraphicsEngine\UIImage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +283,18 @@
     </ClInclude>
     <ClInclude Include="imstb_truetype.h">
       <Filter>GameEngine\IMGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIScreen.h">
+      <Filter>GameEngine\UIScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolBar.h">
+      <Filter>GameEngine\UIScreen\ToolBar</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditsScreen.h">
+      <Filter>GameEngine\UIScreen\CreditsScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="UIImage.h">
+      <Filter>GameEngine\GraphicsEngine\UIImage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
