@@ -11,8 +11,8 @@ class UIScreen {
 	protected:
 		float screenWidth;
 		float screenHeight;
-		bool isOpen;
-
+		
 	public:
 		std::string screenName;
+		bool isOpen;
 };

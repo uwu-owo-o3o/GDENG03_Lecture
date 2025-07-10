@@ -5,6 +5,7 @@
 #include "UIScreen.h"
 #include "ToolBar.h"
 #include "CreditsScreen.h"
+#include "ColorPickerScreen.h"
 
 class UIManager
 {
@@ -12,7 +13,7 @@ class UIManager
 		static void initialize(HWND hwnd, ID3D11Device* device, ID3D11DeviceContext* device_context);
 		static void draw();
 		static void addScreen(UIScreen* screen);
-
+		static UIScreen* findScreen(std::string targetName);
 	private:
 		UIManager();
 		~UIManager();

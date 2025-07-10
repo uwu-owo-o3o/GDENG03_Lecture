@@ -26,8 +26,11 @@ void UIManager::initialize(HWND hwnd, ID3D11Device* device, ID3D11DeviceContext*
 
 	ToolBar* toolBarScreen = new ToolBar(width, height);
 	CreditsScreen* creditsScreen = new CreditsScreen(width, height);
+	ColorPickerScreen* colorPickerScreen = new ColorPickerScreen(width, height);
+
 	addScreen(toolBarScreen);
 	addScreen(creditsScreen);
+	addScreen(colorPickerScreen);
 }
 
 void UIManager::draw()
@@ -47,6 +50,18 @@ void UIManager::draw()
 void UIManager::addScreen(UIScreen* screen)
 {
 	uiScreens.push_back(screen);
+}
+
+UIScreen* UIManager::findScreen(std::string targetName)
+{
+	UIScreen* targetScreen = nullptr;
+	for (UIScreen* screen : uiScreens) {
+		if (screen->screenName == targetName) {
+			targetScreen = screen;
+		}
+	}
+
+	return targetScreen;
 }
 
 

@@ -82,6 +82,9 @@
     <Filter Include="GameEngine\GraphicsEngine\UIImage">
       <UniqueIdentifier>{4ecf704d-7427-4fdf-83e7-a484a399e67d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\UIScreen\ColorPickerScreen">
+      <UniqueIdentifier>{4aa60781-db50-4234-be23-49aae076a1ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -176,6 +179,9 @@
     </ClCompile>
     <ClCompile Include="UIImage.cpp">
       <Filter>GameEngine\GraphicsEngine\UIImage</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorPickerScreen.cpp">
+      <Filter>GameEngine\UIScreen\ColorPickerScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="UIImage.h">
       <Filter>GameEngine\GraphicsEngine\UIImage</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorPickerScreen.h">
+      <Filter>GameEngine\UIScreen\ColorPickerScreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ class CreditsScreen : public UIScreen
 
 	public:
 		virtual void draw() override;
-
+		void writeDescription();
 	public:
 		UIImage dlsu_logo;
 
