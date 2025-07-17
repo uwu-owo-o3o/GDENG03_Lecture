@@ -37,23 +37,20 @@ void AppWindow::onUpdate()
 	GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setViewPortSize(rc.right - rc.left, rc.bottom - rc.top);
 
 	this->worldCamera.onUpdate();
-	this->cube.onUpdate();
-	this->cube2.onUpdate();
-	this->cube3.onUpdate();
-	this->plane.onUpdate();
+	this->teaPot.onUpdate();
+	this->armadillo.onUpdate();
+	this->bunny.onUpdate();
 
-	this->cube.draw();
-	this->cube2.draw();
-	this->cube3.draw();
-	this->plane.draw();
+	this->teaPot.draw();
+	this->armadillo.draw();
+	this->bunny.draw();
 	m_swap_chain->present(false);
 }
 
 void AppWindow::onDestroy()
 {
 	Window::onDestroy();
-	this->cube.onRelease();
-	this->plane.onRelease();
+	this->teaPot.onRelease();
 
 	GraphicsEngine::get()->release();
 }
@@ -70,28 +67,17 @@ void AppWindow::onKillFocus()
 
 void AppWindow::createRenderObjects()
 {
-	this->cube = RenderObject(L"Assets\\Meshes\\box.obj", 0);	
-	this->cube.setCameraConstant(&this->worldCamera.cc);
+	this->teaPot = RenderObject(L"Assets\\Meshes\\teapot.obj", L"Assets\\Textures\\brick.png", 0);
+	this->teaPot.setCameraConstant(&this->worldCamera.cc);
 	
-	this->cube.obj_scale = Vector3D(1, 1.5, 0.5);
-	this->cube.obj_pos = Vector3D(0, -0.3, 0);
-	this->cube.currentColor = Vector3D(0.5, 1, 1);
+	this->armadillo = RenderObject(L"Assets\\Meshes\\armadillo.obj", L"Assets\\Textures\\wood.jpg", 0);
+	this->armadillo.setCameraConstant(&this->worldCamera.cc);
+	this->armadillo.obj_pos = Vector3D(-3, 0, 0);
 
-	this->cube2 = RenderObject(L"Assets\\Meshes\\box.obj", 0);
-	this->cube2.setCameraConstant(&this->worldCamera.cc);
-	this->cube2.obj_scale = Vector3D(1, 1, 0.5);
-	this->cube2.obj_pos = Vector3D(1, 1, 2);
-
-	this->cube3 = RenderObject(L"Assets\\Meshes\\box.obj", 1);
-	this->cube3.setCameraConstant(&this->worldCamera.cc);
-	this->cube3.currentColor = Vector3D(1, 0.5, 1);
-	this->cube3.obj_scale = Vector3D(1, 1, 0.5);
-	this->cube3.obj_pos = Vector3D(-0.5, 1.7, 2);
-
-	this->plane = RenderObject(L"Assets\\Meshes\\box.obj", 1);
-	this->plane.setCameraConstant(&this->worldCamera.cc);
-
-	this->plane.obj_scale = Vector3D(5, 0.01, 5);
+	this->bunny = RenderObject(L"Assets\\Meshes\\bunny.obj", L"Assets\\Textures\\wood.jpg", 0);
+	this->bunny.setCameraConstant(&this->worldCamera.cc);
+	this->bunny.obj_scale = Vector3D(5, 5, 5);
+	this->bunny.obj_pos = Vector3D(0.5, 0, 0);
 
 }
 
@@ -102,16 +88,15 @@ void AppWindow::OnKeyDown(int key)
 
 	switch (this->currSelected) {
 		case 1:
-			this->cube.onKeyDown(key);
+			this->teaPot.onKeyDown(key);
 			break;
 		case 2:
-			this->cube2.onKeyDown(key);
+			this->armadillo.onKeyDown(key);
 			break;
 		case 3:
-			this->cube3.onKeyDown(key);
+			this->bunny.onKeyDown(key);
 			break;
 		case 4:
-			this->plane.onKeyDown(key);
 			break;
 	}
 }
@@ -129,16 +114,15 @@ void AppWindow::OnLeftMouseDown(const Point& deltaMousePos)
 {
 	switch (this->currSelected) {
 		case 1:
-			this->cube.onMouseDown('L');
+			this->teaPot.onMouseDown('L');
 			break;
 		case 2:
-			this->cube2.onMouseDown('L');
+			this->armadillo.onMouseDown('L');
 			break;
 		case 3:
-			this->cube3.onMouseDown('L');
+			this->bunny.onMouseDown('L');
 			break;
 		case 4:
-			this->plane.onMouseDown('L');
 			break;
 	}
 }
@@ -151,16 +135,15 @@ void AppWindow::OnRightMouseDown(const Point& deltaMousePos)
 {
 	switch (this->currSelected) {
 		case 1:
-			this->cube.onMouseDown('R');
+			this->teaPot.onMouseDown('R');
 			break;
 		case 2:
-			this->cube2.onMouseDown('R');
+			this->armadillo.onMouseDown('R');
 			break;
 		case 3:
-			this->cube3.onMouseDown('R');
+			this->bunny.onMouseDown('R');
 			break;
 		case 4:
-			this->plane.onMouseDown('R');
 			break;
 	}
 }

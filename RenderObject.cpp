@@ -14,14 +14,14 @@ RenderObject::RenderObject()
 	m_cb = GraphicsEngine::get()->getRenderSystem()->createConstantBuffer(&cc, sizeof(constant));
 }
 
-RenderObject::RenderObject(const wchar_t* filepath, int value)
+RenderObject::RenderObject(const wchar_t* objPath, const wchar_t* texturePath, int value)
 {
 	this->obj_pos = Vector3D(0, 0, 0);
 	this->obj_rot = Vector3D(0, 0, 0);
 	this->obj_scale = Vector3D(1, 1, 1);
 	this->currentColor = Vector3D(1, 1, 1);
 
-	this->createMesh(filepath);
+	this->createMesh(objPath, texturePath);
 	this->initialize();
 
 	this->isFlat = value;
@@ -215,8 +215,8 @@ void RenderObject::setCameraConstant(constant* cam_cc)
 	this->camCC = cam_cc;
 }
 
-void RenderObject::createMesh(const wchar_t* filepath)
+void RenderObject::createMesh(const wchar_t* objPath, const wchar_t* texturePath)
 {
-	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"Assets\\Textures\\wood.jpg");
-	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(filepath);
+	m_tex = GraphicsEngine::get()->getTextureManager()->createTextureFromFile(texturePath);
+	m_mesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(objPath);
 }

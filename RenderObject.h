@@ -17,7 +17,7 @@ class RenderObject
 {
 	public:
 		RenderObject();
-		RenderObject(const wchar_t* filepath, int value);
+		RenderObject(const wchar_t* objPath, const wchar_t* texturePath, int value);
 		~RenderObject();
 
 	public:
@@ -41,7 +41,7 @@ class RenderObject
 	public:
 		void setWindowRef(RECT window);
 		void setCameraConstant(constant* cam_cc);
-		void createMesh(const wchar_t* filepath);
+		void createMesh(const wchar_t* objPath, const wchar_t* texturePath);
 
 	public:
 		//unsigned long m_old_time = 0;

@@ -55,15 +55,20 @@ Mesh::Mesh(const wchar_t* full_path) : Resource(full_path)
 				tinyobj::real_t vy = attribs.vertices[index.vertex_index * 3 + 1];
 				tinyobj::real_t vz = attribs.vertices[index.vertex_index * 3 + 2];
 
-				tinyobj::real_t tx = attribs.texcoords[index.texcoord_index * 2 + 0];
-				tinyobj::real_t ty = attribs.texcoords[index.texcoord_index * 2 + 1];
+				Vector2D uv = Vector2D(0.0f, 0.0f);
+				if (index.texcoord_index >= 0) {
+					uv.m_x = attribs.texcoords[index.texcoord_index * 2 + 0];
+					uv.m_y = attribs.texcoords[index.texcoord_index * 2 + 1];
+				}
+				
+				Vector3D normals = Vector3D(0.0f, 0.0f, 1.0f);
+				if (index.normal_index >= 0) {
+					normals.m_x = attribs.normals[index.normal_index * 3 + 0];
+					normals.m_y = attribs.normals[index.normal_index * 3 + 1];
+					normals.m_z = attribs.normals[index.normal_index * 3 + 2];
+				}
 
-
-				tinyobj::real_t nx = attribs.normals[index.normal_index * 3 + 0];
-				tinyobj::real_t ny = attribs.normals[index.normal_index * 3 + 1];
-				tinyobj::real_t nz = attribs.normals[index.normal_index * 3 + 2];
-
-				VertexMesh vertex(Vector3D(vx, vy, vz), Vector2D(tx, ty), Vector3D(nx, ny, nz));
+				VertexMesh vertex(Vector3D(vx, vy, vz), uv, normals);
 				list_vertices.push_back(vertex);
 
 				list_indices.push_back(index_offset + v);

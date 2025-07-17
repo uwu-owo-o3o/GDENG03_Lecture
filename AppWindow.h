@@ -44,11 +44,9 @@ class AppWindow : public Window, public InputListener
 		Camera worldCamera;
 
 	private:
-		RenderObject cube;
-		RenderObject cube2;
-		RenderObject cube3;
-		RenderObject plane;
-
+		RenderObject teaPot;
+		RenderObject armadillo;
+		RenderObject bunny;
 		int currSelected;
 	
 	private:
