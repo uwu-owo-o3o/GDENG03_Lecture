@@ -3,15 +3,14 @@
 #include "Window.h"
 #include "GraphicsEngine.h"
 #include "SwapChain.h"
-#include "Cube.h"
-#include "Plane.h"
+#include "GameObjectManager.h"
 #include "Camera.h"
 #include "InputSystem.h"
 #include "EngineTime.h"
 #include "UIManager.h"
 #include "vector"
 #include "PhysicsSystem.h"
-#include "PhysicsCube.h"
+
 
 class AppWindow : public Window, public InputListener
 {

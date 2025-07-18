@@ -204,6 +204,9 @@
     <ClCompile Include="PhysicsCube.cpp">
       <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h">
@@ -337,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="PhysicsCube.h">
       <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectManager.h">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
