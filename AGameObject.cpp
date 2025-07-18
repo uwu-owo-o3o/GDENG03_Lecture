@@ -102,10 +102,7 @@ void AGameObject::setPhysicsMatrix(float matrix[16])
 	Matrix4x4 scale_m;
 	scale_m.setScale(this->scale);
 
-	this->physicsMatrix =  physicsTransform;
-	Vector3D t = this->physicsMatrix.getTranslation();
-	Vector3D s = this->physicsMatrix.getScale();
-	Vector3D r = this->physicsMatrix.getRotationEuler();
+	this->physicsMatrix = physicsTransform;
 
 	this->hasPhysics = true;
 }

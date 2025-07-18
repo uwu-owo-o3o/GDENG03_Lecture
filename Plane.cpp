@@ -86,7 +86,6 @@ void Plane::create()
 void Plane::update(float deltaTime, int width, int height)
 {
 	if (this->hasPhysics) {
-		std::cout << "has physics" << std::endl;
 		cc.m_world = this->physicsMatrix;
 	}
 	else {
