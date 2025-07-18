@@ -27,6 +27,7 @@ void AppWindow::onCreate()
 	SceneCameraHandler::getInstance()->initialize();
 	GameObjectManager::initialize();
 	GameObjectManager::Instance->create();
+	//GameObjectManager::Instance->spawnCubes();
 
 	UIManager::initialize(this->m_hwnd, GraphicsEngine::get()->getRenderSystem()->m_d3d_device, GraphicsEngine::get()->getRenderSystem()->m_imm_context);
 }

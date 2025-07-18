@@ -1,5 +1,6 @@
 #include "ToolBar.h"
 #include "UIManager.h"
+#include "GameObjectManager.h"
 
 ToolBar::ToolBar(float width, float height)
 {
@@ -22,6 +23,7 @@ void ToolBar::draw()
 
 	this->drawAboutButton();
 	this->drawColorPickerButton();
+	this->drawSpawnButton();
 	
 	ImGui::End();
 }
@@ -57,5 +59,14 @@ void ToolBar::drawColorPickerButton()
 		else {
 			colorPickerScreen->isOpen = true;
 		}
+	}
+}
+
+void ToolBar::drawSpawnButton()
+{
+	ImGui::SameLine();
+	ImGui::PushItemWidth(10);
+	if (ImGui::Button("Spawn Cubes")) {
+		GameObjectManager::Instance->spawnCubes();
 	}
 }

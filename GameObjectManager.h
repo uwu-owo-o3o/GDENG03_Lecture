@@ -18,5 +18,6 @@ class GameObjectManager
 		void create();
 		void update(float deltaTime, int width, int height);
 		void draw();
+		void spawnCubes();
 };
 

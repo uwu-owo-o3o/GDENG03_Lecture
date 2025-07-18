@@ -3,7 +3,7 @@
 Plane::Plane(std::string name) : AGameObject(name)
 {
 	this->create();
-	this->pos = Vector3D(0, -1.5, 0);
+	this->pos = Vector3D(0, -2.5, 0);
 }
 
 Plane::~Plane()
