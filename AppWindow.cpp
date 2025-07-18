@@ -26,10 +26,14 @@ void AppWindow::onCreate()
 
 	SceneCameraHandler::getInstance()->initialize();
 	this->cube = new Cube("Cube 1");
+	this->cube2 = new Cube("Cube 2");
 	this->plane = new Plane("Plane 1");
 
 	PhysicsComponent* component = new PhysicsComponent("Physics Cube 1", this->cube);
 	this->cube->attachComponent(component);
+
+	PhysicsComponent* component2 = new PhysicsComponent("Physics Cube 2", this->cube2);
+	this->cube2->attachComponent(component2);
 
 	PhysicsComponent* component1 = new PhysicsComponent("Physics Plane 1", this->plane);
 	component1->getRigidBody()->setType(BodyType::KINEMATIC);
@@ -51,11 +55,13 @@ void AppWindow::onUpdate()
 
 	SceneCameraHandler::getInstance()->getSceneCamera()->update(deltaTime, width, height);
 	cube->update(deltaTime, width, height);
+	cube2->update(deltaTime, width, height);
 	plane->update(deltaTime, width, height);
 
 	PhysicsSystem::Instance->updateAllComponents();
 
 	cube->draw();
+	cube2->draw();
 	plane->draw();
 
 	UIManager::draw();

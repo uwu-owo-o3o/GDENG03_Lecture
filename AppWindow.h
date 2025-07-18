@@ -46,6 +46,7 @@ class AppWindow : public Window, public InputListener
 	private:
 		SwapChainPtr m_swap_chain;
 		Cube* cube;
+		Cube* cube2;
 		Plane* plane;
 
 };
