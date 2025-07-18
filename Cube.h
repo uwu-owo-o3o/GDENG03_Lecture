@@ -4,7 +4,7 @@
 #include "Prerequisites.h"
 
 class Cube : public AGameObject
-	{
+{
 	public:
 		Cube(std::string name);
 		~Cube();
@@ -13,5 +13,6 @@ class Cube : public AGameObject
 		virtual void create() override;
 		virtual void update(float deltaTime, int width, int height) override;
 		virtual void draw() override;
+
 };
 

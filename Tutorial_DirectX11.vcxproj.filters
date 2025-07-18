@@ -88,6 +88,12 @@
     <Filter Include="GameEngine\PhysicsSystem">
       <UniqueIdentifier>{d2aac2c6-3f0b-4799-9b77-75d5644e7dc0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\Component">
+      <UniqueIdentifier>{67ef5910-304c-4d95-b0da-edba6ab37106}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Component\PhysicsComponent">
+      <UniqueIdentifier>{385693be-917f-4394-b4c4-6c7906f967f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -188,6 +194,15 @@
     </ClCompile>
     <ClCompile Include="PhysicsSystem.cpp">
       <Filter>GameEngine\PhysicsSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AComponent.cpp">
+      <Filter>GameEngine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsComponent.cpp">
+      <Filter>GameEngine\Component\PhysicsComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsCube.cpp">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +328,15 @@
     </ClInclude>
     <ClInclude Include="PhysicsSystem.h">
       <Filter>GameEngine\PhysicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AComponent.h">
+      <Filter>GameEngine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsComponent.h">
+      <Filter>GameEngine\Component\PhysicsComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsCube.h">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Cube</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

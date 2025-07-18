@@ -84,32 +84,38 @@ void Cube::create()
 
 void Cube::update(float deltaTime, int width, int height)
 {
-	Matrix4x4 scale_m;
-	scale_m.setIdentity();
-	scale_m.setScale(this->scale);
+	if (this->hasPhysics) {
+		std::cout << "has physics" << std::endl;
+		cc.m_world = this->physicsMatrix;
+	}
+	else {
+		Matrix4x4 scale_m;
+		scale_m.setIdentity();
+		scale_m.setScale(this->scale);
 
-	Matrix4x4 rot_mx;
-	rot_mx.setIdentity();
-	rot_mx.setRotationX(this->rot.m_x);
+		Matrix4x4 rot_mx;
+		rot_mx.setIdentity();
+		rot_mx.setRotationX(this->rot.m_x);
 
-	Matrix4x4 rot_my;
-	rot_my.setIdentity();
-	rot_my.setRotationY(this->rot.m_y);
+		Matrix4x4 rot_my;
+		rot_my.setIdentity();
+		rot_my.setRotationY(this->rot.m_y);
 
-	Matrix4x4 rot_mz;
-	rot_mz.setIdentity();
-	rot_mz.setRotationZ(this->rot.m_z);
+		Matrix4x4 rot_mz;
+		rot_mz.setIdentity();
+		rot_mz.setRotationZ(this->rot.m_z);
 
-	Matrix4x4 rotation_m;
-	rotation_m = rot_mx * rot_my * rot_mz;
+		Matrix4x4 rotation_m;
+		rotation_m = rot_mx * rot_my * rot_mz;
 
-	Matrix4x4 translation_m;
-	translation_m.setIdentity();
-	translation_m.setTranslation(this->pos);
+		Matrix4x4 translation_m;
+		translation_m.setIdentity();
+		translation_m.setTranslation(this->pos);
 
-	Matrix4x4 transform_m = scale_m * rotation_m * translation_m;
-
-	cc.m_world = transform_m;
+		Matrix4x4 transform_m = scale_m * rotation_m * translation_m;
+		
+		cc.m_world = transform_m;
+	}
 	
 	cc.m_view = SceneCameraHandler::getInstance()->getSceneCamera()->cc.m_view;
 

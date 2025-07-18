@@ -1,5 +1,6 @@
 #pragma once
 #include "string"
+#include "vector"
 #include "GraphicsEngine.h"
 #include "SwapChain.h"
 #include "DeviceContext.h"
@@ -12,6 +13,7 @@
 #include "Point.h"
 #include "Matrix4x4.h"
 #include "Prerequisites.h"
+#include "AComponent.h"
 
 class AGameObject
 {
@@ -35,7 +37,18 @@ class AGameObject
 		void setRot(float x, float y, float z);
 		void setRot(Vector3D scale);
 		Vector3D getLocalRot();
-	
+		
+		float* getPhysicsLocalMatrix();
+		void setPhysicsMatrix(float matrix[16]);
+
+	public:
+		void attachComponent(AComponent* component);
+		void detachComponent(AComponent* component);
+
+		AComponent* findComponentByName(std::string name);
+		AComponent* findComponentOfType(ComponentType type, std::string name);
+		std::vector<AComponent*> getComponentsOfType(ComponentType type);
+
 	protected:
 		VertexBufferPtr m_vb;
 		ConstantBufferPtr m_cb;
@@ -53,6 +66,12 @@ class AGameObject
 		Vector3D rot;
 
 		std::string name;
+
+	public:
+		std::vector<AComponent*> componentList;
+
+		Matrix4x4 physicsMatrix;
+		bool hasPhysics = false;
 
 
 };

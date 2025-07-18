@@ -100,6 +100,11 @@ public:
 		::memcpy(m_mat, matrix.m_mat, sizeof(float) * 16);
 	}
 
+	void setMatrix(float matrix[4][4])
+	{
+		::memcpy(m_mat, matrix, sizeof(float) * 16);
+	}
+
 	Vector3D getZDirection() {
 		return Vector3D(m_mat[2][0], m_mat[2][1], m_mat[2][2]);
 	}
@@ -114,6 +119,53 @@ public:
 
 	Vector3D getTranslation() {
 		return Vector3D(m_mat[3][0], m_mat[3][1], m_mat[3][2]);
+	}
+
+	Vector3D getScale() {
+		
+		float sx = sqrt(
+			m_mat[0][0] * m_mat[0][0] +
+			m_mat[1][0] * m_mat[1][0] +
+			m_mat[2][0] * m_mat[2][0]
+		);
+
+		float sy = sqrt(
+			m_mat[0][1] * m_mat[0][1] +
+			m_mat[1][1] * m_mat[1][1] +
+			m_mat[2][1] * m_mat[2][1]
+		);
+
+		float sz = sqrt(
+			m_mat[0][2] * m_mat[0][2] +
+			m_mat[1][2] * m_mat[1][2] +
+			m_mat[2][2] * m_mat[2][2]
+		);
+
+		return Vector3D(sx, sy, sz);
+	}
+
+	Vector3D getRotationEuler() {
+		Vector3D scale = getScale();
+
+		float r00 = m_mat[0][0] / scale.m_x;
+		float r01 = m_mat[0][1] / scale.m_y;
+		float r02 = m_mat[0][2] / scale.m_z;
+		float r10 = m_mat[1][0] / scale.m_x;
+		float r11 = m_mat[1][1] / scale.m_y;
+		float r12 = m_mat[1][2] / scale.m_z;
+		float r20 = m_mat[2][0] / scale.m_x;
+		float r21 = m_mat[2][1] / scale.m_y;
+		float r22 = m_mat[2][2] / scale.m_z;
+
+		Vector3D euler;
+
+		euler.m_y = atan2(r02, r22);
+
+		euler.m_x = asin(-r12);
+
+		euler.m_z = atan2(r10, r11);
+
+		return euler;
 	}
 
 	void setPerspectiveFovLH(float fov, float aspect, float znear, float zfar)
@@ -192,6 +244,10 @@ public:
 		this->setMatrix(out);
 	}
 
-private:
-	float m_mat[4][4] = {};
+	float* getMatrix() {
+		return *this->m_mat;
+	}
+
+	private:
+		float m_mat[4][4] = {};
 };

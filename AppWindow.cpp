@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "InputSystem.h"
+#include "PhysicsComponent.h"
 
 AppWindow::AppWindow()
 {
@@ -14,6 +15,7 @@ AppWindow::~AppWindow()
 void AppWindow::onCreate()
 {
 	InputSystem::get()->addListener(this);
+	PhysicsSystem::initialize();
 
 	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain();
 
@@ -26,8 +28,14 @@ void AppWindow::onCreate()
 	this->cube = new Cube("Cube 1");
 	this->plane = new Plane("Plane 1");
 
-	UIManager::initialize(this->m_hwnd, GraphicsEngine::get()->getRenderSystem()->m_d3d_device, GraphicsEngine::get()->getRenderSystem()->m_imm_context);
+	PhysicsComponent* component = new PhysicsComponent("Physics Cube 1", this->cube);
+	this->cube->attachComponent(component);
 
+	PhysicsComponent* component1 = new PhysicsComponent("Physics Plane 1", this->plane);
+	component1->getRigidBody()->setType(BodyType::KINEMATIC);
+	this->plane->attachComponent(component1);
+
+	UIManager::initialize(this->m_hwnd, GraphicsEngine::get()->getRenderSystem()->m_d3d_device, GraphicsEngine::get()->getRenderSystem()->m_imm_context);
 }
 
 void AppWindow::onUpdate()
@@ -43,9 +51,11 @@ void AppWindow::onUpdate()
 
 	SceneCameraHandler::getInstance()->getSceneCamera()->update(deltaTime, width, height);
 	cube->update(deltaTime, width, height);
-	cube->draw();
-
 	plane->update(deltaTime, width, height);
+
+	PhysicsSystem::Instance->updateAllComponents();
+
+	cube->draw();
 	plane->draw();
 
 	UIManager::draw();

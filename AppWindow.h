@@ -10,6 +10,8 @@
 #include "EngineTime.h"
 #include "UIManager.h"
 #include "vector"
+#include "PhysicsSystem.h"
+#include "PhysicsCube.h"
 
 class AppWindow : public Window, public InputListener
 {
