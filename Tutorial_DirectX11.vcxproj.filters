@@ -85,6 +85,9 @@
     <Filter Include="GameEngine\UIScreen\ColorPickerScreen">
       <UniqueIdentifier>{4aa60781-db50-4234-be23-49aae076a1ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\PhysicsSystem">
+      <UniqueIdentifier>{d2aac2c6-3f0b-4799-9b77-75d5644e7dc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -182,6 +185,9 @@
     </ClCompile>
     <ClCompile Include="ColorPickerScreen.cpp">
       <Filter>GameEngine\UIScreen\ColorPickerScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystem.cpp">
+      <Filter>GameEngine\PhysicsSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="ColorPickerScreen.h">
       <Filter>GameEngine\UIScreen\ColorPickerScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>GameEngine\PhysicsSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
