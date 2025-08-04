@@ -94,6 +94,9 @@
     <Filter Include="GameEngine\Component\PhysicsComponent">
       <UniqueIdentifier>{385693be-917f-4394-b4c4-6c7906f967f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\SceneHandling">
+      <UniqueIdentifier>{168d021b-a96e-4d41-a991-d2e78e2dcc82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -206,6 +209,12 @@
     </ClCompile>
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>GameEngine\GraphicsEngine\RenderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneSave.cpp">
+      <Filter>GameEngine\GraphicsEngine\SceneHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadScene.cpp">
+      <Filter>GameEngine\GraphicsEngine\SceneHandling</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +352,12 @@
     </ClInclude>
     <ClInclude Include="GameObjectManager.h">
       <Filter>GameEngine\GraphicsEngine\RenderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneSave.h">
+      <Filter>GameEngine\GraphicsEngine\SceneHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadScene.h">
+      <Filter>GameEngine\GraphicsEngine\SceneHandling</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

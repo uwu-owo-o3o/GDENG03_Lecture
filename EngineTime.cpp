@@ -7,7 +7,6 @@ EngineTime::EngineTime() {
 
 }
 
-
 void EngineTime::initialize()
 {
 	if (sharedInstance == nullptr) {

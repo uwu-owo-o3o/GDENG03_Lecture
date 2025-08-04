@@ -168,6 +168,7 @@
     <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="InputSystem.cpp" />
+    <ClCompile Include="LoadScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsCube.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="SceneCameraHandler.cpp" />
+    <ClCompile Include="SceneSave.cpp" />
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="ToolBar.cpp" />
     <ClCompile Include="UIImage.cpp" />
@@ -209,6 +211,7 @@
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="InputListener.h" />
     <ClInclude Include="InputSystem.h" />
+    <ClInclude Include="LoadScene.h" />
     <ClInclude Include="Matrix4x4.h" />
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="PhysicsCube.h" />
@@ -218,6 +221,7 @@
     <ClInclude Include="Prerequisites.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="SceneCameraHandler.h" />
+    <ClInclude Include="SceneSave.h" />
     <ClInclude Include="ToolBar.h" />
     <ClInclude Include="UIImage.h" />
     <ClInclude Include="UIManager.h" />
