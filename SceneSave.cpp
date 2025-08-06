@@ -19,9 +19,10 @@ void SceneSave::saveScene()
 	for (AGameObject* object : gameObjects) {
 		MyFile << "Name: " << object->name << std::endl;
 		MyFile << "Position: " << object->pos.m_x << " " << object->pos.m_y << " " << object->pos.m_z << std::endl;
-		MyFile << "Scale: " << object->pos.m_x << " " << object->pos.m_y << " " << object->pos.m_z << std::endl;
+		MyFile << "Scale: " << object->scale.m_x << " " << object->scale.m_y << " " << object->scale.m_z << std::endl;
 		MyFile << "Rotation: " << object->rot.m_x << " " << object->rot.m_y << " " << object->rot.m_z << std::endl;
 		MyFile << "Type: " << this->checkObjectType(object) << std::endl;
+
 	}
 
 	MyFile.close();
