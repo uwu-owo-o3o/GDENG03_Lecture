@@ -16,6 +16,7 @@ void AppWindow::onCreate()
 {
 	InputSystem::get()->addListener(this);
 	PhysicsSystem::initialize();
+	SceneHandler::initialize();
 
 	m_swap_chain = GraphicsEngine::get()->getRenderSystem()->createSwapChain();
 

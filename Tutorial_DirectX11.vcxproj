@@ -178,6 +178,7 @@
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="SceneCameraHandler.cpp" />
+    <ClCompile Include="SceneHandler.cpp" />
     <ClCompile Include="SceneSave.cpp" />
     <ClCompile Include="SwapChain.cpp" />
     <ClCompile Include="ToolBar.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="Prerequisites.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="SceneCameraHandler.h" />
+    <ClInclude Include="SceneHandler.h" />
     <ClInclude Include="SceneSave.h" />
     <ClInclude Include="ToolBar.h" />
     <ClInclude Include="UIImage.h" />

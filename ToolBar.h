@@ -14,5 +14,7 @@ class ToolBar : public UIScreen
 		void drawAboutButton();
 		void drawColorPickerButton();
 		void drawSpawnButton();
+		void drawSaveButton();
+		void drawLoadButton();
 };
 

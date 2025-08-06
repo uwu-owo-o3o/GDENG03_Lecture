@@ -1,6 +1,7 @@
 #include "ToolBar.h"
 #include "UIManager.h"
 #include "GameObjectManager.h"
+#include "SceneHandler.h"
 
 ToolBar::ToolBar(float width, float height)
 {
@@ -19,12 +20,14 @@ void ToolBar::draw()
 
 	ImGui::SetNextWindowSize(ImVec2(screenWidth, 50));
 	ImGui::SetNextWindowPos(ImVec2(0, 0));
-	ImGui::Begin("Tool Bar");;
+	ImGui::Begin("Tool Bar");
 
 	this->drawAboutButton();
 	this->drawColorPickerButton();
 	this->drawSpawnButton();
-	
+	this->drawSaveButton();
+	this->drawLoadButton();
+
 	ImGui::End();
 }
 
@@ -68,5 +71,23 @@ void ToolBar::drawSpawnButton()
 	ImGui::PushItemWidth(10);
 	if (ImGui::Button("Spawn Cubes")) {
 		GameObjectManager::Instance->spawnCubes();
+	}
+}
+
+void ToolBar::drawSaveButton()
+{
+	ImGui::SameLine();
+	ImGui::PushItemWidth(10);
+	if (ImGui::Button("Save Scene")) {
+		SceneHandler::Instance->sceneSaver->saveScene();
+	}
+}
+
+void ToolBar::drawLoadButton()
+{
+	ImGui::SameLine();
+	ImGui::PushItemWidth(10);
+	if (ImGui::Button("Load Scene")) {
+
 	}
 }

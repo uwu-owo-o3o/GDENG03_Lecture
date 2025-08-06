@@ -60,7 +60,7 @@ class AGameObject
 	protected:
 		constant cc;
 
-	protected:
+	public:
 		Vector3D pos;
 		Vector3D scale;
 		Vector3D rot;
