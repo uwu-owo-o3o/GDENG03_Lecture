@@ -13,7 +13,7 @@ SceneSave::~SceneSave()
 void SceneSave::saveScene()
 {
 	std::ofstream MyFile("saved_scene.level");
-		
+	
 	std::vector<AGameObject*> gameObjects = GameObjectManager::Instance->gameObjects;
 
 	for (AGameObject* object : gameObjects) {
@@ -37,6 +37,12 @@ int SceneSave::checkObjectType(AGameObject* gameObject)
 	else if (Plane* plane = dynamic_cast<Plane*>(gameObject)) {
 		type = 1;
 	}
+	/*else if (Plane* plane = dynamic_cast<Plane*>(gameObject)) {
+		type = 2;
+	}
+	else if (Plane* plane = dynamic_cast<Plane*>(gameObject)) {
+		type = 3;
+	}*/
 	return type;
 }
 

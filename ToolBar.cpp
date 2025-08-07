@@ -88,6 +88,6 @@ void ToolBar::drawLoadButton()
 	ImGui::SameLine();
 	ImGui::PushItemWidth(10);
 	if (ImGui::Button("Load Scene")) {
-
+		SceneHandler::Instance->sceneLoader->loadScene();
 	}
 }
