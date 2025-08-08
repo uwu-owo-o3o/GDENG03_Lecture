@@ -14,8 +14,8 @@ class PhysicsComponent : public AComponent
 		void perform(float deltaTime) override;
 
 		RigidBody* getRigidBody();
-
+		float getMass();
 	private:
-		float mass = 1000.0f; //in kilograms
+		float mass = 100.0f; //in kilograms
 		RigidBody* rigidBody;
 };

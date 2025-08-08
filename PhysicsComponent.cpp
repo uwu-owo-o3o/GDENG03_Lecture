@@ -6,7 +6,7 @@ PhysicsComponent::PhysicsComponent(std::string name, AGameObject* owner) : AComp
 {
     this->name = name;
     this->owner = owner;
-
+	this->type = ComponentType::Physics;
 	PhysicsSystem::Instance->registerComponent(this);
 	PhysicsCommon* physicsCommon = PhysicsSystem::Instance->getPhysicsCommon();
 	PhysicsWorld* physicsWorld = PhysicsSystem::Instance->getPhysicsWorld();
@@ -23,7 +23,7 @@ PhysicsComponent::PhysicsComponent(std::string name, AGameObject* owner) : AComp
 	}
 	
 	this->rigidBody = physicsWorld->createRigidBody(transform);
-	this->rigidBody->addCollider(boxShape, transform);
+	this->rigidBody->addCollider(boxShape, Transform::identity());
 	this->rigidBody->updateMassPropertiesFromColliders();
 	this->rigidBody->setMass(this->mass);
 	this->rigidBody->setType(BodyType::DYNAMIC);
@@ -53,3 +53,9 @@ RigidBody* PhysicsComponent::getRigidBody()
 {
     return this->rigidBody;
 }
+
+float PhysicsComponent::getMass()
+{
+	return this->mass;
+}
+

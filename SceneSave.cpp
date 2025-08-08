@@ -1,6 +1,7 @@
 #include "SceneSave.h"
 #include "Cube.h"
 #include "Plane.h"
+#include "iostream"
 
 SceneSave::SceneSave()
 {
@@ -22,11 +23,17 @@ void SceneSave::saveScene()
 		MyFile << "Scale: " << object->scale.m_x << " " << object->scale.m_y << " " << object->scale.m_z << std::endl;
 		MyFile << "Rotation: " << object->rot.m_x << " " << object->rot.m_y << " " << object->rot.m_z << std::endl;
 		MyFile << "Type: " << this->checkObjectType(object) << std::endl;
+		if (object->hasPhysics) {
+			MyFile << "hasPhysics: " << object->hasPhysics << std::endl;
+			MyFile << "bodyType: " << this->checkBodyType(this->getPhysicsComponent(object)->getRigidBody()->getType()) << std::endl;
+			MyFile << "mass: " << std::to_string(this->getPhysicsComponent(object)->getMass()) << std::endl;
+		}
 
 	}
 
 	MyFile.close();
 }
+
 
 int SceneSave::checkObjectType(AGameObject* gameObject)
 {
@@ -44,5 +51,28 @@ int SceneSave::checkObjectType(AGameObject* gameObject)
 		type = 3;
 	}
 	return type;
+}
+
+int SceneSave::checkBodyType(reactphysics3d::BodyType type)
+{
+	int bodyType = -1;
+	if (type == reactphysics3d::BodyType::DYNAMIC) {
+		bodyType = 1;
+	}
+	else if (type == reactphysics3d::BodyType::STATIC) {
+		bodyType = 2;
+	}
+	else if (type == reactphysics3d::BodyType::KINEMATIC) {
+		bodyType = 3;
+	}
+
+	return bodyType;
+}
+
+PhysicsComponent* SceneSave::getPhysicsComponent(AGameObject* gameObject)
+{
+	std::vector<AComponent*> components = gameObject->getComponentsOfType(ComponentType::Physics);
+	//std::cout << "components: " << components.size() << std::endl;
+	return  (PhysicsComponent*)components[0];
 }
 

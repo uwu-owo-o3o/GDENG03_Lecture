@@ -110,6 +110,7 @@ void AGameObject::setPhysicsMatrix(float matrix[16])
 void AGameObject::attachComponent(AComponent* component)
 {
 	this->componentList.push_back(component);
+	std::cout << "componentList size: " << componentList.size() << std::endl;
 }
 
 void AGameObject::detachComponent(AComponent* component)
@@ -163,11 +164,12 @@ AComponent* AGameObject::findComponentOfType(ComponentType type, std::string nam
 std::vector<AComponent*> AGameObject::getComponentsOfType(ComponentType type)
 {
 	std::vector<AComponent*> holder = std::vector<AComponent*>();
+	std::cout << "componentList size: " << componentList.size() << std::endl;
 	for (int i = 0; i < this->componentList.size(); i++) {
 		if (type == this->componentList[i]->getType()) {
 			holder.push_back(this->componentList[i]);
 		}
 	}
-
+	std::cout << "holder size: " << holder.size() << std::endl;
 	return holder;
 }
