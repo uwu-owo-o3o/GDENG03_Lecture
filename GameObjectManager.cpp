@@ -20,7 +20,7 @@ void GameObjectManager::initialize()
 
 void GameObjectManager::create()
 {
-	//Test case 1
+	//Test case 1 & 2
 	//Cube* cube1 = new Cube("Cube 1");
 	//cube1->setPosition(0.0, 0.9, 0.0);
 	//this->gameObjects.push_back(cube1);
@@ -38,6 +38,36 @@ void GameObjectManager::create()
 	//plane->setScale(2, 1, 2);
 	//this->gameObjects.push_back(plane);
 
+	//Test case 3 & 4
+	/*Cube* wall1 = new Cube("Wall 1");
+	wall1->setPosition(-4.73, 2.43, -0.01);
+	wall1->setScale(0.5, 5, 10);
+	this->gameObjects.push_back(wall1);
+
+	Cube* wall2 = new Cube("Wall 2");
+	wall2->setPosition(-0.04, 2.43, 4.74);
+	wall2->setScale(10, 5, 0.5);
+	this->gameObjects.push_back(wall2);
+
+	Cube* wall3 = new Cube("Wall 3");
+	wall3->setPosition(-0.04, 0.98, -4.75);
+	wall3->setScale(10, 2, 0.5);
+	this->gameObjects.push_back(wall3);
+
+	Cube* wall4 = new Cube("Wall 4");
+	wall4->setPosition(4.77, 0.98, -0.01);
+	wall4->setScale(0.5, 2, 10);
+	this->gameObjects.push_back(wall4);
+
+	Capsule* capsule = new Capsule("Capsule");
+	capsule->setPosition(0.23, 1.46, -0.25);
+	capsule->setScale(1, 1, 1);
+	this->gameObjects.push_back(capsule);
+
+	Plane* plane = new Plane("Plane 1");
+	plane->setPosition(0.0, 0, 0);
+	plane->setScale(4, 1, 4);
+	this->gameObjects.push_back(plane);*/
 
 
 }

@@ -37,12 +37,12 @@ int SceneSave::checkObjectType(AGameObject* gameObject)
 	else if (Plane* plane = dynamic_cast<Plane*>(gameObject)) {
 		type = 1;
 	}
-	/*else if (Plane* plane = dynamic_cast<Plane*>(gameObject)) {
+	else if (Sphere* sphere = dynamic_cast<Sphere*>(gameObject)) {
 		type = 2;
 	}
-	else if (Plane* plane = dynamic_cast<Plane*>(gameObject)) {
+	else if (Capsule* plane = dynamic_cast<Capsule*>(gameObject)) {
 		type = 3;
-	}*/
+	}
 	return type;
 }
 
