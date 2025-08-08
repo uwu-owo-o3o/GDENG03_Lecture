@@ -1,10 +1,20 @@
-Cube
-Position: -4.67328 0 12.66286
+Name: Cube 1
+Position: 0 0.9 0
 Scale: 1 1 1
 Rotation: 0 0 0
-0
-Plane
-Position: -4.42169 -2.25 12.16286
+Type: 0
+Name: Cube 2
+Position: -1.5 2 0
 Scale: 1 1 1
 Rotation: 0 0 0
-1
+Type: 0
+Name: Cube 3
+Position: -1.5 3 2
+Scale: 1 1 1
+Rotation: 0 0 0
+Type: 0
+Name: Plane 1
+Position: -1 0 0
+Scale: 2 1 2
+Rotation: 0 0 0
+Type: 1

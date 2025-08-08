@@ -20,27 +20,26 @@ void GameObjectManager::initialize()
 
 void GameObjectManager::create()
 {
-	//Cube* cube = new Cube("Cube 1");
+	//Test case 1
+	//Cube* cube1 = new Cube("Cube 1");
+	//cube1->setPosition(0.0, 0.9, 0.0);
+	//this->gameObjects.push_back(cube1);
+
 	//Cube* cube2 = new Cube("Cube 2");
-	Plane* plane = new Plane("Plane 1");
-
-	//PhysicsComponent* component = new PhysicsComponent("Physics Cube 1", cube);
-	//cube->attachComponent(component);
-
-	//PhysicsComponent* component2 = new PhysicsComponent("Physics Cube 2", cube2);
-	//cube2->attachComponent(component2);
-
-	PhysicsComponent* component1 = new PhysicsComponent("Physics Plane 1", plane);
-	component1->getRigidBody()->setType(BodyType::KINEMATIC);
-	plane->attachComponent(component1);
-	//this->gameObjects.push_back(cube);
+	//cube2->setPosition(-1.5, 2.0, 0.0);
 	//this->gameObjects.push_back(cube2);
-	this->gameObjects.push_back(plane);
 
-	//Sphere* sphere = new Sphere("Sphere 1");
-	//this->gameObjects.push_back(sphere);
-	Capsule* capsule = new Capsule("Sphere 1");
-	this->gameObjects.push_back(capsule);
+	//Cube* cube3 = new Cube("Cube 3");
+	//cube3->setPosition(-1.5, 3.0, 2.0);
+	//this->gameObjects.push_back(cube3);
+
+	//Plane* plane = new Plane("Plane 1");
+	//plane->setPosition(-1.0, 0, 0);
+	//plane->setScale(2, 1, 2);
+	//this->gameObjects.push_back(plane);
+
+
+
 }
 
 void GameObjectManager::update(float deltaTime, int width, int height)

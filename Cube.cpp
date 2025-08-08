@@ -14,16 +14,16 @@ void Cube::create()
 	vertex list[] =
 	{
 		//FRONT FACE
-		{Vector3D(-0.5f, -0.5f, -0.5f),	Vector3D(1, 0 , 0), Vector3D(0, 1 , 0)},
-		{Vector3D(-0.5f, 0.5f, -0.5f),	Vector3D(0, 1, 0),	 Vector3D(0, 1 , 0)},
-		{Vector3D(0.5f, 0.5f, -0.5f),	Vector3D(0, 0, 1),	 Vector3D(1, 0 , 0)},
-		{Vector3D(0.5f, -0.5f, -0.5f),	Vector3D(1, 0, 1),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, -0.5f, -0.5f),	Vector3D(1, 1 , 1), Vector3D(0, 1 , 0)},
+		{Vector3D(-0.5f, 0.5f, -0.5f),	Vector3D(1, 1, 1),	 Vector3D(0, 1 , 0)},
+		{Vector3D(0.5f, 0.5f, -0.5f),	Vector3D(1, 1, 1),	 Vector3D(1, 0 , 0)},
+		{Vector3D(0.5f, -0.5f, -0.5f),	Vector3D(1, 1, 1),	 Vector3D(0, 0 , 1)},
 
 		//BACK FACE
-		{Vector3D(0.5f, -0.5f, 0.5f),	Vector3D(1, 0, 0),	 Vector3D(0, 0 , 1)},
-		{Vector3D(0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 0),	 Vector3D(0, 0 , 1)},
-		{Vector3D(-0.5f, 0.5f, 0.5f),	Vector3D(0, 0, 1),	 Vector3D(0, 0 , 1)},
-		{Vector3D(-0.5f, -0.5f, 0.5f),	Vector3D(1, 0, 1),	 Vector3D(0, 0 , 1)},
+		{Vector3D(0.5f, -0.5f, 0.5f),	Vector3D(1, 1, 1),	 Vector3D(0, 0 , 1)},
+		{Vector3D(0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 1),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, 0.5f, 0.5f),	Vector3D(1, 1, 1),	 Vector3D(0, 0 , 1)},
+		{Vector3D(-0.5f, -0.5f, 0.5f),	Vector3D(1, 1, 1),	 Vector3D(0, 0 , 1)},
 	};
 
 	unsigned int index_list[] =
