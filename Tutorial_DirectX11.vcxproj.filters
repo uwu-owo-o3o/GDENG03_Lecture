@@ -97,6 +97,12 @@
     <Filter Include="GameEngine\GraphicsEngine\SceneHandling">
       <UniqueIdentifier>{168d021b-a96e-4d41-a991-d2e78e2dcc82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\RenderSystem\GameObject\Sphere">
+      <UniqueIdentifier>{0a11c4dd-417c-441e-804e-dfe97b24f181}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\RenderSystem\GameObject\Capsule">
+      <UniqueIdentifier>{9ccd4ac6-7267-4c97-9f47-5df515bb6bad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -216,6 +222,11 @@
     <ClCompile Include="LoadScene.cpp">
       <Filter>GameEngine\GraphicsEngine\SceneHandling</Filter>
     </ClCompile>
+    <ClCompile Include="SceneHandler.cpp" />
+    <ClCompile Include="Sphere.cpp">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="Capsule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h">
@@ -359,6 +370,11 @@
     <ClInclude Include="LoadScene.h">
       <Filter>GameEngine\GraphicsEngine\SceneHandling</Filter>
     </ClInclude>
+    <ClInclude Include="SceneHandler.h" />
+    <ClInclude Include="Sphere.h">
+      <Filter>GameEngine\GraphicsEngine\RenderSystem\GameObject\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="Capsule.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="VertexShader.hlsl">

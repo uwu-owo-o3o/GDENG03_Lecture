@@ -1,6 +1,8 @@
 #pragma once
 #include "Cube.h"
 #include "Plane.h"
+#include "Sphere.h"
+#include "Capsule.h"
 #include "vector"
 
 class GameObjectManager

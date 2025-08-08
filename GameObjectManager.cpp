@@ -36,6 +36,11 @@ void GameObjectManager::create()
 	//this->gameObjects.push_back(cube);
 	//this->gameObjects.push_back(cube2);
 	this->gameObjects.push_back(plane);
+
+	//Sphere* sphere = new Sphere("Sphere 1");
+	//this->gameObjects.push_back(sphere);
+	Capsule* capsule = new Capsule("Sphere 1");
+	this->gameObjects.push_back(capsule);
 }
 
 void GameObjectManager::update(float deltaTime, int width, int height)
