@@ -60,9 +60,9 @@ Vector3D AGameObject::getLocalRot()
 
 float* AGameObject::getPhysicsLocalMatrix()
 {
-	Matrix4x4 scale_m;
-	scale_m.setIdentity();
-	scale_m.setScale(Vector3D(1, 1, 1));
+	//Matrix4x4 scale_m;
+	//scale_m.setIdentity();
+	//scale_m.setScale(this->scale);
 
 	Matrix4x4 rot_mx;
 	rot_mx.setIdentity();
@@ -83,14 +83,13 @@ float* AGameObject::getPhysicsLocalMatrix()
 	translation_m.setIdentity();
 	translation_m.setTranslation(this->pos);
 
-	Matrix4x4 transform_m = scale_m * rotation_m * translation_m;
+	Matrix4x4 transform_m = rotation_m * translation_m;
 
 	return transform_m.getMatrix();
 }
 
 void AGameObject::setPhysicsMatrix(float matrix[16])
 {    
-	
 	float tempMatrix[4][4];
 	for (int row = 0; row < 4; ++row)
 		for (int col = 0; col < 4; ++col)
@@ -100,9 +99,10 @@ void AGameObject::setPhysicsMatrix(float matrix[16])
 	physicsTransform.setMatrix(tempMatrix);
 
 	Matrix4x4 scale_m;
+	scale_m.setIdentity();
 	scale_m.setScale(this->scale);
 
-	this->physicsMatrix = physicsTransform;
+	this->physicsMatrix = scale_m * physicsTransform;
 
 	this->hasPhysics = true;
 }
@@ -164,12 +164,12 @@ AComponent* AGameObject::findComponentOfType(ComponentType type, std::string nam
 std::vector<AComponent*> AGameObject::getComponentsOfType(ComponentType type)
 {
 	std::vector<AComponent*> holder = std::vector<AComponent*>();
-	std::cout << "componentList size: " << componentList.size() << std::endl;
+	//std::cout << "componentList size: " << componentList.size() << std::endl;
 	for (int i = 0; i < this->componentList.size(); i++) {
 		if (type == this->componentList[i]->getType()) {
 			holder.push_back(this->componentList[i]);
 		}
 	}
-	std::cout << "holder size: " << holder.size() << std::endl;
+	//std::cout << "holder size: " << holder.size() << std::endl;
 	return holder;
 }

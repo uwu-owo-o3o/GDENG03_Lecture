@@ -87,10 +87,13 @@ std::vector<PhysicsComponent*> PhysicsSystem::getAllComponents()
 void PhysicsSystem::updateAllComponents()
 {
 	if (EngineTime::getDeltaTime() <= 0.0f) return;
-	this->physicsWorld->update(EngineTime::getDeltaTime());
-	for (PhysicsComponent* component : this->componentList) {
-		component->perform(EngineTime::getDeltaTime());
+	if (scenePlayed) {
+		this->physicsWorld->update(EngineTime::getDeltaTime());
+		for (PhysicsComponent* component : this->componentList) {
+			component->perform(EngineTime::getDeltaTime());
+		}
 	}
+	
 	
 }
 

@@ -33,4 +33,6 @@ class PhysicsSystem
 		PhysicsCommon* physicsCommon;
 		PhysicsWorld* physicsWorld;
 
+	public:
+		bool scenePlayed = false;
 };

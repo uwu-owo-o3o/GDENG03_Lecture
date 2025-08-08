@@ -7,6 +7,7 @@ class Cube : public AGameObject
 {
 	public:
 		Cube(std::string name);
+		Cube(std::string name, Vector3D color);
 		~Cube();
 
 	public:

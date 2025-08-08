@@ -1,6 +1,7 @@
 #include "ToolBar.h"
 #include "UIManager.h"
 #include "GameObjectManager.h"
+#include "PhysicsSystem.h"
 #include "SceneHandler.h"
 
 ToolBar::ToolBar(float width, float height)
@@ -27,6 +28,7 @@ void ToolBar::draw()
 	this->drawSpawnButton();
 	this->drawSaveButton();
 	this->drawLoadButton();
+	this->drawPlayButton();
 
 	ImGui::End();
 }
@@ -89,5 +91,14 @@ void ToolBar::drawLoadButton()
 	ImGui::PushItemWidth(10);
 	if (ImGui::Button("Load Scene")) {
 		SceneHandler::Instance->sceneLoader->loadScene();
+	}
+}
+
+void ToolBar::drawPlayButton()
+{
+	ImGui::SameLine();
+	ImGui::PushItemWidth(10);
+	if (ImGui::Button("Play")) {
+		PhysicsSystem::Instance->scenePlayed = true;
 	}
 }
