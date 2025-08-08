@@ -73,6 +73,17 @@ void LoadScene::createPrimitive(int type, std::string name, Vector3D position, V
             GameObjectManager::Instance->gameObjects.push_back(plane);
             break;
         }
+        case 3: {
+            Capsule* capsule = new Capsule(name);
+            capsule->pos = position;
+            capsule->scale = scale;
+            capsule->rot = rotation;
+            /*std::cout << "plane pos: " << plane->pos.m_x << " " << plane->pos.m_y << " " << plane->pos.m_z << std::endl;
+            std::cout << "plane scale: " << plane->scale.m_x << " " << plane->scale.m_y << " " << plane->scale.m_z << std::endl;
+            std::cout << "plane rot: " << plane->rot.m_x << " " << plane->rot.m_y << " " << plane->rot.m_z << std::endl;*/
+            GameObjectManager::Instance->gameObjects.push_back(capsule);
+            break;
+        }
          
     }
 }
